@@ -50,4 +50,8 @@
 #else:
 #    print("LOS NUMERO SON INGUALES")
 
-    
+
+num = 4
+
+for i in range(11):
+    print(num * i)
