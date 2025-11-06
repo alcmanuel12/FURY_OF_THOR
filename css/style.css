@@ -2,7 +2,6 @@
   font-family: 'BoldPixels';
   src: url('../fonts/BoldPixels.ttf') format('truetype'),
        url('../fonts/BoldPixels.otf') format('opentype');
-  
 }
 
 
@@ -26,14 +25,15 @@ body, html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  overflow: hidden;
 }
+
 
 .logo-container {
   position: relative;
-  width: 90vw;
-  max-width: 800px;
-  margin: 0 auto 25px;
+  width: 80vw;
+  max-width: 700px;
+  margin: 0 auto 30px;
 
   background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png');
   background-repeat: no-repeat;
@@ -44,28 +44,27 @@ body, html {
   justify-content: center;
   align-items: center;
 
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 2.2 / 1;
   overflow: hidden;
 }
 
-
 .title-text {
   position: absolute;
-  top: 40%;   
-  left: 50%;  
+  top: 40%;    
+  left: 50%;
   transform: translate(-50%, -50%);
-  
+  width: 90%;
+  text-align: center;
+
   font-family: 'BoldPixels', sans-serif;
   color: #ffcc66;
   text-transform: uppercase;
-  text-align: center;
   line-height: 0.85;
   margin: 0;
-  width: 80%;
-  letter-spacing: 0.1em;
 
   
-  font-size: calc(1rem + 4vw);
+  font-size: clamp(1.6rem, 7.5vw, 5rem);
+  letter-spacing: 0.05em;
 
   text-shadow:
     2px 2px #3b2000,
@@ -75,98 +74,93 @@ body, html {
 }
 
 
-@media (max-width: 480px) {
+.play-btn {
+  background-color: transparent;
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: clamp(70px, 15vw, 120px);
+  height: clamp(70px, 15vw, 120px);
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 8vh;
+  transition: transform 0.2s ease;
+}
+
+.play-btn:hover {
+  
+  transform: scale(1.1);
+}
+
+
+.mute-btn, .settings-btn {
+  position: absolute;
+  top: 2vh;
+  width: clamp(50px, 10vw, 100px);
+  height: clamp(50px, 10vw, 100px);
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.mute-btn {
+   background-color: transparent;
+  left: 3vw;
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156867/aset_mute_vcjgt3.png');
+}
+
+.settings-btn {
+   background-color: transparent;
+  right: 3vw;
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
+}
+
+
+@media (max-width: 1100px) and (min-width: 700px) {
   .logo-container {
-    width: 95vw;
-    aspect-ratio: 2.2 / 1;
+    width: 75vw;
   }
 
   .title-text {
-    font-size: calc(0.8rem + 6vw);
-    width: 90%;
+    font-size: clamp(1.8rem, 6vw, 4rem);
+    letter-spacing: 0.04em;
     line-height: 0.9;
   }
 }
 
 
-@media (min-width: 1024px) {
-  .title-text {
-    font-size: calc(1rem + 2vw);
-  }
-}
-
-
-
-.btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.btn:hover {
-  transform: scale(1.1);
-}
-
-.play-btn {
-  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 120px;
-  height: 120px;
-  position: absolute;
-  bottom: 60px;
-}
-
-.mute-btn, .settings-btn {
-  position: absolute;
-  top: 20px;
-  width: 100px;
-  height: 100px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.mute-btn {
-  left: 20px;
-  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156867/aset_mute_vcjgt3.png');
-}
-
-.settings-btn {
-  right: 20px;
-  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
-}
-
-
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .logo-container {
-    width: 90%;
-    max-width: 500px;
+    width: 90vw;
+    aspect-ratio: 2.3 / 1;
   }
 
   .title-text {
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(1.2rem, 8vw, 3.2rem);
+    letter-spacing: 0.03em;
   }
 
   .play-btn {
-    width: 90px;
-    height: 90px;
-    bottom: 40px;
+    width: 80px;
+    height: 80px;
+    bottom: 6vh;
   }
 
   .mute-btn, .settings-btn {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
 }
 
-@media (max-width: 480px) {
-  .title-text {
-    font-size: clamp(2.2rem, 6vw, 3rem);
+
+@media (min-width: 1400px) {
+  .logo-container {
+    max-width: 800px;
   }
 
-  .play-btn {
-    width: 70px;
-    height: 70px;
+  .title-text {
+    font-size: clamp(2rem, 5vw, 5.5rem);
   }
 }
