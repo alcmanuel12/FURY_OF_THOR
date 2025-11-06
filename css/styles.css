@@ -1,0 +1,103 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    }
+
+.start {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    }
+
+.selectPlayers {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    }
+
+/**INICIO DE CSS DE TABLA*/
+
+.add-character-board {
+    width: 350px;
+    background: #2d2d2d;
+    border: 10px solid #93522d;
+    border-radius: 12px;
+    box-shadow: 0 2px #7b4626;
+    font-family: 'Press Start 2P', monospace;
+    margin: 40px auto;
+    position: relative;
+    }
+
+.board-header {
+    background: #b37138;
+    color: #ffe6b3;
+    padding: 10px;
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 1px;
+    border-bottom: 4px solid #93522d;
+    }
+
+.board-content {
+    padding: 26px 16px 20px 16px;
+    }
+
+.input-wrapper {
+    background: #222;
+    border: 2px solid #444;
+    border-radius: 7px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    position: relative;
+    }
+
+.input-wrapper input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    padding-left: 10px;
+    flex: 1;
+    }
+
+.input-wrapper .icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    }
+
+.buttons-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    }
+
+.action-btn {
+    width: 48px;
+    height: 48px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    }
+/* Ejemplo: incorpora imágenes PNG de cada botón */
+.action-btn.cross {
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png') no-repeat center center/contain;
+    }
+.action-btn.plus {
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/mas_thh33r.png') no-repeat center center/contain;
+    }
+.action-btn.check {
+    background: url('boton_https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/Okay_x51t8w.png') no-repeat center center/contain;
+    }
+
+/**INICIO DE CSS DE TABLA*/
