@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fury of Thor - Inicio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="home">
+
 
   <div class="top-buttons">
     <button class="btn-icon" id="btn-volume" title="Volumen"></button>
@@ -20,20 +21,9 @@
       <h1 class="game-title">FURY OF THOR</h1>
     </div>
 
-
-    <button class="btn-play" onclick="window.location.href='add_players.html'"></button>
+    <button class="btn-play" id="playBtn" title="Empezar"></button>
   </div>
 
- 
-  <script>
-
-    document.getElementById("btn-volume").addEventListener("click", () => {
-      alert("Control de volumen próximamente ⚡");
-    });
-
-    document.getElementById("btn-help").addEventListener("click", () => {
-      alert("Ayuda: ¡Prepárate para la furia de Thor!");
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
