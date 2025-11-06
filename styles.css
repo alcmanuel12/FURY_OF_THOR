@@ -1,0 +1,110 @@
+@font-face {
+  font-family: 'BoldPixels';
+  src: url('assets/fonts/BoldPixels.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+
+body.home {
+  background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg");
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+.title-box {
+  background: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png") no-repeat center/contain;
+  width: 820px;
+  height: 310px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.game-title {
+  font-family: 'BoldPixels', sans-serif;
+  font-size: 2.5rem;
+  color: #f2e6d0;
+  letter-spacing: 1px;
+  text-shadow:
+    0 2px 0 #5b2e00,        
+    0 0 6px #caa85d,
+    0 0 12px #a6752b;
+  text-align: center;
+  margin: 0;
+}
+
+
+
+.btn-play {
+  background: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png") no-repeat center/contain;
+  width: 90px;
+  height: 90px;
+  border: none;
+  position: absolute;
+  bottom: 50px;          
+  cursor: pointer;
+}
+
+.btn-play:hover {
+  transform: scale(1.1);
+}
+
+
+#btn-volume {
+  position: absolute;
+  top: 25px;
+  left: 35px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: url("assets/icon_volume.png") no-repeat center/contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#btn-help {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: url("assets/icon_help.png") no-repeat center/contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#btn-volume:hover,
+#btn-help:hover {
+  transform: scale(1.1);
+}
+
+
+#btn-volume {
+  background-image: url("assests/Mute\ \(1\).png");
+}
+
+#btn-help {
+  background-image: url("assests/Ajustes.png");
+}
