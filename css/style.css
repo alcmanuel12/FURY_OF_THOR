@@ -31,10 +31,10 @@ body, html {
 
 .logo-container {
   position: relative;
-  width: 90vw;          
-  max-width: 800px;     
-  margin: 0 auto 25px;  
-  
+  width: 90vw;
+  max-width: 800px;
+  margin: 0 auto 25px;
+
   background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -44,38 +44,59 @@ body, html {
   justify-content: center;
   align-items: center;
 
-  
   aspect-ratio: 2 / 1;
-
-  position: relative;
+  overflow: hidden;
 }
+
 
 .title-text {
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 40%;   
+  left: 50%;  
   transform: translate(-50%, -50%);
   
   font-family: 'BoldPixels', sans-serif;
-  font-size: clamp(2rem, 6vw, 5rem);
   color: #ffcc66;
   text-transform: uppercase;
   text-align: center;
-  letter-spacing: 4px;
-  line-height: 0.8;
+  line-height: 0.85;
   margin: 0;
-  width: 100%;
+  width: 80%;
+  letter-spacing: 0.1em;
+
+  
+  font-size: calc(1rem + 4vw);
 
   text-shadow:
+    2px 2px #3b2000,
     3px 3px #3b2000,
-    4px 4px #3b2000,
     -1px -1px #3b2000,
-    1px -1px #3b2000,
-    -1px 1px #3b2000;
+    1px -1px #3b2000;
 }
 
 
-/* ---------- BOTONES ---------- */
+@media (max-width: 480px) {
+  .logo-container {
+    width: 95vw;
+    aspect-ratio: 2.2 / 1;
+  }
+
+  .title-text {
+    font-size: calc(0.8rem + 6vw);
+    width: 90%;
+    line-height: 0.9;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .title-text {
+    font-size: calc(1rem + 2vw);
+  }
+}
+
+
+
 .btn {
   background: none;
   border: none;
@@ -116,7 +137,7 @@ body, html {
   background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
 }
 
-/* ---------- RESPONSIVE ---------- */
+
 @media (max-width: 768px) {
   .logo-container {
     width: 90%;
