@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'BoldPixels';
+  src: url('assets/fonts/BoldPixels.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'BoldPixels', sans-serif;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg') center/cover no-repeat;
+}
+
+
+.top-buttons {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  z-index: 10;
+}
+
+.btn-icon {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#btn-volume {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156867/aset_mute_vcjgt3.png');
+}
+
+#btn-help {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
+}
+
+.btn-icon:hover {
+  transform: scale(1.1);
+}
+
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+
+.title-box {
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png') no-repeat center/contain;
+  width: 85%;
+  max-width: 700px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+  animation: fadeInDown 1s ease forwards;
+}
+
+.game-title {
+  font-size: 3rem;
+  color: #f2e6d0;
+  text-shadow:
+    0 2px 0 #5b2e00,
+    0 0 6px #caa85d,
+    0 0 12px #a6752b;
+  margin: 0;
+  padding: 0;
+}
+
+
+.btn-play {
+  width: 90px;
+  height: 90px;
+  border: none;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png') no-repeat center/contain;
+  cursor: pointer;
+  margin-top: 270px;
+  transition: transform 0.3s ease;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+.btn-play:hover {
+  transform: scale(1.1);
+}
+
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .title-box {
+    height: 120px;
+    margin-bottom: 50px;
+  }
+  .game-title {
+    font-size: 1.5rem;
+  }
+  .btn-play {
+    width: 70px;
+    height: 70px;
+  }
+}
