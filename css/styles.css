@@ -120,17 +120,35 @@ html, body {
 
 .back-button {
     position: fixed;
-    top: 90vh;
-    left: 45vw;
+    top: 89vh;
+    left: 55vw;
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
     display: block;
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
     background-color: transparent;
     background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.game-start-button {
+    position: fixed;
+    top: 89vh;
+    left: 40vw;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/Okay_x51t8w.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -145,6 +163,14 @@ html, body {
         -webkit-text-stroke: 4.25px #381C0E;
         word-spacing: -25px;
 
+    }
+    
+    .back-button {
+        top: 88vh;
+    }
+
+    .game-start-button {
+        top: 88vh;
     }
 }
 
@@ -172,6 +198,20 @@ html, body {
         height: 100px;
     }
 
+    .back-button {
+        left: 54vw;
+        top: 89vh;
+        width: 72px;
+        height: 72px;
+    }
+
+    .game-start-button {
+        left: 36vw;
+        top: 89vh;
+        width: 72px;
+        height: 72px;
+    }
+
     .mute-button {
         top: 15px;
         left: 15px;
@@ -186,13 +226,35 @@ html, body {
         line-height: 5.5vh;
     }
 
+    .back-button {
+        left: 54vw;
+        top: 88vh;
+    }
 
+    .game-start-button {
+        left: 36vw;
+        top: 88vh;
+    }
 }
 
 @media (max-width: 625px) {
     .game-title {
         -webkit-text-stroke: 3.5px #381C0E;
         line-height: 5vh;
+    }
+
+    .back-button {
+        left: 54vw;
+        top: 83vh;
+        width: 68px;
+        height: 68px;
+    }
+
+    .game-start-button {
+        left: 36vw;
+        top: 83vh;
+        width: 68px;
+        height: 68px;
     }
 }
 
@@ -211,6 +273,20 @@ html, body {
         width: 50px;
         height: 50px;
     }
+
+    .back-button {
+        left: 54vw;
+        top: 80vh;
+        width: 64px;
+        height: 64px;
+    }
+
+    .game-start-button {
+        left: 36vw;
+        top: 80vh;
+        width: 64px;
+        height: 64px;
+    }
     
 }
 
@@ -223,6 +299,17 @@ html, body {
         line-height: 4.5vh;
     }
 
+    .back-button {
+        left: 56vw;
+        width: 60px;
+        height: 60px;
+    }
+
+    .game-start-button {
+        left: 34vw;
+        width: 60px;
+        height: 60px;
+    }
 }
 
 @media (max-width: 450px) {
@@ -239,6 +326,18 @@ html, body {
     .play-button {
         width: 80px;
         height: 80px;
+    }
+
+    .back-button {
+        left: 58vw;
+        width: 58px;
+        height: 58px;
+    }
+
+    .game-start-button {
+        left: 32vw;
+        width: 58px;
+        height: 58px;
     }
 }
 
@@ -257,6 +356,18 @@ html, body {
         width: 80px;
         height: 80px;
     }
+
+    .back-button {
+        left: 60vw;
+        width: 56px;
+        height: 56px;
+    }
+
+    .game-start-button {
+        left: 30vw;
+        width: 56px;
+        height: 56px;
+    }
 }
 
 @media (max-width: 375px) {
@@ -271,6 +382,18 @@ html, body {
         -webkit-text-stroke: 2.5px #381C0E;
 
     }
+
+    .back-button {
+        left: 62vw;
+        width: 54px;
+        height: 54px;
+    }
+
+    .game-start-button {
+        left: 28vw;
+        width: 54px;
+        height: 54px;
+    }
 }
 
 @media (max-width: 325px) {
@@ -282,7 +405,18 @@ html, body {
         line-height: 3.5vh;
         font-size: clamp(3rem, 4vw, 5rem);
         -webkit-text-stroke: 2.5px #381C0E;
+    }
 
+    .back-button {
+        left: 64vw;
+        width: 50px;
+        height: 50px;
+    }
+
+    .game-start-button {
+        left: 26vw;
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -294,6 +428,18 @@ html, body {
     .game-title {
         line-height: 3.5vh;
         font-size: clamp(3rem, 4vw, 5rem);
+    }
+
+    .back-button {
+        left: 64vw;
+        width: 50px;
+        height: 50px;
+    }
+
+    .game-start-button {
+        left: 24vw;
+        width: 50px;
+        height: 50px;
     }
 }
 
