@@ -18,7 +18,7 @@ body {
 
 
 body.home {
-  background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg");
+  background-image: url("assests/desktop-background-start.jpg");
 }
 
 
@@ -32,7 +32,7 @@ body.home {
 
 
 .title-box {
-  background: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png") no-repeat center/contain;
+  background: url("assests/tablero.png") no-repeat center/contain;
   width: 820px;
   height: 310px;
   display: flex;
@@ -57,7 +57,7 @@ body.home {
 
 
 .btn-play {
-  background: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png") no-repeat center/contain;
+  background: url("assests/Play.png") no-repeat center/contain;
   width: 90px;
   height: 90px;
   border: none;
