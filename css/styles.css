@@ -8,10 +8,16 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: #000000;
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     overflow: hidden;
 }
 
 @media (max-width: 768px) {
-    /* Mobile styles */
+    html, body {
+        background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/mobile-background-start-cropped_oumb7m.jpg');
+    }
 }
 
