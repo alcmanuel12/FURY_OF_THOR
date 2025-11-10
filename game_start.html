@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fury of Thor - Campfire Scene</title>
+  <title>Fury of Thor - Campfire Scene (Animated)</title>
 
   <style>
     * {
@@ -16,16 +16,24 @@
       height: 100vh;
       width: 100%;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156869/forest_bg_valhalla_pxart.png') no-repeat center/cover;
       position: relative;
       font-family: 'Press Start 2P', cursive;
       color: white;
+      background-color: black;
     }
 
-    /* --- BOTONES SUPERIORES --- */
+
+    video#bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+
     .top-buttons {
       position: absolute;
       top: 15px;
@@ -49,7 +57,7 @@
     }
 
     #btn-exit {
-      background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156868/btn_exit_pxart.png');
+      background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
     }
 
     #btn-settings {
@@ -60,80 +68,95 @@
       transform: scale(1.1);
     }
 
-    /* --- RUNAS EN CÍRCULO --- */
+
+    .thor {
+      position: absolute;
+      bottom: 8%;
+      left: 42%;
+      transform: translateX(-50%);
+      width: 250px; 
+      height: 30%;
+      background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/thor-relaxed_tyazkp.png') no-repeat center/contain;
+      z-index: 5;
+    }
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+.speech {
+  position: absolute;
+  left: 39%;  
+  bottom: 47%;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 10px 14px;
+  z-index: 6;
+  image-rendering: pixelated;
+
+
+  box-shadow:
+    0 0 0 2px #000,
+    4px 0 0 0 #000,
+    -4px 0 0 0 #000,
+    0 4px 0 0 #000,
+    0 -4px 0 0 #000,
+    4px 4px 0 0 #000,
+    -4px 4px 0 0 #000,
+    4px -4px 0 0 #000,
+    -4px -4px 0 0 #000,
+    6px 2px 0 0 #000,
+    -6px 2px 0 0 #000,
+    6px -2px 0 0 #000,
+    -6px -2px 0 0 #000;
+}
+
+
+.speech::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 8px;
+  width: 4px;
+  height: 4px;
+  background: #000;
+  box-shadow:
+    4px 0 #000,
+    8px 0 #000,
+    0 -4px #fff,
+    4px -4px #fff,
+    8px -4px #fff;
+}
+
+
+
+
     .rune {
       position: absolute;
-      width: 60px;
-      height: 60px;
+      width: 65px;
+      height: 65px;
       background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156870/rune_pxart.png') no-repeat center/contain;
       filter: drop-shadow(0 0 10px #ffb347);
       opacity: 0.9;
       animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(5deg); }
-    }
-
-    /* --- FUEGO ANIMADO --- */
-    .campfire {
-      position: absolute;
-      bottom: 15%;
-      width: 200px;
-      height: 200px;
-      background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156872/fire_pxart.gif') no-repeat center/contain;
-      z-index: 3;
-    }
-
-    /* --- LUZ DEL FUEGO --- */
-    .glow {
-      position: absolute;
-      bottom: 15%;
-      width: 260px;
-      height: 260px;
-      background: radial-gradient(circle, rgba(255,180,80,0.5) 0%, rgba(255,140,0,0) 70%);
-      filter: blur(30px);
-      animation: pulse 2s ease-in-out infinite;
       z-index: 2;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.8; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.1); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(6deg); }
     }
 
-    /* --- PERSONAJES Y ESCENA --- */
-    .scene {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156867/camp_vikings_pxart.png') no-repeat center/contain;
-      background-size: cover;
-      z-index: 1;
-    }
 
-    /* --- GLOBO DE DIÁLOGO --- */
-    .speech {
-      position: absolute;
-      left: 22%;
-      bottom: 38%;
-      background: white;
-      color: black;
-      font-size: 10px;
-      padding: 6px 10px;
-      border-radius: 4px;
-      font-family: monospace;
-      transform: scale(1.2);
-    }
-
-    /* --- BOTÓN CENTRAL --- */
     .btn-power {
       position: absolute;
-      bottom: 10%;
+      bottom: 1%;
       left: 50%;
       transform: translateX(-50%);
-      background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156868/btn_power_pxart.png') no-repeat center/contain;
+      background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png') no-repeat center/contain;
       width: 90px;
       height: 90px;
       border: none;
@@ -149,22 +172,26 @@
 </head>
 
 <body>
-  <!-- Botones arriba -->
+
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="https://res.cloudinary.com/djuisin8z/video/upload/v1762430559/desktop-background-ingame-video-muted_gg5eyg.mp4" type="video/mp4" />
+  </video>
+
+
   <div class="top-buttons">
     <button id="btn-exit" class="btn-icon"></button>
     <button id="btn-settings" class="btn-icon"></button>
   </div>
 
-  <!-- Escena principal -->
-  <div class="scene">
-    <div class="speech">Are you ready for Valhalla?</div>
+
+  <div class="thor"></div>
+
+
+  <div class="speech">
+    Are you<br>ready for<br>Valhalla?
   </div>
 
-  <!-- Efectos del fuego -->
-  <div class="glow"></div>
-  <div class="campfire"></div>
 
-  <!-- Runas flotantes en círculo -->
   <div class="rune" style="top:12%; left:47%; animation-delay:0s;"></div>
   <div class="rune" style="top:22%; left:60%; animation-delay:0.3s;"></div>
   <div class="rune" style="top:40%; left:70%; animation-delay:0.6s;"></div>
@@ -174,12 +201,12 @@
   <div class="rune" style="top:40%; left:24%; animation-delay:1.8s;"></div>
   <div class="rune" style="top:22%; left:33%; animation-delay:2.1s;"></div>
 
-  <!-- Botón central de poder -->
-  <button class="btn-power" onclick="startBattle()"></button>
+
+  <button class="btn-power" onclick="goNext()"></button>
 
   <script>
-    function startBattle() {
-      window.location.href = "page4.html"; // redirige a la siguiente página del juego
+    function goNext() {
+      window.location.href = "page4.html";
     }
   </script>
 </body>
