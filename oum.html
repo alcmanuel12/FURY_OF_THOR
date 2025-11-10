@@ -6,35 +6,26 @@
   <title>Fury of Thor</title>
   <link rel="stylesheet" href="oum.css" />
 </head>
-
 <body>
-
-  <!-- 🎥 VIDEO DE FONDO (MP4, nunca se pausa) -->
   <video id="bg-video" autoplay muted loop playsinline preload="auto">
     <source src="https://res.cloudinary.com/djuisin8z/video/upload/v1762430559/desktop-background-ingame-video-muted_gg5eyg.mp4" type="video/mp4" />
   </video>
 
-  <!-- ========== ESCENA 1: GAME START ========== -->
   <section id="scene-start" class="scene active">
-
     <div class="top-buttons">
       <button id="btn-exit" class="btn-icon" title="Salir"></button>
       <button id="btn-settings" class="btn-icon" title="Ajustes"></button>
     </div>
-
     <div class="thor"></div>
     <div class="speech">Are you<br>ready for<br>Valhalla?</div>
-
     <button class="btn-power" id="goAddPlayers"></button>
   </section>
 
-  <!-- ========== ESCENA 2: ADD PLAYERS ========== -->
   <section id="scene-add" class="scene">
     <div class="top-buttons">
       <button class="btn-icon" id="btn-exit2" title="Salir"></button>
       <button class="btn-icon" id="btn-settings2" title="Ajustes"></button>
     </div>
-
     <div class="container">
       <div class="add-board">
         <div class="board-header">ADD YOUR VIKINGS</div>
@@ -49,10 +40,8 @@
           </div>
         </div>
       </div>
-
       <div class="vikings-list" id="vikingsList"></div>
     </div>
-
     <div class="bottom-buttons">
       <button class="btn-check" id="btn-confirm" title="Confirmar"></button>
       <button class="btn-home" id="btn-home" title="Inicio"></button>
