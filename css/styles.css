@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'BoldPixels';
+    src: url('../assets/fonts/BoldPixels.otf') format('opentype'),
+         url('../assets/fonts/BoldPixels.ttf') format('truetype');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -24,10 +30,64 @@ html, body {
     padding-top: 15vh;
 }
 
+.board-container {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
 .wooden-board {
-    max-width: 35%;
-    height: auto;
-    object-fit: contain;
+    position: relative;
+    width: 80vw;
+    max-width: 700px;
+    margin: 0 auto 30px;
+
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    aspect-ratio: 2.2 / 1;
+    overflow: hidden;
+}
+
+.game-title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'BoldPixels', sans-serif;
+    font-size: clamp(6rem, 12vw, 5rem);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(ellipse at center, #F3BC55 0%, #E09637 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 4.5px #381C0E;
+    white-space: normal;
+    width: 75%;
+    line-height: 6vh;
+    word-spacing: -25px;
+}
+
+@media (max-width: 850px) {
+    .wooden-board {
+        width: 90vw;
+    }
+
+    .game-title {
+        -webkit-text-stroke: 4.25px #381C0E;
+        word-spacing: -25px;
+
+    }
 }
 
 @media (max-width: 768px) {
@@ -38,9 +98,118 @@ html, body {
     .screen {
         padding-top: 10vh;
     }
-    
+
     .wooden-board {
-        max-width: 80%;
+        width: 90vw;
+    }
+
+    .game-title {
+        font-size: clamp(4rem, 12vw, 5rem);
+        -webkit-text-stroke: 4px #381C0E;
+        line-height: 6vh;
+        word-spacing: -15px;
     }
 }
+
+@media (max-width: 700px) {
+    .game-title {
+        line-height: 5.5vh;
+    }
+
+
+}
+
+@media (max-width: 625px) {
+    .game-title {
+        -webkit-text-stroke: 3.5px #381C0E;
+        line-height: 5vh;
+    }
+
+}
+
+@media (max-width: 550px) {
+    .wooden-board {
+        width: 95vw;
+    }
+    .game-title {
+        -webkit-text-stroke: 3px #381C0E;
+        line-height: 4.5vh;
+    }
+}
+
+@media (max-width: 500px) {
+    .wooden-board {
+        width: 100vw;
+    }
+
+    .game-title {
+        line-height: 4.5vh;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .wooden-board {
+        width: 100vw;
+    }
+
+    .game-title {
+        line-height: 4vh;
+        font-size: clamp(3.75rem, 12vw, 5rem);
+        word-spacing: -20px;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .wooden-board {
+        width: 100vw;
+    }
+
+    .game-title {
+        line-height: 4vh;
+        font-size: clamp(3.5rem, 4vw, 5rem);
+        word-spacing: -20px;
+    }
+
+}
+
+@media (max-width: 375px) {
+    .wooden-board {
+        width: 110vw;
+    }
+
+    .game-title {
+        line-height: 4vh;
+        font-size: clamp(3.25rem, 4vw, 5rem);
+        word-spacing: -10px;
+        -webkit-text-stroke: 2.5px #381C0E;
+
+    }
+}
+
+@media (max-width: 325px) {
+    .wooden-board {
+        width: 110vw;
+    }
+
+    .game-title {
+        line-height: 3.5vh;
+        font-size: clamp(3rem, 4vw, 5rem);
+        -webkit-text-stroke: 2.5px #381C0E;
+
+    }
+}
+
+@media (max-width: 300px) {
+    .wooden-board {
+        width: 120vw;
+    }
+
+    .game-title {
+        line-height: 3.5vh;
+        font-size: clamp(3rem, 4vw, 5rem);
+    }
+}
+
 
