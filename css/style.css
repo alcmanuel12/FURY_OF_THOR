@@ -75,7 +75,6 @@ body, html {
 }
 
 
-/* ---------- BOTONES ---------- */
 .btn {
   background: none;
   border: none;
@@ -116,7 +115,6 @@ body, html {
   background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
 }
 
-/* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
   .logo-container {
     width: 90%;
