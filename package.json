@@ -1,0 +1,25 @@
+{
+  "name": "fury-of-thor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alcmanuel12/fury-of-thor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alcmanuel12/fury-of-thor/issues"
+  },
+  "homepage": "https://github.com/alcmanuel12/fury-of-thor#readme",
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
