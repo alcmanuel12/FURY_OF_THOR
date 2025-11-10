@@ -1,0 +1,161 @@
+@font-face {
+  font-family: 'BoldPixels';
+  src: url('../fonts/BoldPixels.ttf') format('truetype'),
+       url('../fonts/BoldPixels.otf') format('opentype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  font-family: 'BoldPixels', sans-serif;
+  color: white;
+  background-color: black;
+}
+
+video#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* --- Top Buttons --- */
+.top-buttons {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  z-index: 10;
+}
+
+.btn-icon {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#btn-exit {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
+}
+
+#btn-settings {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
+}
+
+.btn-icon:hover {
+  transform: scale(1.1);
+}
+
+/* --- Thor --- */
+.thor {
+  position: absolute;
+  bottom: 8%;
+  left: 42%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 30%;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/thor-relaxed_tyazkp.png') no-repeat center/contain;
+  z-index: 5;
+}
+
+/* --- Speech Box --- */
+.speech {
+  position: absolute;
+  left: 39%;
+  bottom: 47%;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'BoldPixels', sans-serif;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 10px 14px;
+  z-index: 6;
+  image-rendering: pixelated;
+
+  box-shadow:
+    0 0 0 2px #000,
+    4px 0 0 0 #000,
+    -4px 0 0 0 #000,
+    0 4px 0 0 #000,
+    0 -4px 0 0 #000,
+    4px 4px 0 0 #000,
+    -4px 4px 0 0 #000,
+    4px -4px 0 0 #000,
+    -4px -4px 0 0 #000,
+    6px 2px 0 0 #000,
+    -6px 2px 0 0 #000,
+    6px -2px 0 0 #000,
+    -6px -2px 0 0 #000;
+}
+
+.speech::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 8px;
+  width: 4px;
+  height: 4px;
+  background: #000;
+  box-shadow:
+    4px 0 #000,
+    8px 0 #000,
+    0 -4px #fff,
+    4px -4px #fff,
+    8px -4px #fff;
+}
+
+/* --- Floating Runes --- */
+.rune {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156870/rune_pxart.png') no-repeat center/contain;
+  filter: drop-shadow(0 0 10px #ffb347);
+  opacity: 0.9;
+  animation: float 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(6deg); }
+}
+
+/* --- Power Button --- */
+.btn-power {
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png') no-repeat center/contain;
+  width: 90px;
+  height: 90px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 5;
+}
+
+.btn-power:hover {
+  transform: translateX(-50%) scale(1.15);
+}

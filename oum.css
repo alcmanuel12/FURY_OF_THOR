@@ -1,0 +1,369 @@
+/* ================================
+   FUENTE PRINCIPAL
+================================ */
+@font-face {
+  font-family: 'BoldPixels';
+  src: url('../fonts/BoldPixels.ttf') format('truetype'),
+       url('../fonts/BoldPixels.otf') format('opentype');
+}
+
+/* ================================
+   RESETEO Y BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  font-family: 'BoldPixels', sans-serif;
+  color: white;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg') center/cover no-repeat;
+}
+
+/* ================================
+   ESCENAS / TRANSICIONES
+================================ */
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
+}
+
+.scene.hidden {
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+}
+
+/* ================================
+   VIDEO DE FONDO (GAME START)
+================================ */
+video#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* ================================
+   BOTONES SUPERIORES
+================================ */
+.top-buttons {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  z-index: 10;
+}
+
+.btn-icon {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#btn-exit,
+#btn-exit2 {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
+}
+
+#btn-settings,
+#btn-settings2 {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
+}
+
+.btn-icon:hover {
+  transform: scale(1.1);
+}
+
+/* ================================
+   THOR Y DIÁLOGO
+================================ */
+.thor {
+  position: absolute;
+  bottom: 8%;
+  left: 42%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 30%;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/thor-relaxed_tyazkp.png') no-repeat center/contain;
+  z-index: 5;
+}
+
+.speech {
+  position: absolute;
+  left: 39%;
+  bottom: 47%;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'BoldPixels', sans-serif;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 10px 14px;
+  z-index: 6;
+  image-rendering: pixelated;
+  box-shadow:
+    0 0 0 2px #000,
+    4px 0 0 0 #000,
+    -4px 0 0 0 #000,
+    0 4px 0 0 #000,
+    0 -4px 0 0 #000,
+    4px 4px 0 0 #000,
+    -4px 4px 0 0 #000,
+    4px -4px 0 0 #000,
+    -4px -4px 0 0 #000,
+    6px 2px 0 0 #000,
+    -6px 2px 0 0 #000,
+    6px -2px 0 0 #000,
+    -6px -2px 0 0 #000;
+}
+
+.speech::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 8px;
+  width: 4px;
+  height: 4px;
+  background: #000;
+  box-shadow:
+    4px 0 #000,
+    8px 0 #000,
+    0 -4px #fff,
+    4px -4px #fff,
+    8px -4px #fff;
+}
+
+/* ================================
+   RUNAS FLOTANTES
+================================ */
+.rune {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156870/rune_pxart.png') no-repeat center/contain;
+  filter: drop-shadow(0 0 10px #ffb347);
+  opacity: 0.9;
+  animation: float 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(6deg); }
+}
+
+/* ================================
+   BOTÓN POWER (START)
+================================ */
+.btn-power {
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png') no-repeat center/contain;
+  width: 90px;
+  height: 90px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 5;
+}
+
+.btn-power:hover {
+  transform: translateX(-50%) scale(1.15);
+}
+
+/* ================================
+   ESCENA ADD PLAYERS
+================================ */
+.scene#scene-add body,
+#scene-add {
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg') center/cover no-repeat;
+  color: #f2e6d0;
+}
+
+/* CONTENEDOR GENERAL */
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* TABLERO DE JUGADORES */
+.add-board {
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') center/cover no-repeat;
+  width: 350px;
+  padding: 70px;
+  border-radius: 0px;
+  box-shadow: 0 4px transparent;
+}
+
+.board-header {
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762416014/teminalSuperior_osdhny.png') center/contain no-repeat;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  color: #ffe6b3;
+  letter-spacing: 1px;
+}
+
+.board-body {
+  margin-top: 20px;
+}
+
+/* INPUT DE NOMBRE */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #222;
+  border: 2px solid #444;
+  border-radius: 6px;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.input-wrapper input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  flex: 1;
+  outline: none;
+  font-size: 14px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+}
+
+/* BOTONES AGREGAR / ELIMINAR */
+.buttons-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.action-btn {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.cross {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156684/asset_eliminar_lzygb1.png');
+}
+
+.plus {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/mas_thh33r.png');
+}
+
+/* LISTA DE VIKINGOS */
+.vikings-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 50%;
+  gap: 20px;
+}
+
+.viking-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.viking-item img {
+  width: 32px;
+  height: 32px;
+}
+
+/* BOTONES INFERIORES */
+.bottom-buttons {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.btn-check,
+.btn-home {
+  width: 70px;
+  height: 70px;
+  border: none;
+  background: transparent center/contain no-repeat;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-check {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/Okay_x51t8w.png');
+}
+
+.btn-home {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png');
+}
+
+.btn-check:hover,
+.btn-home:hover {
+  transform: scale(1.1);
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .vikings-list {
+    width: 90%;
+  }
+}
