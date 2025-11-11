@@ -114,8 +114,25 @@ function renderList() {
   });
 }
 
+// "Ingame" screen HTML elements
+
+const ingameScreen = document.getElementById('ingame-screen');
+const ingameHomeButton = document.getElementById('ingame-home-button');
+
 if (gameStartButton) {
   gameStartButton.addEventListener('click', () => {
-    alert('Vikingos listos para el sacrificio 😈');
+    if (playerSelectionScreen && ingameScreen) {
+      playerSelectionScreen.style.display = 'none';
+      ingameScreen.style.display = 'flex';
+    }
+  });
+}
+
+if (ingameHomeButton) {
+  ingameHomeButton.addEventListener('click', () => {
+    if (homeScreen && ingameScreen) {
+      ingameScreen.style.display = 'none';
+      homeScreen.style.display = 'flex';
+    }
   });
 }
