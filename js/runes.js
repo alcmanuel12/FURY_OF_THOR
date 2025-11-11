@@ -17,7 +17,7 @@ export const runes = [
 ]
 
 export const brokenRunes = [
-    { id: 1, url: "-" },
+    { id: 1, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728520/D_spkbzd.png" },
     { id: 2, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728526/Runa_Pez_pde9ip.png" },
     { id: 3, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728519/B_-_M_1_waurld.png" },
     { id: 4, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728522/N_runa_k50zub.png" },
