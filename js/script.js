@@ -48,9 +48,26 @@ if (addBtn && input) {
     });
 }
 
-if (removeBtn) {
+if (removeBtn && input) {
     removeBtn.addEventListener('click', () => {
-        vikings.pop();
+        const name = input.value.trim();
+        
+        if (name !== '') {
+            // Find the index using case-insensitive comparison
+            const index = vikings.findIndex(v => v.toLowerCase() === name.toLowerCase());
+            if (index !== -1) {
+                // Remove the specific name from the list
+                vikings.splice(index, 1);
+            } else {
+                // If name doesn't match, remove the last item
+                vikings.pop();
+            }
+        } else {
+            // If input is empty, remove the last item
+            vikings.pop();
+        }
+        
+        input.value = '';
         renderList();
     });
 }
