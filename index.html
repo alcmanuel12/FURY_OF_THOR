@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fury of Thor</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="module" src="js/script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fury of Thor</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="module" src="js/script.js" defer></script>
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/fury-of-thor-logo_bvj0vs.png" />
 </head>
+
 <body>
-    <button class="mute-button mute-icon" id="mute-button"></button>
-    <div id="home-screen" class="screen">
-        <div class="board-container">
-          <div class="wooden-board">
-            <h1 class="game-title">FURY OF<br>THOR</h1>
+  <button class="mute-button mute-icon" id="mute-button"></button>
+  <div id="home-screen" class="screen">
+    <div class="board-container">
+      <div class="wooden-board">
+        <h1 class="game-title">FURY OF<br />THOR</h1>
+      </div>
+    </div>
+    <button class="play-button" id="play-button"></button>
+  </div>
+  <div id="player-selection-screen" class="screen" style="display: none">
+    <div class="container">
+      <div class="add-board">
+        <div class="board-header">ADD YOUR VIKINGS</div>
+        <div class="board-body">
+          <div class="input-wrapper">
+            <input type="text" id="vikingName" placeholder="Name your viking" />
+            <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1762164198/aset_casco_zt4kke.png"
+              alt="Icono Viking" class="icon" />
+          </div>
+          <div class="buttons-row">
+            <button class="action-btn cross" id="btn-remove" title="Eliminar último"></button>
+            <button class="action-btn plus" id="btn-add" title="Agregar"></button>
           </div>
         </div>
-        <button class="play-button" id="play-button"></button>
+      </div>
+      <div class="vikings-list" id="vikingsList"></div>
     </div>
-    <div id="player-selection-screen" class="screen" style="display: none;">
-        <div class="container">
-            <div class="add-board">
-                <div class="board-header">ADD YOUR VIKINGS</div>
-                <div class="board-body">
-                    <div class="input-wrapper">
-                        <input type="text" id="vikingName" placeholder="Name your viking">
-                        <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1762164198/aset_casco_zt4kke.png" alt="Icono Viking" class="icon">
-                    </div>
-                    <div class="buttons-row">
-                        <button class="action-btn cross" id="btn-remove" title="Eliminar último"></button>
-                        <button class="action-btn plus" id="btn-add" title="Agregar"></button>
-                    </div>
-                </div>
-            </div>
-            <div class="vikings-list" id="vikingsList"></div>
-        </div>
-        <button class="back-button" id="back-button"></button>
-        <button class="game-start-button" id="game-start-button"></button>
-    </div>
-    <div id="ingame-screen" class="screen" style="display: none;">
-        <button class="back-button" id="ingame-home-button"></button>
-    </div>
+    <button class="back-button" id="back-button"></button>
+    <button class="game-start-button" id="game-start-button"></button>
+  </div>
+  <div id="ingame-screen" class="screen" style="display: none">
+    <button class="back-button" id="ingame-home-button"></button>
+  </div>
 </body>
+
 </html>
