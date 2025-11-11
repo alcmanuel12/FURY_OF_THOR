@@ -1,103 +1,962 @@
-html, body {
+@font-face {
+    font-family: 'BoldPixels';
+    src: url('../assets/fonts/BoldPixels.otf') format('opentype'),
+         url('../assets/fonts/BoldPixels.ttf') format('truetype');
+}
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
     height: 100%;
-    }
-
-.start {
+    background-color: #000000;
     background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    }
+    overflow: hidden;
+}
 
-.selectPlayers {
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg');
-    background-size: cover;
+.mute-button {
+    position: fixed;
+    top: 3vh;
+    left: 2vw;
+    border: none;
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
-    }
+    z-index: 1000;
+}
 
-/**INICIO DE CSS DE TABLA*/
+.mute-button.mute-icon {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
+}
 
-.add-character-board {
-    width: 350px;
-    background: #2d2d2d;
-    border: 10px solid #93522d;
-    border-radius: 12px;
-    box-shadow: 0 2px #7b4626;
-    font-family: 'Press Start 2P', monospace;
-    margin: 40px auto;
+.mute-button.sound-icon {
+    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762808735/mute-icon_txyjso.png');
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 15vh;
+}
+
+.board-container {
     position: relative;
-    }
+    display: inline-block;
+    width: fit-content;
+}
 
-.board-header {
-    background: #b37138;
-    color: #ffe6b3;
-    padding: 10px;
+.wooden-board {
+    position: relative;
+    width: 80vw;
+    max-width: 700px;
+    margin: 0 auto 30px;
+
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    aspect-ratio: 2.2 / 1;
+    overflow: hidden;
+}
+
+.game-title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'BoldPixels', sans-serif;
+    font-size: clamp(6rem, 12vw, 5rem);
+    font-weight: bold;
+    text-transform: uppercase;
     text-align: center;
-    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(ellipse at center, #F3BC55 0%, #E09637 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 4.5px #381C0E;
+    white-space: normal;
+    width: 75%;
+    line-height: 6vh;
+    word-spacing: -25px;
+}
+
+.play-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.back-button {
+    position: fixed;
+    top: 89vh;
+    left: 55vw;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.game-start-button {
+    position: fixed;
+    top: 89vh;
+    left: 40vw;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/Okay_x51t8w.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#player-selection-screen {
+    padding-top: 0;
+    justify-content: flex-start;
+    position: relative;
+}
+
+#player-selection-screen .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding: 80px 40px 120px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#player-selection-screen .add-board {
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') center/contain no-repeat;
+    background-size: 100% 100%;
+    width: 50vh;
+    height: 36vh;
+    padding: 70px;
+    border-radius: 0px;
+    box-shadow: 0 4px transparent;
+    box-sizing: border-box;
+}
+
+#player-selection-screen .board-header {
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762416014/teminalSuperior_osdhny.png') center/contain no-repeat;
+    text-align: center;
+    font-size: 24px;
+    padding: 20px;
+    color: #ffe6b3;
     letter-spacing: 1px;
-    border-bottom: 4px solid #93522d;
-    }
+    font-family: 'BoldPixels', sans-serif;
+}
 
-.board-content {
-    padding: 26px 16px 20px 16px;
-    }
+#player-selection-screen .board-body {
+    margin-top: 20px;
+}
 
-.input-wrapper {
-    background: #222;
-    border: 2px solid #444;
-    border-radius: 7px;
-    height: 40px;
+#player-selection-screen .input-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 24px;
-    position: relative;
-    }
+    background: #222;
+    border: 2px solid #444;
+    border-radius: 6px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
 
-.input-wrapper input {
+#player-selection-screen .input-wrapper input {
     background: transparent;
     border: none;
     color: #fff;
-    font-size: 18px;
-    outline: none;
-    padding-left: 10px;
     flex: 1;
-    }
+    outline: none;
+    font-size: 20px;
+    font-family: 'BoldPixels', sans-serif;
+}
 
-.input-wrapper .icon {
-    width: 32px;
-    height: 32px;
-    margin-right: 8px;
-    }
+#player-selection-screen .input-wrapper input::placeholder {
+    color: #888;
+}
 
-.buttons-row {
+#player-selection-screen .icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+}
+
+#player-selection-screen .buttons-row {
     display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    }
+    justify-content: space-around;
+    margin-top: 10px;
+}
 
-.action-btn {
-    width: 48px;
-    height: 48px;
+#player-selection-screen .action-btn {
+    width: 60px;
+    height: 60px;
     border: none;
-    background: transparent;
+    background-color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#player-selection-screen .action-btn:hover {
+    transform: scale(1.1);
+}
+
+#player-selection-screen .cross {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156684/asset_eliminar_lzygb1.png');
+}
+
+#player-selection-screen .plus {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/mas_thh33r.png');
+}
+
+#player-selection-screen .vikings-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    gap: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+#player-selection-screen .viking-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 36px;
+    font-family: 'BoldPixels', sans-serif;
+    color: #f2e6d0;
+}
+
+#player-selection-screen .viking-item img {
+    width: 45px;
+    height: 45px;
+}
+
+#ingame-screen .ingame-background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#ingame-screen .ingame-background-video-desktop {
+    display: block;
+}
+
+#ingame-screen .ingame-background-video-mobile {
+    display: none;
+}
+
+#ingame-screen .thor-character {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762901731/thor-background-relaxed_csuq0f.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 5;
+    pointer-events: none;
+    transition: background-image 0.5s ease;
+}
+
+#ingame-screen .thor-character.thor-character-mad {
+    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902368/thor-background-shouting_quv4zf.png');
+}
+
+#ingame-screen .back-button {
+    top: 3vh;
+    left: 92vw;
+    position: fixed;
+    z-index: 10;
+}
+
+#ingame-screen .sacrifice-action-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 75px;
+    border: none;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 10;
+}
+
+#ingame-screen .sacrifice-action-btn:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+@media (max-width: 1050px) {
+    #ingame-screen .back-button {
+        left: 91vw;
     }
-/* Ejemplo: incorpora imágenes PNG de cada botón */
-.action-btn.cross {
-    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png') no-repeat center center/contain;
+}
+
+@media (max-width: 900px) {
+    #ingame-screen .back-button {
+        left: 90vw;
     }
-.action-btn.plus {
-    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/mas_thh33r.png') no-repeat center center/contain;
-    }
-.action-btn.check {
-    background: url('boton_https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/Okay_x51t8w.png') no-repeat center center/contain;
+}
+
+@media (max-width: 850px) {
+    .wooden-board {
+        width: 90vw;
     }
 
-/**INICIO DE CSS DE TABLA*/
+    .game-title {
+        -webkit-text-stroke: 4.25px #381C0E;
+        word-spacing: -25px;
+
+    }
+    
+    .back-button {
+        top: 88vh;
+    }
+
+    .game-start-button {
+        top: 88vh;
+    }
+
+    #player-selection-screen .add-board {
+        height: 34vh;
+    }
+
+    #player-selection-screen .container {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+        padding: 80px 20px 120px;
+        margin-top: 40px;
+    }
+
+    #player-selection-screen .vikings-list {
+        margin-top: 40px;
+        width: 90%;
+    }
+
+    #player-selection-screen .add-board {
+        width: 45vh;
+        padding: 50px 40px;
+    }
+
+    #player-selection-screen .input-wrapper input {
+        font-size: 20px;
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 24px;
+    }
+
+    #player-selection-screen .viking-item {
+        gap: 10px;
+        font-size: 34px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 42px;
+        height: 42px;
+    }
+
+    #player-selection-screen .action-btn {
+        width: 58px;
+        height: 58px;
+    }
+
+    #ingame-screen .back-button {
+        left: 88vw;
+    }
+
+    #ingame-screen .sacrifice-action-btn {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+@media (max-width: 768px) {
+    html, body {
+        background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/mobile-background-start-cropped_oumb7m.jpg');
+    }
+    
+    .screen {
+        padding-top: 10vh;
+    }
+
+    #ingame-screen .ingame-background-video-desktop {
+        display: none;
+    }
+
+    #ingame-screen .ingame-background-video-mobile {
+        display: block;
+    }
+
+    #ingame-screen .thor-character {
+        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902144/thor-mobile-background-relaxed_b3zn3o.png');
+    }
+
+    #ingame-screen .thor-character.thor-character-mad {
+        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png');
+    }
+
+    .wooden-board {
+        width: 90vw;
+    }
+
+    .game-title {
+        font-size: clamp(4rem, 12vw, 5rem);
+        -webkit-text-stroke: 4px #381C0E;
+        line-height: 6vh;
+        word-spacing: -15px;
+    }
+    .play-button {
+        width: 100px;
+        height: 100px;
+    }
+
+    .back-button {
+        left: 54vw;
+        top: 89vh;
+        width: 72px;
+        height: 72px;
+    }
+
+    .game-start-button {
+        left: 36vw;
+        top: 89vh;
+        width: 72px;
+        height: 72px;
+    }
+
+    .mute-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    #player-selection-screen .input-wrapper input {
+        font-size: 19px;
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 22px;
+    }
+
+    #player-selection-screen .viking-item {
+        font-size: 32px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 40px;
+        height: 40px;
+    }
+    #player-selection-screen .action-btn {
+        width: 56px;
+        height: 56px;
+    }
+
+    #ingame-screen .back-button {
+        left: 88vw;
+        width: 60px;
+        height: 60px;
+    }
+
+    #ingame-screen .sacrifice-action-btn {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 700px) {
+    .game-title {
+        line-height: 5.5vh;
+    }
+
+    .back-button {
+        left: 54vw;
+        top: 88vh;
+    }
+
+    .game-start-button {
+        left: 36vw;
+        top: 88vh;
+    }
+
+    #player-selection-screen .add-board {
+        height: 32vh;
+    }
+
+    #player-selection-screen .container {
+        margin-top: 20px;
+    }
+
+    #player-selection-screen .vikings-list {
+        margin-top: 20px;
+
+    }
+
+    #player-selection-screen .input-wrapper input {
+        font-size: 18px;
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 20px;
+    }
+
+    #player-selection-screen .viking-item {
+        font-size: 30px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 38px;
+        height: 38px;
+    }
+
+    #player-selection-screen .action-btn {
+        width: 54px;
+        height: 54px;
+    }
+
+    #ingame-screen .back-button {
+        left: 87vw;
+    }
+
+    #ingame-screen .sacrifice-action-btn {
+        width: 68px;
+        height: 68px;
+    }
+}
+
+@media (max-width: 625px) {
+    .game-title {
+        -webkit-text-stroke: 3.5px #381C0E;
+        line-height: 5vh;
+    }
+
+    .back-button {
+        left: 54vw;
+        width: 68px;
+        height: 68px;
+    }
+
+    .game-start-button {
+        left: 36vw;
+        width: 68px;
+        height: 68px;
+    }
+
+    #player-selection-screen .input-wrapper input {
+        font-size: 18px;
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 20px;
+    }
+
+    #player-selection-screen .viking-item {
+        font-size: 30px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 38px;
+        height: 38px;
+    }
+    #player-selection-screen .action-btn {
+        width: 52px;
+        height: 52px;
+    }
+
+    #ingame-screen .back-button {
+        left: 86vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .wooden-board {
+        width: 95vw;
+    }
+    .game-title {
+        -webkit-text-stroke: 3px #381C0E;
+        line-height: 4.5vh;
+    }
+
+    .mute-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .back-button {
+        left: 54vw;
+        width: 64px;
+        height: 64px;
+    }
+
+    .game-start-button {
+        left: 36vw;
+        width: 64px;
+        height: 64px;
+    }
+
+    #player-selection-screen .add-board {
+        width: 40vh;
+        padding: 50px 40px;
+    }
+
+    #player-selection-screen .input-wrapper input {
+        font-size: 16px;
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 18px;
+    }
+
+    #player-selection-screen .viking-item {
+        font-size: 28px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 35px;
+        height: 35px;
+    }
+
+    #player-selection-screen .action-btn {
+        width: 50px;
+        height: 50px;
+    } 
+
+    #ingame-screen .back-button {
+        left: 86vw;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 500px) {
+    .wooden-board {
+        width: 100vw;
+    }
+
+    .game-title {
+        line-height: 4.5vh;
+    }
+
+    .back-button {
+        left: 56vw;
+        width: 60px;
+        height: 60px;
+    }
+
+    .game-start-button {
+        left: 34vw;
+        width: 60px;
+        height: 60px;
+    }
+
+    #player-selection-screen .viking-item {
+        font-size: 26px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 32px;
+        height: 32px;
+    }
+
+    #player-selection-screen .action-btn {
+        width: 48px;
+        height: 48px;
+    } 
+    
+}
+
+@media (max-width: 450px) {
+    .wooden-board {
+        width: 100vw;
+    }
+
+    .game-title {
+        line-height: 4vh;
+        font-size: clamp(3.75rem, 12vw, 5rem);
+        word-spacing: -20px;
+    }
+
+    .play-button {
+        width: 80px;
+        height: 80px;
+    }
+
+    .back-button {
+        left: 58vw;
+        width: 58px;
+        height: 58px;
+    }
+
+    .game-start-button {
+        left: 32vw;
+        width: 58px;
+        height: 58px;
+    }
+
+
+    #player-selection-screen .viking-item {
+        font-size: 22px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 32px;
+        height: 32px;
+    }
+
+    #player-selection-screen .action-btn {
+        width: 46px;
+        height: 46px;
+    } 
+
+    #ingame-screen .back-button {
+        left: 85vw;
+    }
+}
+
+@media (max-width: 400px) {
+    .wooden-board {
+        width: 100vw;
+    }
+
+    .game-title {
+        line-height: 4vh;
+        font-size: clamp(3.5rem, 4vw, 5rem);
+        word-spacing: -20px;
+    }
+    
+    .play-button {
+        width: 80px;
+        height: 80px;
+    }
+
+    .back-button {
+        left: 60vw;
+        width: 56px;
+        height: 56px;
+    }
+
+    .game-start-button {
+        left: 30vw;
+        width: 56px;
+        height: 56px;
+    }
+
+    #player-selection-screen .add-board {
+        width: 38vh;
+    }
+
+    #player-selection-screen .viking-item {
+        font-size: 20px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 30px;
+        height: 30px;
+    }
+
+    #ingame-screen .back-button {
+        left: 84vw;
+    }
+}
+
+@media (max-width: 375px) {
+    .wooden-board {
+        width: 110vw;
+    }
+
+    .game-title {
+        line-height: 4vh;
+        font-size: clamp(3.25rem, 4vw, 5rem);
+        word-spacing: -10px;
+        -webkit-text-stroke: 2.5px #381C0E;
+
+    }
+
+    .back-button {
+        left: 62vw;
+        width: 54px;
+        height: 54px;
+    }
+
+    .game-start-button {
+        left: 28vw;
+        width: 54px;
+        height: 54px;
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 16px;
+    }
+
+    #player-selection-screen .add-board {
+        width: 36vh;
+    }
+
+    #player-selection-screen .viking-item {
+        font-size: 18px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 26px;
+        height: 26px;
+        gap: 0px;
+    }
+
+    #ingame-screen .back-button {
+        left: 83vw;
+    }
+}
+
+@media (max-width: 325px) {
+    .wooden-board {
+        width: 110vw;
+    }
+
+    .game-title {
+        line-height: 3.5vh;
+        font-size: clamp(3rem, 4vw, 5rem);
+        -webkit-text-stroke: 2.5px #381C0E;
+    }
+
+    .back-button {
+        left: 64vw;
+        width: 50px;
+        height: 50px;
+    }
+
+    .game-start-button {
+        left: 26vw;
+        width: 50px;
+        height: 50px;
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 14px;
+    }
+
+    #player-selection-screen .add-board {
+        width: 34vh;
+    }
+
+    #player-selection-screen .viking-item {
+        font-size: 18px;
+        gap: 3px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 26px;
+        height: 26px;
+    }
+
+    #ingame-screen .back-button {
+        left: 82vw;
+    }
+}
+
+@media (max-width: 300px) {
+    .wooden-board {
+        width: 120vw;
+    }
+
+    .game-title {
+        line-height: 3.5vh;
+        font-size: clamp(3rem, 4vw, 5rem);
+    }
+
+    .back-button {
+        left: 64vw;
+        width: 50px;
+        height: 50px;
+    }
+
+    .game-start-button {
+        left: 24vw;
+        width: 50px;
+        height: 50px;
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 14px;
+    }
+
+    #player-selection-screen .add-board {
+        width: 32vh;
+    }
+
+    #player-selection-screen .viking-item {
+        font-size: 18px;
+        gap: 1px;
+    }
+    
+    #player-selection-screen .viking-item img {
+        width: 26px;
+        height: 26px;
+    }
+
+    #ingame-screen .back-button {
+        left: 81vw;
+    }
+}
+
+
+

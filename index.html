@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fury of Thor</title>
-  <link rel="stylesheet" href="css/style.css?v=1.1" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="module" src="js/script.js" defer></script>
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/fury-of-thor-logo_bvj0vs.png" />
 </head>
+
 <body>
-  <section id="home" class="screen">
-    
-    <button class="btn mute-btn" aria-label="Mute"></button>
-    <button class="btn settings-btn" aria-label="Settings"></button>
-
-    
-    <div class="logo-container">
-      <h1 class="title-text">FURY OF<br>THOR</h1>
+  <button class="mute-button mute-icon" id="mute-button"></button>
+  <div id="home-screen" class="screen">
+    <div class="board-container">
+      <div class="wooden-board">
+        <h1 class="game-title">FURY OF<br />THOR</h1>
+      </div>
     </div>
-
-    
-    <button id="playBtn" class="btn play-btn" aria-label="Play"></button>
-  </section>
-
-  
-  </script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <div class="start" id="div1">
-
-        <button id="playBtn">▶️ Play</button>
-
-    </div>
-    <div class="selectPlayers" id="div2">
-        <div class="add-character-board">
-            <div class="board-header">ADD YOUR VIKING</div>
-            <div class="board-content">
-                <div class="input-wrapper">
-                <input type="text" placeholder="Name your viking">
-                <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1762164198/aset_casco_zt4kke.png" alt="Icono Viking" class="icon">
-                </div>
-                <div class="buttons-row">
-                <button class="action-btn cross"></button>
-                <button class="action-btn plus"></button>
-                <button class="action-btn check"></button>
-                </div>
-            </div>
+    <button class="play-button" id="play-button"></button>
+  </div>
+  <div id="player-selection-screen" class="screen" style="display: none">
+    <div class="container">
+      <div class="add-board">
+        <div class="board-header">ADD YOUR VIKINGS</div>
+        <div class="board-body">
+          <div class="input-wrapper">
+            <input type="text" id="vikingName" placeholder="Name your viking" />
+            <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1762164198/aset_casco_zt4kke.png"
+              alt="Icono Viking" class="icon" />
+          </div>
+          <div class="buttons-row">
+            <button class="action-btn cross" id="btn-remove" title="Eliminar último"></button>
+            <button class="action-btn plus" id="btn-add" title="Agregar"></button>
+          </div>
         </div>
+      </div>
+      <div class="vikings-list" id="vikingsList"></div>
     </div>
-
-<script src="js/script.js"></script>
+    <button class="back-button" id="back-button"></button>
+    <button class="game-start-button" id="game-start-button"></button>
+  </div>
+  <div id="ingame-screen" class="screen" style="display: none">
+    <video id="ingame-background-video" class="ingame-background-video ingame-background-video-desktop" autoplay loop muted playsinline>
+      <source src="https://res.cloudinary.com/diycpogap/video/upload/background-ingame-video_jha53m.mp4" type="video/mp4">
+    </video>
+    <video id="ingame-background-video-mobile" class="ingame-background-video ingame-background-video-mobile" autoplay loop muted playsinline>
+      <source src="https://res.cloudinary.com/diycpogap/video/upload/mobile-background-ingame-video_aa7uxu.mp4" type="video/mp4">
+    </video>
+    <div class="thor-character" id="thor-character"></div>
+    <button class="back-button" id="ingame-home-button"></button>
+    <button class="sacrifice-action-btn" id="sacrifice-action"></button>
+  </div>
 </body>
+
 </html>
