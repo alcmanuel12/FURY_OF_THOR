@@ -1,143 +1,171 @@
 @font-face {
   font-family: 'BoldPixels';
-  src: url('assets/fonts/BoldPixels.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  src: url('../fonts/BoldPixels.ttf') format('truetype'),
+       url('../fonts/BoldPixels.otf') format('opentype');
+  
 }
 
 
-body {
+body, html {
   margin: 0;
   padding: 0;
-  color: #fff;
-  height: 100vh;
-  overflow: hidden;
-  font-family: 'BoldPixels', sans-serif;
-  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg') center/cover no-repeat;
-}
-
-
-.top-buttons {
-  position: relative;
-  top: 15px;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 25px;
-  z-index: 10;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
 }
 
-.btn-icon {
-  width: 50px;
-  height: 50px;
-  border: none;
-  background: none;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-#btn-volume {
-  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156867/aset_mute_vcjgt3.png');
-}
-
-#btn-help {
-  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
-  padding-left: 140px;
-}
-
-.btn-icon:hover {
-  transform: scale(1.1);
-}
-
-
-.container {
+.screen {
+  position: relative;
+  width: 100%;
   height: 100vh;
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/mobile-background-start-cropped_oumb7m.jpg');
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  
+}
+
+.logo-container {
   position: relative;
-}
+  width: 90vw;
+  max-width: 800px;
+  margin: 0 auto 25px;
 
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 
-.title-box {
-  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png') no-repeat center/contain;
-  width: 85%;
-  max-width: 700px;
-  height: 300px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 80px;
-  animation: fadeInDown 1s ease forwards;
-  padding-bottom: 55px;
+  align-items: center;
+
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
 }
 
-.game-title {
-  font-size: 3rem;
-  color: #f2e6d0;
-  text-shadow:
-    0 2px 0 #5b2e00,
-    0 0 6px #caa85d,
-    0 0 12px #a6752b;
+
+.title-text {
+  position: absolute;
+  top: 40%;   
+  left: 50%;  
+  transform: translate(-50%, -50%);
+  
+  font-family: 'BoldPixels', sans-serif;
+  color: #ffcc66;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 0.85;
   margin: 0;
-  padding: 0;
+  width: 80%;
+  letter-spacing: 0.1em;
 
+  
+  font-size: calc(1rem + 4vw);
+
+  text-shadow:
+    2px 2px #3b2000,
+    3px 3px #3b2000,
+    -1px -1px #3b2000,
+    1px -1px #3b2000;
 }
 
 
-.btn-play {
-  width: 90px;
-  height: 90px;
+@media (max-width: 480px) {
+  .logo-container {
+    width: 95vw;
+    aspect-ratio: 2.2 / 1;
+  }
+
+  .title-text {
+    font-size: calc(0.8rem + 6vw);
+    width: 90%;
+    line-height: 0.9;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .title-text {
+    font-size: calc(1rem + 2vw);
+  }
+}
+
+
+
+.btn {
+  background: none;
   border: none;
-  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png') no-repeat center/contain;
   cursor: pointer;
-  margin-top: 150px;
-  transition: transform 0.3s ease;
-  animation: fadeInUp 1.5s ease forwards;
+  transition: transform 0.2s ease;
 }
 
-.btn-play:hover {
+.btn:hover {
   transform: scale(1.1);
 }
 
+.play-btn {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  bottom: 60px;
+}
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
+.mute-btn, .settings-btn {
+  position: absolute;
+  top: 20px;
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.mute-btn {
+  left: 20px;
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
+}
+
+.settings-btn {
+  right: 20px;
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
+}
+
+
+@media (max-width: 768px) {
+  .logo-container {
+    width: 90%;
+    max-width: 500px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .title-text {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .play-btn {
+    width: 90px;
+    height: 90px;
+    bottom: 40px;
+  }
+
+  .mute-btn, .settings-btn {
+    width: 70px;
+    height: 70px;
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
+@media (max-width: 480px) {
+  .title-text {
+    font-size: clamp(2.2rem, 6vw, 3rem);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-
-@media (max-width: 600px) {
-  .title-box {
-    height: 120px;
-    margin-bottom: 50px;
-  }
-  .game-title {
-    font-size: 1.5rem;
-  }
-  .btn-play {
+  .play-btn {
     width: 70px;
     height: 70px;
   }
