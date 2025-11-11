@@ -23,12 +23,10 @@ html, body {
 
 .mute-button {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 3vh;
+    left: 2vw;
     border: none;
-    padding: 0;
     cursor: pointer;
-    z-index: 1000;
     width: 75px;
     height: 75px;
     background-color: transparent;
@@ -280,6 +278,23 @@ html, body {
     height: 45px;
 }
 
+#ingame-screen .back-button {
+    top: 3vh;
+    left: 92vw;
+}
+
+@media (max-width: 1050px) {
+    #ingame-screen .back-button {
+        left: 91vw;
+    }
+}
+
+@media (max-width: 900px) {
+    #ingame-screen .back-button {
+        left: 90vw;
+    }
+}
+
 @media (max-width: 850px) {
     .wooden-board {
         width: 90vw;
@@ -343,6 +358,10 @@ html, body {
         width: 58px;
         height: 58px;
     }
+
+    #ingame-screen .back-button {
+        left: 88vw;
+    }
 }
 
 @media (max-width: 768px) {
@@ -384,8 +403,6 @@ html, body {
     }
 
     .mute-button {
-        top: 15px;
-        left: 15px;
         width: 60px;
         height: 60px;
     }
@@ -409,6 +426,12 @@ html, body {
     #player-selection-screen .action-btn {
         width: 56px;
         height: 56px;
+    }
+
+    #ingame-screen .back-button {
+        left: 88vw;
+        width: 60px;
+        height: 60px;
     }
 }
 
@@ -461,6 +484,10 @@ html, body {
         width: 54px;
         height: 54px;
     }
+
+    #ingame-screen .back-button {
+        left: 87vw;
+    }
 }
 
 @media (max-width: 625px) {
@@ -501,6 +528,10 @@ html, body {
         width: 52px;
         height: 52px;
     }
+
+    #ingame-screen .back-button {
+        left: 86vw;
+    }
 }
 
 @media (max-width: 550px) {
@@ -513,8 +544,6 @@ html, body {
     }
 
     .mute-button {
-        top: 15px;
-        left: 15px;
         width: 50px;
         height: 50px;
     }
@@ -557,6 +586,12 @@ html, body {
         width: 50px;
         height: 50px;
     } 
+
+    #ingame-screen .back-button {
+        left: 86vw;
+        width: 50px;
+        height: 50px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -638,6 +673,10 @@ html, body {
         width: 46px;
         height: 46px;
     } 
+
+    #ingame-screen .back-button {
+        left: 85vw;
+    }
 }
 
 @media (max-width: 400px) {
@@ -679,6 +718,10 @@ html, body {
     #player-selection-screen .viking-item img {
         width: 30px;
         height: 30px;
+    }
+
+    #ingame-screen .back-button {
+        left: 84vw;
     }
 }
 
@@ -724,6 +767,10 @@ html, body {
         height: 26px;
         gap: 0px;
     }
+
+    #ingame-screen .back-button {
+        left: 83vw;
+    }
 }
 
 @media (max-width: 325px) {
@@ -766,6 +813,10 @@ html, body {
         width: 26px;
         height: 26px;
     }
+
+    #ingame-screen .back-button {
+        left: 82vw;
+    }
 }
 
 @media (max-width: 300px) {
@@ -806,6 +857,10 @@ html, body {
     #player-selection-screen .viking-item img {
         width: 26px;
         height: 26px;
+    }
+
+    #ingame-screen .back-button {
+        left: 81vw;
     }
 }
 
