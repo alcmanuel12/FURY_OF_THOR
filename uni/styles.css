@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@font-face {
+  font-family: 'BoldPixels';
+  src: url('assets/fonts/BoldPixels.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'BoldPixels', sans-serif;
+  color: #f2e6d0;
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+
+.video-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+#bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+  z-index: 1;
+}
+
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
+}
+
+
+#scene-static {
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg') center/cover no-repeat;
+}
+
+.thor-static {
+  position: absolute;
+  bottom: 5%;
+  left: 40%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 40%;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/thor-relaxed_tyazkp.png') no-repeat center/contain;
+  z-index: 3;
+}
+
+.speech {
+  position: absolute;
+  left: 45%;
+  top: 60%;
+  transform: translate(-50%, -100%);
+  background: #fff;
+  color: #000;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  line-height: 1.5;
+  padding: 10px 14px;
+  z-index: 6;
+  text-align: center;
+  box-shadow:
+    0 0 0 2px #000,
+    4px 0 0 0 #000,
+    -4px 0 0 0 #000,
+    0 4px 0 0 #000,
+    0 -4px 0 0 #000,
+    4px 4px 0 0 #000,
+    -4px 4px 0 0 #000,
+    4px -4px 0 0 #000,
+    -4px -4px 0 0 #000;
+}
+
+.speech::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 8px;
+  width: 4px;
+  height: 4px;
+  background: #000;
+  box-shadow:
+    4px 0 #000,
+    8px 0 #000,
+    0 -4px #fff,
+    4px -4px #fff,
+    8px -4px #fff;
+}
+
+.btn-power {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png') no-repeat center/contain;
+  width: 90px;
+  height: 90px;
+  border: none;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.btn-power:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+@keyframes pulse {
+  0%, 100% { filter: drop-shadow(0 0 5px #fff); }
+  50% { filter: drop-shadow(0 0 20px #ffb347); }
+}
+
+/* ==== ESCENA ADD YOUR VIKINGS ==== */
+#scene-add {
+  font-family: 'BoldPixels', sans-serif;
+  color: #f2e6d0;
+}
+
+.top-buttons {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  z-index: 10;
+}
+
+.btn-icon {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#btn-exit, #btn-exit2 {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
+}
+
+#btn-settings, #btn-settings2 {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
+}
+
+.btn-icon:hover {
+  transform: scale(1.1);
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding-left: 5%;
+  z-index: 5;
+  position: relative;
+}
+
+.add-board {
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') center/cover no-repeat;
+  width: 360px;
+  padding: 60px;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-header {
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762416014/teminalSuperior_osdhny.png') center/contain no-repeat;
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  color: #ffe6b3;
+  letter-spacing: 1px;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #222;
+  border: 2px solid #444;
+  border-radius: 6px;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.input-wrapper input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  flex: 1;
+  outline: none;
+  font-size: 14px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+}
+
+.buttons-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.action-btn {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cross {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156684/asset_eliminar_lzygb1.png');
+}
+
+.plus {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/mas_thh33r.png');
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+}
+
+.vikings-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  position: absolute;
+  top: 15%;
+  right: 8%;
+  width: 35%;
+  gap: 15px;
+  color: #fff;
+  z-index: 6;
+}
+
+.viking-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: appear 0.3s forwards;
+}
+
+.viking-item img {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bottom-buttons {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  z-index: 5;
+}
+
+.btn-check, .btn-home {
+  width: 70px;
+  height: 70px;
+  border: none;
+  background: transparent center/contain no-repeat;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-check {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/Okay_x51t8w.png');
+}
+
+.btn-home {
+  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png');
+}
+
+.btn-check:hover, .btn-home:hover {
+  transform: scale(1.1);
+}
+
+
+.fire {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle at 50% 80%, #ffcf33 0%, #ff7b00 40%, rgba(255,0,0,0.2) 80%);
+  border-radius: 50%;
+  filter: blur(10px);
+  animation: flame 1s infinite ease-in-out;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+@keyframes flame {
+  0%, 100% {
+    transform: translateX(-50%) scaleY(1) scaleX(1);
+    filter: blur(10px) brightness(1);
+  }
+  50% {
+    transform: translateX(-50%) scaleY(1.15) scaleX(1.05);
+    filter: blur(12px) brightness(1.5);
+  }
+}
+
+.fire::before,
+.fire::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 80%, #ffb733 0%, #ff4b00 50%, transparent 80%);
+  opacity: 0.8;
+  animation: flicker 0.15s infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: translateX(-50%) scale(1); opacity: 0.9; }
+  to { transform: translateX(-50%) scale(1.05); opacity: 0.7; }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .add-board {
+    width: 80%;
+    padding: 40px;
+  }
+
+  .vikings-list {
+    width: 90%;
+    position: relative;
+    top: 0;
+    right: 0;
+    justify-content: center;
+  }
+
+  .thor-static {
+    width: 180px;
+  }
+
+  .speech {
+    font-size: 8px;
+    top: 45%;
+  }
+}
+viking-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  font-size: 18px;
+  position: relative;
+}
+
+.rune-icon {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  image-rendering: pixelated;
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.viking-item:hover .rune-icon {
+  transform: scale(1.05);
+}
+
+.viking-item img.rune-icon {
+  width: 80px !important;
+  height: 80px !important;
+  image-rendering: pixelated;
+}
