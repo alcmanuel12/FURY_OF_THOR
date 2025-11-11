@@ -1,7 +1,7 @@
 export const runes = [
     { id: 1, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819244/runa_1_bwbbcc.png" },
     { id: 2, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819249/runa_pezgrande_okbtby.png" },
-    { id: 3, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728519/B_-_M_1_waurld.png" },
+    { id: 3, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819244/runa_b_ucuizq.png" },
     { id: 4, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819245/runa_n_tx5wti.png" },
     { id: 5, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819245/runa_pez_wzf6ah.png" },
     { id: 6, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819245/runa_h_umfydm.png" },
@@ -19,7 +19,7 @@ export const runes = [
 export const brokenRunes = [
     { id: 1, url: "-" },
     { id: 2, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728526/Runa_Pez_pde9ip.png" },
-    { id: 3, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819244/runa_b_ucuizq.png" },
+    { id: 3, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728519/B_-_M_1_waurld.png" },
     { id: 4, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728522/N_runa_k50zub.png" },
     { id: 5, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728523/Pez2_hxavfl.png" },
     { id: 6, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728522/N_jhosor.png" },
