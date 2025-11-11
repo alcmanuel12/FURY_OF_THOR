@@ -6,8 +6,8 @@
   <title>Fury of Thor</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
-
+<>
+<!--PAGINA START -->
   <div class="video-wrapper">
     <video id="bg-video" autoplay muted loop playsinline>
       <source src="https://res.cloudinary.com/djuisin8z/video/upload/v1762430559/desktop-background-ingame-video-muted_gg5eyg.mp4" type="video/mp4" />
@@ -28,6 +28,9 @@
 
     <button class="btn-power" id="go-to-add"></button>
   </section>
+
+
+  <!--PAGINA ADDPLAYER -->
 
   <section id="scene-add" class="scene">
     <div class="top-buttons">
@@ -56,10 +59,45 @@
     <div class="fire"></div>
 
     <div class="bottom-buttons">
-      <button class="btn-check" id="btn-confirm"></button>
+      <button class="btn-check" id="btn-startgame"></button>
       <button class="btn-home" id="btn-home"></button>
     </div>
   </section>
+
+  <!-- START GAME -->
+<section id="scene-startgame" class="scene">
+  <div class="content">
+      <video id="bg-video" autoplay muted loop playsinline>
+    <source src="https://res.cloudinary.com/djuisin8z/video/upload/v1762430559/desktop-background-ingame-video-muted_gg5eyg.mp4" type="video/mp4" />
+  </video>
+
+    <div class="top-buttons">
+    <button id="btn-exit" class="btn-icon"></button>
+    <button id="btn-settings" class="btn-icon"></button>
+  </div>
+
+
+  <div class="thor"></div>
+
+
+  <div class="speech">
+    Are you<br>ready for<br>Valhalla?
+  </div>
+
+
+  <div class="rune" style="top:12%; left:47%; animation-delay:0s;"></div>
+  <div class="rune" style="top:22%; left:60%; animation-delay:0.3s;"></div>
+  <div class="rune" style="top:40%; left:70%; animation-delay:0.6s;"></div>
+  <div class="rune" style="top:55%; left:60%; animation-delay:0.9s;"></div>
+  <div class="rune" style="top:68%; left:47%; animation-delay:1.2s;"></div>
+  <div class="rune" style="top:55%; left:33%; animation-delay:1.5s;"></div>
+  <div class="rune" style="top:40%; left:24%; animation-delay:1.8s;"></div>
+  <div class="rune" style="top:22%; left:33%; animation-delay:2.1s;"></div>
+
+
+  <button class="btn-power" onclick="goNext()"></button>
+  </div>
+</section>
 
   <script src="./script.js"></script>
 </body>

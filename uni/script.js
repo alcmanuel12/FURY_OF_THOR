@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById("vikingsList");
   const addBtn = document.getElementById("btn-add");
   const removeBtn = document.getElementById("btn-remove");
-
+  const btnStartGame = document.getElementById('btn-startgame');
+  const gotoadd = document.getElementById('btn-addplayer');
   const runeImages = [
     "https://res.cloudinary.com/djuisin8z/image/upload/v1761819249/runa_pezgrande_okbtby.png",
     "https://res.cloudinary.com/djuisin8z/image/upload/v1761819249/runa_s_gbnud8.png",
@@ -28,6 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById(from).classList.remove('active');
     document.getElementById(to).classList.add('active');
   }
+
+
+    gotoadd.addEventListener('click', () => {
+    switchScene('scene-static', 'scene-startgame');
+});
+
+  
+btnStartGame.addEventListener('click', () => {
+  switchScene('scene-add', 'scene-startgame');
+});
 
   goToAdd.addEventListener('click', () => {
     switchScene('scene-static', 'scene-add');
@@ -63,4 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = list.querySelectorAll(".viking-item");
     if (items.length > 0) list.removeChild(items[items.length - 1]);
   });
+});
+
+const btnStartGame = document.getElementById('btn-startgame');
+btnStartGame.addEventListener('click', () => {
+  switchScene('scene-add', 'scene-startgame');
 });

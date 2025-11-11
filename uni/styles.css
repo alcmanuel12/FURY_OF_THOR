@@ -138,6 +138,7 @@ body {
 
 /* ==== ESCENA ADD YOUR VIKINGS ==== */
 #scene-add {
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg') center/cover no-repeat;
   font-family: 'BoldPixels', sans-serif;
   color: #f2e6d0;
 }
@@ -333,51 +334,6 @@ body {
 }
 
 
-.fire {
-  position: absolute;
-  bottom: 18%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle at 50% 80%, #ffcf33 0%, #ff7b00 40%, rgba(255,0,0,0.2) 80%);
-  border-radius: 50%;
-  filter: blur(10px);
-  animation: flame 1s infinite ease-in-out;
-  opacity: 0.9;
-  z-index: 2;
-}
-
-@keyframes flame {
-  0%, 100% {
-    transform: translateX(-50%) scaleY(1) scaleX(1);
-    filter: blur(10px) brightness(1);
-  }
-  50% {
-    transform: translateX(-50%) scaleY(1.15) scaleX(1.05);
-    filter: blur(12px) brightness(1.5);
-  }
-}
-
-.fire::before,
-.fire::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 80%, #ffb733 0%, #ff4b00 50%, transparent 80%);
-  opacity: 0.8;
-  animation: flicker 0.15s infinite alternate;
-}
-
-@keyframes flicker {
-  from { transform: translateX(-50%) scale(1); opacity: 0.9; }
-  to { transform: translateX(-50%) scale(1.05); opacity: 0.7; }
-}
 
 
 @media (max-width: 768px) {
@@ -436,4 +392,23 @@ viking-item {
   width: 80px !important;
   height: 80px !important;
   image-rendering: pixelated;
+}
+
+
+.scene-startgame {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+  z-index: 1;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-croppeddjmrwd.jpg') center center / cover no-repeat;
+}
+
+.scene-startgame.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
 }
