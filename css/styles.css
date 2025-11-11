@@ -33,6 +33,7 @@ html, body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 1000;
 }
 
 .mute-button.mute-icon {
