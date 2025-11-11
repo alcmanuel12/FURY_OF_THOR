@@ -18,6 +18,22 @@
         <button class="play-button" id="play-button"></button>
     </div>
     <div id="player-selection-screen" class="screen" style="display: none;">
+        <div class="container">
+            <div class="add-board">
+                <div class="board-header">ADD YOUR VIKINGS</div>
+                <div class="board-body">
+                    <div class="input-wrapper">
+                        <input type="text" id="vikingName" placeholder="Name your Viking">
+                        <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1762164198/aset_casco_zt4kke.png" alt="Icono Viking" class="icon">
+                    </div>
+                    <div class="buttons-row">
+                        <button class="action-btn cross" id="btn-remove" title="Eliminar último"></button>
+                        <button class="action-btn plus" id="btn-add" title="Agregar"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="vikings-list" id="vikingsList"></div>
+        </div>
         <button class="back-button" id="back-button"></button>
         <button class="game-start-button" id="game-start-button"></button>
     </div>
