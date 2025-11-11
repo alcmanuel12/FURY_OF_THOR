@@ -121,6 +121,20 @@ const ingameHomeButton = document.getElementById('ingame-home-button');
 const sacrificeActionButton = document.getElementById('sacrifice-action');
 const ingameBackgroundVideo = document.getElementById('ingame-background-video');
 const ingameBackgroundVideoMobile = document.getElementById('ingame-background-video-mobile');
+const thorCharacter = document.getElementById('thor-character');
+
+// Preload Thor's mad form images to prevent jumpy transitions
+const preloadThorImages = () => {
+  const isMobile = window.innerWidth <= 768;
+  const desktopMadImage = new Image();
+  const mobileMadImage = new Image();
+  
+  desktopMadImage.src = 'https://res.cloudinary.com/diycpogap/image/upload/v1762902368/thor-background-shouting_quv4zf.png';
+  mobileMadImage.src = 'https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png';
+};
+
+// Preload images when the page loads
+preloadThorImages();
 
 if (gameStartButton) {
   gameStartButton.addEventListener('click', () => {
@@ -135,6 +149,8 @@ if (gameStartButton) {
           console.log('Video autoplay prevented:', err);
         });
       }
+      // Preload Thor images when entering ingame screen to avoid "jumpy" transition
+      preloadThorImages();
     }
   });
 }
@@ -155,8 +171,14 @@ if (ingameHomeButton) {
   });
 }
 
-if (sacrificeActionButton) {
+if (sacrificeActionButton && thorCharacter) {
   sacrificeActionButton.addEventListener('click', () => {
-    // TODO: Add sacrifice action functionality
+    // Switch Thor to mad form
+    thorCharacter.classList.add('thor-character-mad');
+    
+    // Return to relaxed form after 2 seconds
+    setTimeout(() => {
+      thorCharacter.classList.remove('thor-character-mad');
+    }, 2000);
   });
 }

@@ -310,6 +310,11 @@ html, body {
     background-repeat: no-repeat;
     z-index: 5;
     pointer-events: none;
+    transition: background-image 0.5s ease;
+}
+
+#ingame-screen .thor-character.thor-character-mad {
+    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902368/thor-background-shouting_quv4zf.png');
 }
 
 #ingame-screen .back-button {
@@ -446,6 +451,10 @@ html, body {
 
     #ingame-screen .thor-character {
         background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902144/thor-mobile-background-relaxed_b3zn3o.png');
+    }
+
+    #ingame-screen .thor-character.thor-character-mad {
+        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png');
     }
 
     .wooden-board {
