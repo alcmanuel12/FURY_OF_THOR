@@ -279,9 +279,52 @@ html, body {
     height: 45px;
 }
 
+#ingame-screen .ingame-background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#ingame-screen .ingame-background-video-desktop {
+    display: block;
+}
+
+#ingame-screen .ingame-background-video-mobile {
+    display: none;
+}
+
 #ingame-screen .back-button {
     top: 3vh;
     left: 92vw;
+    position: fixed;
+    z-index: 10;
+}
+
+#ingame-screen .sacrifice-action-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 75px;
+    border: none;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 10;
+}
+
+#ingame-screen .sacrifice-action-btn:hover {
+    transform: translateX(-50%) scale(1.1);
 }
 
 @media (max-width: 1050px) {
@@ -363,6 +406,11 @@ html, body {
     #ingame-screen .back-button {
         left: 88vw;
     }
+
+    #ingame-screen .sacrifice-action-btn {
+        width: 72px;
+        height: 72px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -372,6 +420,14 @@ html, body {
     
     .screen {
         padding-top: 10vh;
+    }
+
+    #ingame-screen .ingame-background-video-desktop {
+        display: none;
+    }
+
+    #ingame-screen .ingame-background-video-mobile {
+        display: block;
     }
 
     .wooden-board {
@@ -434,6 +490,11 @@ html, body {
         width: 60px;
         height: 60px;
     }
+
+    #ingame-screen .sacrifice-action-btn {
+        width: 70px;
+        height: 70px;
+    }
 }
 
 @media (max-width: 700px) {
@@ -488,6 +549,11 @@ html, body {
 
     #ingame-screen .back-button {
         left: 87vw;
+    }
+
+    #ingame-screen .sacrifice-action-btn {
+        width: 68px;
+        height: 68px;
     }
 }
 

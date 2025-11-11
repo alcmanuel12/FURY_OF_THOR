@@ -118,12 +118,23 @@ function renderList() {
 
 const ingameScreen = document.getElementById('ingame-screen');
 const ingameHomeButton = document.getElementById('ingame-home-button');
+const sacrificeActionButton = document.getElementById('sacrifice-action');
+const ingameBackgroundVideo = document.getElementById('ingame-background-video');
+const ingameBackgroundVideoMobile = document.getElementById('ingame-background-video-mobile');
 
 if (gameStartButton) {
   gameStartButton.addEventListener('click', () => {
     if (playerSelectionScreen && ingameScreen) {
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';
+      // Ensure appropriate video plays when screen is shown
+      const isMobile = window.innerWidth <= 768;
+      const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
+      if (videoToPlay) {
+        videoToPlay.play().catch(err => {
+          console.log('Video autoplay prevented:', err);
+        });
+      }
     }
   });
 }
@@ -133,6 +144,19 @@ if (ingameHomeButton) {
     if (homeScreen && ingameScreen) {
       ingameScreen.style.display = 'none';
       homeScreen.style.display = 'flex';
+      // Pause both videos when leaving the screen
+      if (ingameBackgroundVideo) {
+        ingameBackgroundVideo.pause();
+      }
+      if (ingameBackgroundVideoMobile) {
+        ingameBackgroundVideoMobile.pause();
+      }
     }
+  });
+}
+
+if (sacrificeActionButton) {
+  sacrificeActionButton.addEventListener('click', () => {
+    // TODO: Add sacrifice action functionality
   });
 }
