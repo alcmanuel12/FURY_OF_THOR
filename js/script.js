@@ -38,12 +38,20 @@ const list = document.getElementById('vikingsList');
 let vikings = [];
 
 if (addBtn && input) {
-    addBtn.addEventListener('click', () => {
+    const addViking = () => {
         const name = input.value.trim();
         if (name !== '') {
             vikings.push(name);
             renderList();
             input.value = '';
+        }
+    };
+    
+    addBtn.addEventListener('click', addViking);
+    
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            addViking();
         }
     });
 }
