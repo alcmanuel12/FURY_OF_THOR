@@ -35,6 +35,25 @@ html, body {
     background-repeat: no-repeat;
     z-index: 1000;
 }
+.info-button {
+    position: fixed;
+    top: 3vh;
+    right: 2vw;
+    border: none;
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1000;
+}
+
+.info-button.info-icon {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762943523/assets_btn_pergamino_2_ybg7lp.png');
+}
+
 
 .mute-button.mute-icon {
     background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
