@@ -142,7 +142,6 @@ if (gameStartButton) {
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';
 
-
       const isMobile = window.innerWidth <= 768;
       const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
       if (videoToPlay) videoToPlay.play().catch(() => {});
@@ -180,6 +179,11 @@ if (gameStartButton) {
           runesCircleContainer.appendChild(runeDiv);
           runeElements.push(runeDiv);
         });
+
+        runesCircleContainer.classList.remove('visible');
+        setTimeout(() => {
+          runesCircleContainer.classList.add('visible');
+        }, 100);
       }
     }
   });

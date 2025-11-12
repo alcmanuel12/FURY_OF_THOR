@@ -358,6 +358,23 @@ html, body {
   pointer-events: none;
 }
 
+
+#runesCircleContainer {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
+  filter: blur(6px);
+  transition:
+    opacity 1.2s ease-out,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.2s ease-out;
+}
+
+#runesCircleContainer.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  filter: blur(0);
+}
+
 .rune-item {
   position: absolute;
   width: 90px;
@@ -368,6 +385,8 @@ html, body {
   background-position: center;
   transition: transform 0.3s ease;
 }
+
+
 
 .rune-item.chosen {
   z-index: 20;
