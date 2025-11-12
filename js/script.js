@@ -9,6 +9,9 @@ const playButton = document.getElementById('play-button');
 const backButton = document.getElementById('back-button');
 const homeScreen = document.getElementById('home-screen');
 const playerSelectionScreen = document.getElementById('player-selection-screen');
+const infoButton = document.getElementById('info-button');
+const infoPopup = document.getElementById('info-popup');
+const closeInfo = document.getElementById('close-info');
 
 if (muteButton) {
   muteButton.addEventListener('click', function () {
@@ -31,6 +34,34 @@ if (backButton) {
     if (homeScreen && playerSelectionScreen) {
       playerSelectionScreen.style.display = 'none';
       homeScreen.style.display = 'flex';
+    }
+  });
+}
+
+if (infoButton && infoPopup && closeInfo) {
+  
+  infoButton.addEventListener('click', () => {
+    infoPopup.classList.remove('hidden');
+  });
+
+  
+  closeInfo.addEventListener('click', (e) => {
+    e.stopPropagation();
+    infoPopup.classList.add('hidden');
+  });
+
+  
+  const infoContent = document.querySelector('.info-content');
+  if (infoContent) {
+    infoContent.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  
+  infoPopup.addEventListener('click', (e) => {
+    if (e.target === infoPopup) {
+      infoPopup.classList.add('hidden');
     }
   });
 }
