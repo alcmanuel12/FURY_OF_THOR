@@ -154,6 +154,9 @@ const sacrificeActionButton = document.getElementById('sacrifice-action');
 const ingameBackgroundVideo = document.getElementById('ingame-background-video');
 const ingameBackgroundVideoMobile = document.getElementById('ingame-background-video-mobile');
 const thorCharacter = document.getElementById('thor-character');
+const runesCircleContainer = document.getElementById('runesCircleContainer');
+
+let runeElements = [];
 
 // Preload Thor's mad form images to prevent jumpy transitions
 const preloadThorImages = () => {
@@ -173,16 +176,61 @@ if (gameStartButton) {
     if (playerSelectionScreen && ingameScreen) {
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';
-      // Ensure appropriate video plays when screen is shown
+
       const isMobile = window.innerWidth <= 768;
       const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
-      if (videoToPlay) {
-        videoToPlay.play().catch(err => {
-          console.log('Video autoplay prevented:', err);
+      if (videoToPlay) videoToPlay.play().catch(() => {});
+
+
+      if (runesCircleContainer) {
+        runesCircleContainer.innerHTML = '';
+        runeElements = [];
+
+        const total = vikings.length;
+        if (total === 0) return;
+
+
+        const minRadius = 150; 
+        const maxRadius = 260; 
+        const radius = Math.min(maxRadius, minRadius + total * 6); 
+        const centerX = 250;
+        const centerY = 250;
+
+        vikings.forEach((name, index) => {
+          const angle = (index * (2 * Math.PI)) / total - Math.PI / 2;
+          const x = centerX + Math.cos(angle) * radius;
+          const y = centerY + Math.sin(angle) * radius;
+
+          const rune = runes[index % runes.length];
+          const runeDiv = document.createElement('div');
+          runeDiv.classList.add('rune-item');
+          runeDiv.style.backgroundImage = `url(${rune.url})`;
+          runeDiv.style.left = `${x - 45}px`;
+          runeDiv.style.top = `${y - 45}px`;
+
+
+           runeDiv.dataset.vikingName = name;
+
+          runesCircleContainer.appendChild(runeDiv);
+          runeElements.push(runeDiv);
         });
+
+        runesCircleContainer.classList.remove('visible');
+        setTimeout(() => {
+          runesCircleContainer.classList.add('visible');
+        }, 100);
       }
-      // Preload Thor images when entering ingame screen to avoid "jumpy" transition
-      preloadThorImages();
+    }
+  });
+}
+
+if (ingameHomeButton) {
+  ingameHomeButton.addEventListener('click', () => {
+    if (homeScreen && ingameScreen) {
+      ingameScreen.style.display = 'none';
+      homeScreen.style.display = 'flex';
+      if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
+      if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
     }
   });
 }
