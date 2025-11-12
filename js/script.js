@@ -117,6 +117,7 @@ function renderList() {
 // "Ingame" screen HTML elements
 
 const ingameScreen = document.getElementById('ingame-screen');
+const ingameBackButton = document.getElementById('back-button');
 const ingameHomeButton = document.getElementById('ingame-home-button');
 const sacrificeActionButton = document.getElementById('sacrifice-action');
 const ingameBackgroundVideo = document.getElementById('ingame-background-video');
@@ -155,21 +156,42 @@ if (gameStartButton) {
   });
 }
 
-if (ingameHomeButton) {
-  ingameHomeButton.addEventListener('click', () => {
-    if (homeScreen && ingameScreen) {
-      ingameScreen.style.display = 'none';
-      homeScreen.style.display = 'flex';
-      // Pause both videos when leaving the screen
-      if (ingameBackgroundVideo) {
-        ingameBackgroundVideo.pause();
+  if (ingameHomeButton) {
+    ingameHomeButton.addEventListener('click', function() {
+      const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás todo el progreso.');
+      if (confirmar) {
+        vikings = [];
+        availableRunes = [...runes];
+        renderList();
+        // Oculta la pantalla de juego y muestra el menú
+        if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
+        if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
+        if (ingameScreen && homeScreen) {
+          ingameScreen.style.display = 'none';
+          homeScreen.style.display = 'flex';
+        }
       }
-      if (ingameBackgroundVideoMobile) {
-        ingameBackgroundVideoMobile.pause();
+    });
+  }
+
+  if (ingameBackButton) {
+    ingameBackButton.addEventListener('click', function() {
+      const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás a todos tus vikingos.');
+      if (confirmar) {
+        vikings = [];
+        availableRunes = [...runes];
+        renderList();
+        // Oculta la pantalla de juego y muestra el menú
+        if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
+        if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
+        if (ingameScreen && homeScreen) {
+          ingameScreen.style.display = 'none';
+          homeScreen.style.display = 'flex';
+        }
       }
-    }
-  });
-}
+    });
+  }
+
 
 if (sacrificeActionButton && thorCharacter) {
   sacrificeActionButton.addEventListener('click', () => {
