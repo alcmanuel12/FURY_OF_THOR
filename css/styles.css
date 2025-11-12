@@ -380,6 +380,26 @@ html, body {
   opacity: 0.3;
 }
 
+
+.chosen-viking-name {
+  position: absolute;
+  top: 45%; 
+  left: 48%;
+  transform: translateX(-50%);
+  font-family: 'BoldPixels', sans-serif;
+  font-size: 35px;
+  color: #c5a746;
+  text-shadow: 3px 3px 8px #000;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  z-index: 25;
+}
+
+.chosen-viking-name.visible {
+  opacity: 1;
+}
+
+
 @media (max-width: 1050px) {
     #ingame-screen .back-button {
         left: 91vw;

@@ -162,7 +162,7 @@ if (gameStartButton) {
         const centerX = 250;
         const centerY = 250;
 
-        vikings.forEach((_, index) => {
+        vikings.forEach((name, index) => {
           const angle = (index * (2 * Math.PI)) / total - Math.PI / 2;
           const x = centerX + Math.cos(angle) * radius;
           const y = centerY + Math.sin(angle) * radius;
@@ -173,6 +173,9 @@ if (gameStartButton) {
           runeDiv.style.backgroundImage = `url(${rune.url})`;
           runeDiv.style.left = `${x - 45}px`;
           runeDiv.style.top = `${y - 45}px`;
+
+
+           runeDiv.dataset.vikingName = name;
 
           runesCircleContainer.appendChild(runeDiv);
           runeElements.push(runeDiv);
@@ -201,20 +204,36 @@ if (sacrificeActionButton) {
       r.classList.remove('chosen', 'dimmed');
     });
 
+
+    runeElements.forEach(r => r.classList.remove('chosen', 'dimmed'));
+    const chosenNameEl = document.getElementById('chosenVikingName');
+    if (chosenNameEl) {
+      chosenNameEl.textContent = '';
+      chosenNameEl.classList.remove('visible');
+    }
+
     const randomIndex = Math.floor(Math.random() * runeElements.length);
     const chosenRune = runeElements[randomIndex];
+    const chosenName = chosenRune.dataset.vikingName;
 
     setTimeout(() => {
       runeElements.forEach((r, i) => {
         if (i !== randomIndex) r.classList.add('dimmed');
       });
       chosenRune.classList.add('chosen');
+  
+      setTimeout(() => {
+        if (chosenNameEl) {
+          chosenNameEl.textContent = chosenName;
+          chosenNameEl.classList.add('visible');
+        }
+      }, 1300); 
     }, 300);
   });
 }
 
 
-      // Ensure appropriate video plays when screen is shown
+    // Ensure appropriate video plays when screen is shown
       const isMobile = window.innerWidth <= 768;
       const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
       if (videoToPlay) {
@@ -222,7 +241,7 @@ if (sacrificeActionButton) {
           console.log('Video autoplay prevented:', err);
         });
       }
-      // Preload Thor images when entering ingame screen to avoid "jumpy" transition
+// Preload Thor images when entering ingame screen to avoid "jumpy" transition
       preloadThorImages();
 
 
@@ -231,7 +250,7 @@ if (ingameHomeButton) {
     if (homeScreen && ingameScreen) {
       ingameScreen.style.display = 'none';
       homeScreen.style.display = 'flex';
-      // Pause both videos when leaving the screen
+  // Pause both videos when leaving the screen
       if (ingameBackgroundVideo) {
         ingameBackgroundVideo.pause();
       }
@@ -244,10 +263,10 @@ if (ingameHomeButton) {
 
 if (sacrificeActionButton && thorCharacter) {
   sacrificeActionButton.addEventListener('click', () => {
-    // Switch Thor to mad form
+ // Switch Thor to mad form
     thorCharacter.classList.add('thor-character-mad');
     
-    // Return to relaxed form after 2 seconds
+// Return to relaxed form after 2 seconds
     setTimeout(() => {
       thorCharacter.classList.remove('thor-character-mad');
     }, 2000);
