@@ -346,6 +346,33 @@ html, body {
     transform: translateX(-50%) scale(1.1);
 }
 
+#runesCircleContainer {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.rune-item {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.rune-item:hover {
+  transform: scale(1.1);
+}
+
 @media (max-width: 1050px) {
     #ingame-screen .back-button {
         left: 91vw;

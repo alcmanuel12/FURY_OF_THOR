@@ -141,6 +141,37 @@ if (gameStartButton) {
     if (playerSelectionScreen && ingameScreen) {
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';
+
+const runesCircleContainer = document.getElementById('runesCircleContainer');
+if (runesCircleContainer) {
+  runesCircleContainer.innerHTML = ''; 
+
+  const total = vikings.length;
+  const baseRadius = 200; 
+
+  const radius = baseRadius + total * 3;
+
+  const centerX = 250; 
+  const centerY = 250;
+
+  vikings.forEach((_, index) => {
+    const angle = (index * (2 * Math.PI)) / total - Math.PI / 2;
+    const x = centerX + Math.cos(angle) * radius;
+    const y = centerY + Math.sin(angle) * radius;
+
+    const rune = runes[index % runes.length];
+    const runeDiv = document.createElement('div');
+    runeDiv.classList.add('rune-item');
+    runeDiv.style.backgroundImage = `url(${rune.url})`;
+    runeDiv.style.left = `${x - 45}px`;
+    runeDiv.style.top = `${y - 45}px`;
+    runesCircleContainer.appendChild(runeDiv);
+  });
+}
+
+
+
+
       // Ensure appropriate video plays when screen is shown
       const isMobile = window.innerWidth <= 768;
       const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
