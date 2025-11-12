@@ -517,6 +517,13 @@ html, body {
         width: 60px;
         height: 60px;
     }
+
+    .close-info {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+    }
       
 
     #player-selection-screen .input-wrapper input {
@@ -673,6 +680,13 @@ html, body {
     .info-button {
         width: 50px;
         height: 50px;
+    }
+
+    .close-info {
+        width: 40px;
+        height: 40px;
+        top: 12px;
+        right: 12px;
     }
 
     .back-button {
@@ -1012,8 +1026,7 @@ html, body {
 
 .info-content {
   position: relative;
-  width: 80%;
-  max-width: 600px;
+  height: 70%;
   aspect-ratio: 0.8 / 1;
   background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/pergamino_uvllsi.png') no-repeat center;
   background-size: contain;
@@ -1021,29 +1034,48 @@ html, body {
   font-family: 'BoldPixels', sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: flex-start; 
   align-items: center;
   text-align: center;
   padding: 6vh 4vw;
   z-index: 2;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
   border-radius: 10px;
 }
 
 .info-content h2 {
   color: #3b1d09;
-  font-size: 30px;
+  font-size: 5rem;
+  margin-top: 10vh;
   margin-bottom: 20px;
   text-shadow: 0 2px 2px #f5d28c;
   transform: translateX(10px);
 }
 
 .info-content p {
-  font-size: 18px;
+  font-size: 32px;
   color: #1a0d05;
   line-height: 1.5;
   width: 80%;
-  max-width: 500px;
-  margin: 0 auto;
   transform: translateX(15px);
+}
+
+.close-info {
+  position: fixed;
+  top: 10vh;
+  left: 49vw;
+  width: 70px;
+  height: 70px;
+  border: none;
+  background-color: transparent;
+  background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762984088/close-icon_fbqvui.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 3;
+}
+
+.close-info:hover {
+  transform: scale(1.1);
 }

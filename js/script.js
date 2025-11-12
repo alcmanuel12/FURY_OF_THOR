@@ -170,9 +170,18 @@ if (infoButton && infoPopup && closeInfo) {
   });
 
   
-  closeInfo.addEventListener('click', () => {
+  closeInfo.addEventListener('click', (e) => {
+    e.stopPropagation();
     infoPopup.classList.add('hidden');
   });
+
+  
+  const infoContent = document.querySelector('.info-content');
+  if (infoContent) {
+    infoContent.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
 
   
   infoPopup.addEventListener('click', (e) => {
