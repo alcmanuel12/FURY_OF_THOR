@@ -40,10 +40,10 @@ html, body {
   position: fixed;
   top: 3vh;
   right: 2vw;
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   background-color: transparent;
-  background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762943523/assets_btn_pergamino_2_ybg7lp.png');
+  background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762981474/lore-parchment_xmzlab.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -513,6 +513,12 @@ html, body {
         height: 60px;
     }
 
+    .info-button {
+        width: 60px;
+        height: 60px;
+    }
+      
+
     #player-selection-screen .input-wrapper input {
         font-size: 19px;
     }
@@ -660,6 +666,11 @@ html, body {
     }
 
     .mute-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .info-button {
         width: 50px;
         height: 50px;
     }
