@@ -114,27 +114,27 @@ function renderList() {
   });
 }
 
-// "Ingame" screen HTML elements
-
+// === "Ingame" screen HTML elements ===
 const ingameScreen = document.getElementById('ingame-screen');
 const ingameHomeButton = document.getElementById('ingame-home-button');
 const sacrificeActionButton = document.getElementById('sacrifice-action');
 const ingameBackgroundVideo = document.getElementById('ingame-background-video');
 const ingameBackgroundVideoMobile = document.getElementById('ingame-background-video-mobile');
 const thorCharacter = document.getElementById('thor-character');
+const runesCircleContainer = document.getElementById('runesCircleContainer');
 
-// Preload Thor's mad form images to prevent jumpy transitions
+
+let runeElements = [];
+
+
 const preloadThorImages = () => {
-  const isMobile = window.innerWidth <= 768;
   const desktopMadImage = new Image();
   const mobileMadImage = new Image();
-  
   desktopMadImage.src = 'https://res.cloudinary.com/diycpogap/image/upload/v1762902368/thor-background-shouting_quv4zf.png';
   mobileMadImage.src = 'https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png';
 };
-
-// Preload images when the page loads
 preloadThorImages();
+
 
 if (gameStartButton) {
   gameStartButton.addEventListener('click', () => {
@@ -142,34 +142,76 @@ if (gameStartButton) {
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';
 
-const runesCircleContainer = document.getElementById('runesCircleContainer');
-if (runesCircleContainer) {
-  runesCircleContainer.innerHTML = ''; 
 
-  const total = vikings.length;
-  const baseRadius = 200; 
+      const isMobile = window.innerWidth <= 768;
+      const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
+      if (videoToPlay) videoToPlay.play().catch(() => {});
 
-  const radius = baseRadius + total * 3;
 
-  const centerX = 250; 
-  const centerY = 250;
+      if (runesCircleContainer) {
+        runesCircleContainer.innerHTML = '';
+        runeElements = [];
 
-  vikings.forEach((_, index) => {
-    const angle = (index * (2 * Math.PI)) / total - Math.PI / 2;
-    const x = centerX + Math.cos(angle) * radius;
-    const y = centerY + Math.sin(angle) * radius;
+        const total = vikings.length;
+        if (total === 0) return;
 
-    const rune = runes[index % runes.length];
-    const runeDiv = document.createElement('div');
-    runeDiv.classList.add('rune-item');
-    runeDiv.style.backgroundImage = `url(${rune.url})`;
-    runeDiv.style.left = `${x - 45}px`;
-    runeDiv.style.top = `${y - 45}px`;
-    runesCircleContainer.appendChild(runeDiv);
+
+        const minRadius = 150; 
+        const maxRadius = 260; 
+        const radius = Math.min(maxRadius, minRadius + total * 6); 
+        const centerX = 250;
+        const centerY = 250;
+
+        vikings.forEach((_, index) => {
+          const angle = (index * (2 * Math.PI)) / total - Math.PI / 2;
+          const x = centerX + Math.cos(angle) * radius;
+          const y = centerY + Math.sin(angle) * radius;
+
+          const rune = runes[index % runes.length];
+          const runeDiv = document.createElement('div');
+          runeDiv.classList.add('rune-item');
+          runeDiv.style.backgroundImage = `url(${rune.url})`;
+          runeDiv.style.left = `${x - 45}px`;
+          runeDiv.style.top = `${y - 45}px`;
+
+          runesCircleContainer.appendChild(runeDiv);
+          runeElements.push(runeDiv);
+        });
+      }
+    }
   });
 }
 
+if (ingameHomeButton) {
+  ingameHomeButton.addEventListener('click', () => {
+    if (homeScreen && ingameScreen) {
+      ingameScreen.style.display = 'none';
+      homeScreen.style.display = 'flex';
+      if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
+      if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
+    }
+  });
+}
 
+if (sacrificeActionButton) {
+  sacrificeActionButton.addEventListener('click', () => {
+    if (runeElements.length === 0) return; 
+
+    runeElements.forEach(r => {
+      r.classList.remove('chosen', 'dimmed');
+    });
+
+    const randomIndex = Math.floor(Math.random() * runeElements.length);
+    const chosenRune = runeElements[randomIndex];
+
+    setTimeout(() => {
+      runeElements.forEach((r, i) => {
+        if (i !== randomIndex) r.classList.add('dimmed');
+      });
+      chosenRune.classList.add('chosen');
+    }, 300);
+  });
+}
 
 
       // Ensure appropriate video plays when screen is shown
@@ -182,9 +224,7 @@ if (runesCircleContainer) {
       }
       // Preload Thor images when entering ingame screen to avoid "jumpy" transition
       preloadThorImages();
-    }
-  });
-}
+
 
 if (ingameHomeButton) {
   ingameHomeButton.addEventListener('click', () => {
