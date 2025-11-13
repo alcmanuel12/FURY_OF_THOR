@@ -271,7 +271,7 @@ if (ingameHomeButton) {
     });
   }
 
-
+ 
 if (sacrificeActionButton && thorCharacter) {
   sacrificeActionButton.addEventListener('click', () => {
     // Switch Thor to mad form
