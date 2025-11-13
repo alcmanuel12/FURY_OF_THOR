@@ -9,11 +9,33 @@ const playButton = document.getElementById('play-button');
 const backButton = document.getElementById('back-button');
 const homeScreen = document.getElementById('home-screen');
 const playerSelectionScreen = document.getElementById('player-selection-screen');
+const musicStart = document.getElementById('background-music-start');
 
-if (muteButton) {
-  muteButton.addEventListener('click', function () {
+//funciones para la musica
+function playMusic() {
+  musicStart.volume = 0.5;
+  musicStart.muted = false;
+  musicStart.play().catch(e => console.log("No se pudo reproducir la música:", e));
+}
+
+function pauseMusic() {
+  musicStart.pause();
+}
+
+
+//GAME
+
+if (muteButton && musicStart) {
+  muteButton.addEventListener('click', function() {
     this.classList.toggle('mute-icon');
     this.classList.toggle('sound-icon');
+    if (musicStart.muted) {
+      musicStart.muted = false;
+      playMusic();
+    } else {
+      musicStart.muted = true;
+      pauseMusic();
+    }
   });
 }
 
@@ -23,6 +45,7 @@ if (playButton) {
       homeScreen.style.display = 'none';
       playerSelectionScreen.style.display = 'flex';
     }
+    musicStart.playMusic();
   });
 }
 
@@ -32,6 +55,7 @@ if (backButton) {
       playerSelectionScreen.style.display = 'none';
       homeScreen.style.display = 'flex';
     }
+    musicStart.playMusic();
   });
 }
 
@@ -141,6 +165,7 @@ if (gameStartButton) {
     if (playerSelectionScreen && ingameScreen) {
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';
+      musicStart.pauseMusic();
       // Ensure appropriate video plays when screen is shown
       const isMobile = window.innerWidth <= 768;
       const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
@@ -160,6 +185,7 @@ if (ingameHomeButton) {
     if (homeScreen && ingameScreen) {
       ingameScreen.style.display = 'none';
       homeScreen.style.display = 'flex';
+      musicStart.playMusic();
       // Pause both videos when leaving the screen
       if (ingameBackgroundVideo) {
         ingameBackgroundVideo.pause();
