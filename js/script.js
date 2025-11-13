@@ -9,6 +9,9 @@ const playButton = document.getElementById('play-button');
 const backButton = document.getElementById('back-button');
 const homeScreen = document.getElementById('home-screen');
 const playerSelectionScreen = document.getElementById('player-selection-screen');
+const infoButton = document.getElementById('info-button');
+const infoPopup = document.getElementById('info-popup');
+const closeInfo = document.getElementById('close-info');
 
 if (muteButton) {
   muteButton.addEventListener('click', function () {
@@ -31,6 +34,34 @@ if (backButton) {
     if (homeScreen && playerSelectionScreen) {
       playerSelectionScreen.style.display = 'none';
       homeScreen.style.display = 'flex';
+    }
+  });
+}
+
+if (infoButton && infoPopup && closeInfo) {
+  
+  infoButton.addEventListener('click', () => {
+    infoPopup.classList.remove('hidden');
+  });
+
+  
+  closeInfo.addEventListener('click', (e) => {
+    e.stopPropagation();
+    infoPopup.classList.add('hidden');
+  });
+
+  
+  const infoContent = document.querySelector('.info-content');
+  if (infoContent) {
+    infoContent.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  
+  infoPopup.addEventListener('click', (e) => {
+    if (e.target === infoPopup) {
+      infoPopup.classList.add('hidden');
     }
   });
 }
@@ -114,8 +145,10 @@ function renderList() {
   });
 }
 
-// === "Ingame" screen HTML elements ===
+// "Ingame" screen HTML elements
+
 const ingameScreen = document.getElementById('ingame-screen');
+const ingameBackButton = document.getElementById('back-button');
 const ingameHomeButton = document.getElementById('ingame-home-button');
 const sacrificeActionButton = document.getElementById('sacrifice-action');
 const ingameBackgroundVideo = document.getElementById('ingame-background-video');
@@ -123,18 +156,20 @@ const ingameBackgroundVideoMobile = document.getElementById('ingame-background-v
 const thorCharacter = document.getElementById('thor-character');
 const runesCircleContainer = document.getElementById('runesCircleContainer');
 
-
 let runeElements = [];
 
-
+// Preload Thor's mad form images to prevent jumpy transitions
 const preloadThorImages = () => {
+  const isMobile = window.innerWidth <= 768;
   const desktopMadImage = new Image();
   const mobileMadImage = new Image();
+  
   desktopMadImage.src = 'https://res.cloudinary.com/diycpogap/image/upload/v1762902368/thor-background-shouting_quv4zf.png';
   mobileMadImage.src = 'https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png';
 };
-preloadThorImages();
 
+// Preload images when the page loads
+preloadThorImages();
 
 if (gameStartButton) {
   gameStartButton.addEventListener('click', () => {
@@ -200,77 +235,49 @@ if (ingameHomeButton) {
   });
 }
 
-if (sacrificeActionButton) {
-  sacrificeActionButton.addEventListener('click', () => {
-    if (runeElements.length === 0) return; 
-
-    runeElements.forEach(r => {
-      r.classList.remove('chosen', 'dimmed');
-    });
-
-
-    runeElements.forEach(r => r.classList.remove('chosen', 'dimmed'));
-    const chosenNameEl = document.getElementById('chosenVikingName');
-    if (chosenNameEl) {
-      chosenNameEl.textContent = '';
-      chosenNameEl.classList.remove('visible');
-    }
-
-    const randomIndex = Math.floor(Math.random() * runeElements.length);
-    const chosenRune = runeElements[randomIndex];
-    const chosenName = chosenRune.dataset.vikingName;
-
-    setTimeout(() => {
-      runeElements.forEach((r, i) => {
-        if (i !== randomIndex) r.classList.add('dimmed');
-      });
-      chosenRune.classList.add('chosen');
-  
-      setTimeout(() => {
-        if (chosenNameEl) {
-          chosenNameEl.textContent = chosenName;
-          chosenNameEl.classList.add('visible');
+  if (ingameHomeButton) {
+    ingameHomeButton.addEventListener('click', function() {
+      const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás todo el progreso.');
+      if (confirmar) {
+        vikings = [];
+        availableRunes = [...runes];
+        renderList();
+        // Oculta la pantalla de juego y muestra el menú
+        if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
+        if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
+        if (ingameScreen && homeScreen) {
+          ingameScreen.style.display = 'none';
+          homeScreen.style.display = 'flex';
         }
-      }, 1300); 
-    }, 300);
-  });
-}
-
-
-    // Ensure appropriate video plays when screen is shown
-      const isMobile = window.innerWidth <= 768;
-      const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
-      if (videoToPlay) {
-        videoToPlay.play().catch(err => {
-          console.log('Video autoplay prevented:', err);
-        });
       }
-// Preload Thor images when entering ingame screen to avoid "jumpy" transition
-      preloadThorImages();
+    });
+  }
 
+  if (ingameBackButton) {
+    ingameBackButton.addEventListener('click', function() {
+      const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás a todos tus vikingos.');
+      if (confirmar) {
+        vikings = [];
+        availableRunes = [...runes];
+        renderList();
+        // Oculta la pantalla de juego y muestra el menú
+        if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
+        if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
+        if (ingameScreen && homeScreen) {
+          ingameScreen.style.display = 'none';
+          homeScreen.style.display = 'flex';
+        }
+      }
+    });
+  }
 
-if (ingameHomeButton) {
-  ingameHomeButton.addEventListener('click', () => {
-    if (homeScreen && ingameScreen) {
-      ingameScreen.style.display = 'none';
-      homeScreen.style.display = 'flex';
-  // Pause both videos when leaving the screen
-      if (ingameBackgroundVideo) {
-        ingameBackgroundVideo.pause();
-      }
-      if (ingameBackgroundVideoMobile) {
-        ingameBackgroundVideoMobile.pause();
-      }
-    }
-  });
-}
 
 if (sacrificeActionButton && thorCharacter) {
   sacrificeActionButton.addEventListener('click', () => {
- // Switch Thor to mad form
+    // Switch Thor to mad form
     thorCharacter.classList.add('thor-character-mad');
     
-// Return to relaxed form after 2 seconds
+    // Return to relaxed form after 2 seconds
     setTimeout(() => {
       thorCharacter.classList.remove('thor-character-mad');
     }, 2000);

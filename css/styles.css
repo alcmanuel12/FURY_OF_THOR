@@ -36,6 +36,28 @@ html, body {
     z-index: 1000;
 }
 
+.info-button {
+  position: fixed;
+  top: 3vh;
+  right: 2vw;
+  width: 75px;
+  height: 75px;
+  background-color: transparent;
+  background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762981474/lore-parchment_xmzlab.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  z-index: 900; 
+  transition: opacity 0.3s ease;
+}
+
+.info-button.hidden {
+  opacity: 0;
+  pointer-events: none; 
+}
+
 .mute-button.mute-icon {
     background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
 }
@@ -347,6 +369,7 @@ html, body {
 }
 
 #runesCircleContainer {
+<<<<<<< HEAD
   position: absolute;
   top: 38%;
   left: 50%;
@@ -418,6 +441,78 @@ html, body {
   opacity: 1;
 }
 
+=======
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    z-index: 8;
+    pointer-events: none;
+  }
+  
+  
+  #runesCircleContainer {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
+    filter: blur(6px);
+    transition:
+      opacity 1.2s ease-out,
+      transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 1.2s ease-out;
+  }
+  
+  #runesCircleContainer.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+  
+  .rune-item {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+  }
+  
+  
+  
+  .rune-item.chosen {
+    z-index: 20;
+    transform: scale(1.5) translate(-50%, -50%);
+    left: 50% !important;
+    top: 50% !important;
+  }
+  
+  .rune-item.dimmed {
+    opacity: 0.3;
+  }
+  
+  
+  .chosen-viking-name {
+    position: absolute;
+    top: 45%; 
+    left: 48%;
+    transform: translateX(-50%);
+    font-family: 'BoldPixels', sans-serif;
+    font-size: 35px;
+    color: #c5a746;
+    text-shadow: 3px 3px 8px #000;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    z-index: 25;
+  }
+  
+  .chosen-viking-name.visible {
+    opacity: 1;
+  }
+>>>>>>> origin/develop
 
 @media (max-width: 1050px) {
     #ingame-screen .back-button {
@@ -563,6 +658,19 @@ html, body {
         width: 60px;
         height: 60px;
     }
+
+    .info-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .close-info {
+        width: 45px;
+        height: 45px;
+        top: 15px;
+        right: 15px;
+    }
+      
 
     #player-selection-screen .input-wrapper input {
         font-size: 19px;
@@ -713,6 +821,18 @@ html, body {
     .mute-button {
         width: 50px;
         height: 50px;
+    }
+
+    .info-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .close-info {
+        width: 40px;
+        height: 40px;
+        top: 12px;
+        right: 12px;
     }
 
     .back-button {
@@ -1031,5 +1151,77 @@ html, body {
     }
 }
 
+.info-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: opacity 0.3s ease;
+}
 
+.info-popup.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 
+.info-content {
+  position: relative;
+  height: 70%;
+  aspect-ratio: 0.8 / 1;
+  background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/pergamino_uvllsi.png') no-repeat center;
+  background-size: contain;
+  color: #1a0d05;
+  font-family: 'BoldPixels', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  text-align: center;
+  padding: 6vh 4vw;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+.info-content h2 {
+  color: #3b1d09;
+  font-size: 5rem;
+  margin-top: 10vh;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 2px #f5d28c;
+  transform: translateX(10px);
+}
+
+.info-content p {
+  font-size: 32px;
+  color: #1a0d05;
+  line-height: 1.5;
+  width: 80%;
+  transform: translateX(15px);
+}
+
+.close-info {
+  position: fixed;
+  top: 10vh;
+  left: 49vw;
+  width: 70px;
+  height: 70px;
+  border: none;
+  background-color: transparent;
+  background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762984088/close-icon_fbqvui.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 3;
+}
+
+.close-info:hover {
+  transform: scale(1.1);
+}
