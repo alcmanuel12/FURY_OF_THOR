@@ -36,7 +36,6 @@ if (backButton) {
 }
 
 // "Add player" screen HMTL elements
-
 const input = document.getElementById('vikingName');
 const addBtn = document.getElementById('btn-add');
 const removeBtn = document.getElementById('btn-remove');
@@ -114,7 +113,7 @@ function renderList() {
   });
 }
 
-// === "Ingame" screen HTML elements ===
+// "Ingame" screen HTML elements
 const ingameScreen = document.getElementById('ingame-screen');
 const ingameHomeButton = document.getElementById('ingame-home-button');
 const sacrificeActionButton = document.getElementById('sacrifice-action');
@@ -123,9 +122,7 @@ const ingameBackgroundVideoMobile = document.getElementById('ingame-background-v
 const thorCharacter = document.getElementById('thor-character');
 const runesCircleContainer = document.getElementById('runesCircleContainer');
 
-
 let runeElements = [];
-
 
 const preloadThorImages = () => {
   const desktopMadImage = new Image();
@@ -235,7 +232,6 @@ if (sacrificeActionButton) {
     }, 300);
   });
 }
-
 
     // Ensure appropriate video plays when screen is shown
       const isMobile = window.innerWidth <= 768;
