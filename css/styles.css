@@ -957,10 +957,14 @@ html, body {
         left: 81vw;
     }
 }
+
+
 .bubble {
     position: relative;
-    display: inline-block;
+    display: flex;
     margin: 10px;
+    margin-right: 125vh;
+    margin-top: 40vh;
     text-align: center;
     font-size: 20px;
     font-family: 'BoldPixels', sans-serif;
