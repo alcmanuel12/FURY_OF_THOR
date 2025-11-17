@@ -214,14 +214,14 @@ body {
   }
   .info-content h2 {
     color: #3b1d09;
-    font-size: 5rem;
+    font-size: 3.5rem;
     margin-top: 10vh;
     margin-bottom: 20px;
     text-shadow: 0 2px 2px #f5d28c;
     transform: translateX(10px);
   }
   .info-content p {
-    font-size: 32px;
+    font-size: 24px;
     color: #1a0d05;
     line-height: 1.5;
     width: 80%;
