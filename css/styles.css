@@ -197,7 +197,7 @@ body {
    
   .info-content {
     position: relative;
-    height: 70%;
+    height: 80%;
     aspect-ratio: 0.8 / 1;
     background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/pergamino_uvllsi.png') no-repeat center;
     background-size: contain;
@@ -212,14 +212,16 @@ body {
     z-index: 2;
     border-radius: 10px;
   }
+
   .info-content h2 {
     color: #3b1d09;
     font-size: 3.5rem;
-    margin-top: 10vh;
-    margin-bottom: 20px;
+    margin-top: 13vh;
+    margin-bottom: 15px;
     text-shadow: 0 2px 2px #f5d28c;
     transform: translateX(10px);
   }
+
   .info-content p {
     font-size: 24px;
     color: #1a0d05;
@@ -227,10 +229,11 @@ body {
     width: 80%;
     transform: translateX(15px);
   }
+
   .close-info {
     position: fixed;
-    top: 10vh;
-    left: 49vw;
+    top: 90vh;
+    left: 48.5vw;
     width: 70px;
     height: 70px;
     border: none;
@@ -413,18 +416,18 @@ body {
 
 #ingame-screen .back-button {
     top: 3vh;
-    left: 92vw;
+    left: 89vw;
     position: fixed;
     z-index: 10;
 }
 
 #ingame-screen .sacrifice-action-btn {
     position: fixed;
-    bottom: 30px;
-    left: 50%;
+    bottom: 15px;
+    left: 50.2%;
     transform: translateX(-50%);
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
     border: none;
     background-color: transparent;
     background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png');
@@ -444,18 +447,13 @@ body {
     position: absolute;
     top: 38%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
     width: 500px;
     height: 500px;
     border-radius: 50%;
     z-index: 8;
     pointer-events: none;
-}
-
-
-#runesCircleContainer {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
     filter: blur(6px);
     transition:
         opacity 1.2s ease-out,
@@ -540,6 +538,7 @@ body {
         -2px -2px #000,
         2px 2px #000;
 }
+
 .bubble.shadow {
     box-shadow:
         0 -2px #fff,
@@ -558,30 +557,36 @@ body {
         6px 2px rgba(0, 0, 0, 0.25),
         4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .bubble.mini {
     width: 110px;
     font-size: 16px;
     padding: 4px;
     font-family: monospace;
 }
+
 .bubble.medium {
     width: 350px;
 }
+
 .bubble.large {
     width: 560px;
     font-size: 24px;
     text-align: left;
     text-transform: uppercase;
 }
+
 .bubble.grow {
     width: initial;
 }
+
 .bubble::after {
     content: '';
     display: block;
     position: absolute;
     box-sizing: border-box;
 }
+
 .bubble.top::after {
     height: 2px;
     width: 2px;
@@ -602,6 +607,7 @@ body {
         -4px 0 #fff,
         -6px 0 #fff;
 }
+
 .bubble.right::after {
     height: 2px;
     width: 2px;
@@ -622,6 +628,7 @@ body {
         2px -4px #000,
         0 -2px #fff;
 }
+
 .bubble.bottom::after {
     height: 2px;
     width: 2px;
@@ -642,6 +649,7 @@ body {
         -4px 0 #fff,
         -6px 0 #fff;
 }
+
 .bubble.left::after {
     height: 2px;
     width: 2px;
@@ -664,90 +672,77 @@ body {
 }
 
 
-@media (max-width: 1050px) {
-    #ingame-screen .back-button {
-        left: 91vw;
-    }
-}
-
-@media (max-width: 900px) {
-    #ingame-screen .back-button {
-        left: 90vw;
-    }
-}
-
-@media (max-width: 850px) {
-    .wooden-board {
-        width: 90vw;
-    }
-
+@media (max-height: 900px) {
     .game-title {
-        -webkit-text-stroke: 4.25px #381C0E;
+        font-size: clamp(6rem, 12vw, 5rem);
+        -webkit-text-stroke: 4.5px #381C0E;
+        line-height: 8vh;
         word-spacing: -25px;
-
     }
 
-    .back-button {
-        top: 88vh;
+    .info-content {
+        height: 80%;
+        aspect-ratio: 0.8 / 1;
+      }
+
+    .info-content h2 {
+        font-size: 2.5rem;
+        margin-top: 12vh;
     }
 
-    .game-start-button {
-        top: 88vh;
+    .info-content p {
+        font-size: 19px;
     }
 
-    #player-selection-screen .add-board {
-        height: 34vh;
-    }
-
-    #player-selection-screen .container {
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 20px;
-        padding: 80px 20px 120px;
-        margin-top: 40px;
-    }
-
-    #player-selection-screen .vikings-list {
-        margin-top: 40px;
-        width: 90%;
+    .close-info {
+        top: 90vh;
+        width: 60px;
+        height: 60px;
     }
 
     #player-selection-screen .add-board {
-        width: 45vh;
-        padding: 50px 40px;
-    }
-
-    #player-selection-screen .input-wrapper input {
-        font-size: 20px;
+        padding: 40px;
     }
 
     #player-selection-screen .board-header {
-        font-size: 24px;
-    }
-
-    #player-selection-screen .viking-item {
-        gap: 10px;
-        font-size: 34px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 42px;
-        height: 42px;
-    }
-
-    #player-selection-screen .action-btn {
-        width: 58px;
-        height: 58px;
-    }
-
-    #ingame-screen .back-button {
-        left: 88vw;
+        font-size: 18px;
+        padding: 10px;
+        color: #ffe6b3;
+        letter-spacing: 1px;
+        font-family: 'BoldPixels', sans-serif;
     }
 
     #ingame-screen .sacrifice-action-btn {
-        width: 72px;
-        height: 72px;
+        bottom: 7.5px;
+        left: 50.2%;
+        width: 75px;
+        height: 75px;
     }
+
+    #ingame-screen .back-button {
+        left: 87vw;
+        width: 75px;
+        height: 75px;
+    }
+
+    #runesCircleContainer {
+        position: absolute;
+        top: 38%;
+        left: 58%;
+        transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        z-index: 8;
+        pointer-events: none;
+        opacity: 0;
+        filter: blur(6px);
+        transition:
+            opacity 1.2s ease-out,
+            transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+            filter 1.2s ease-out;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -867,441 +862,5 @@ body {
     #ingame-screen .sacrifice-action-btn {
         width: 70px;
         height: 70px;
-    }
-}
-
-@media (max-width: 700px) {
-    .game-title {
-        line-height: 5.5vh;
-    }
-
-    .back-button {
-        left: 54vw;
-        top: 88vh;
-    }
-
-    .game-start-button {
-        left: 36vw;
-        top: 88vh;
-    }
-
-    #player-selection-screen .add-board {
-        height: 32vh;
-    }
-
-    #player-selection-screen .container {
-        margin-top: 20px;
-    }
-
-    #player-selection-screen .vikings-list {
-        margin-top: 20px;
-
-    }
-
-    #player-selection-screen .input-wrapper input {
-        font-size: 18px;
-    }
-
-    #player-selection-screen .board-header {
-        font-size: 20px;
-    }
-
-    #player-selection-screen .viking-item {
-        font-size: 30px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 38px;
-        height: 38px;
-    }
-
-    #player-selection-screen .action-btn {
-        width: 54px;
-        height: 54px;
-    }
-
-    #ingame-screen .back-button {
-        left: 87vw;
-    }
-
-    #ingame-screen .sacrifice-action-btn {
-        width: 68px;
-        height: 68px;
-    }
-}
-
-@media (max-width: 625px) {
-    .game-title {
-        -webkit-text-stroke: 3.5px #381C0E;
-        line-height: 5vh;
-    }
-
-    .back-button {
-        left: 54vw;
-        width: 68px;
-        height: 68px;
-    }
-
-    .game-start-button {
-        left: 36vw;
-        width: 68px;
-        height: 68px;
-    }
-
-    #player-selection-screen .input-wrapper input {
-        font-size: 18px;
-    }
-
-    #player-selection-screen .board-header {
-        font-size: 20px;
-    }
-
-    #player-selection-screen .viking-item {
-        font-size: 30px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 38px;
-        height: 38px;
-    }
-
-    #player-selection-screen .action-btn {
-        width: 52px;
-        height: 52px;
-    }
-
-    #ingame-screen .back-button {
-        left: 86vw;
-    }
-}
-
-@media (max-width: 550px) {
-    .wooden-board {
-        width: 95vw;
-    }
-
-    .game-title {
-        -webkit-text-stroke: 3px #381C0E;
-        line-height: 4.5vh;
-    }
-
-    .mute-button {
-        width: 50px;
-        height: 50px;
-    }
-
-    .back-button {
-        left: 54vw;
-        width: 64px;
-        height: 64px;
-    }
-
-    .game-start-button {
-        left: 36vw;
-        width: 64px;
-        height: 64px;
-    }
-
-    #player-selection-screen .add-board {
-        width: 40vh;
-        padding: 50px 40px;
-    }
-
-    #player-selection-screen .input-wrapper input {
-        font-size: 16px;
-    }
-
-    #player-selection-screen .board-header {
-        font-size: 18px;
-    }
-
-    #player-selection-screen .viking-item {
-        font-size: 28px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 35px;
-        height: 35px;
-    }
-
-    #player-selection-screen .action-btn {
-        width: 50px;
-        height: 50px;
-    }
-
-    #ingame-screen .back-button {
-        left: 86vw;
-        width: 50px;
-        height: 50px;
-    }
-}
-
-@media (max-width: 500px) {
-    .wooden-board {
-        width: 100vw;
-    }
-
-    .game-title {
-        line-height: 4.5vh;
-    }
-
-    .back-button {
-        left: 56vw;
-        width: 60px;
-        height: 60px;
-    }
-
-    .game-start-button {
-        left: 34vw;
-        width: 60px;
-        height: 60px;
-    }
-
-    #player-selection-screen .viking-item {
-        font-size: 26px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 32px;
-        height: 32px;
-    }
-
-    #player-selection-screen .action-btn {
-        width: 48px;
-        height: 48px;
-    }
-
-}
-
-@media (max-width: 450px) {
-    .wooden-board {
-        width: 100vw;
-    }
-
-    .game-title {
-        line-height: 4vh;
-        font-size: clamp(3.75rem, 12vw, 5rem);
-        word-spacing: -20px;
-    }
-
-    .play-button {
-        width: 80px;
-        height: 80px;
-    }
-
-    .back-button {
-        left: 58vw;
-        width: 58px;
-        height: 58px;
-    }
-
-    .game-start-button {
-        left: 32vw;
-        width: 58px;
-        height: 58px;
-    }
-
-
-    #player-selection-screen .viking-item {
-        font-size: 22px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 32px;
-        height: 32px;
-    }
-
-    #player-selection-screen .action-btn {
-        width: 46px;
-        height: 46px;
-    }
-
-    #ingame-screen .back-button {
-        left: 85vw;
-    }
-}
-
-@media (max-width: 400px) {
-    .wooden-board {
-        width: 100vw;
-    }
-
-    .game-title {
-        line-height: 4vh;
-        font-size: clamp(3.5rem, 4vw, 5rem);
-        word-spacing: -20px;
-    }
-
-    .play-button {
-        width: 80px;
-        height: 80px;
-    }
-
-    .back-button {
-        left: 60vw;
-        width: 56px;
-        height: 56px;
-    }
-
-    .game-start-button {
-        left: 30vw;
-        width: 56px;
-        height: 56px;
-    }
-
-    #player-selection-screen .add-board {
-        width: 38vh;
-    }
-
-    #player-selection-screen .viking-item {
-        font-size: 20px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 30px;
-        height: 30px;
-    }
-
-    #ingame-screen .back-button {
-        left: 84vw;
-    }
-}
-
-@media (max-width: 375px) {
-    .wooden-board {
-        width: 110vw;
-    }
-
-    .game-title {
-        line-height: 4vh;
-        font-size: clamp(3.25rem, 4vw, 5rem);
-        word-spacing: -10px;
-        -webkit-text-stroke: 2.5px #381C0E;
-
-    }
-
-    .back-button {
-        left: 62vw;
-        width: 54px;
-        height: 54px;
-    }
-
-    .game-start-button {
-        left: 28vw;
-        width: 54px;
-        height: 54px;
-    }
-
-    #player-selection-screen .board-header {
-        font-size: 16px;
-    }
-
-    #player-selection-screen .add-board {
-        width: 36vh;
-    }
-
-    #player-selection-screen .viking-item {
-        font-size: 18px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 26px;
-        height: 26px;
-        gap: 0px;
-    }
-
-    #ingame-screen .back-button {
-        left: 83vw;
-    }
-}
-
-@media (max-width: 325px) {
-    .wooden-board {
-        width: 110vw;
-    }
-
-    .game-title {
-        line-height: 3.5vh;
-        font-size: clamp(3rem, 4vw, 5rem);
-        -webkit-text-stroke: 2.5px #381C0E;
-    }
-
-    .back-button {
-        left: 64vw;
-        width: 50px;
-        height: 50px;
-    }
-
-    .game-start-button {
-        left: 26vw;
-        width: 50px;
-        height: 50px;
-    }
-
-    #player-selection-screen .board-header {
-        font-size: 14px;
-    }
-
-    #player-selection-screen .add-board {
-        width: 34vh;
-    }
-
-    #player-selection-screen .viking-item {
-        font-size: 18px;
-        gap: 3px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 26px;
-        height: 26px;
-    }
-
-    #ingame-screen .back-button {
-        left: 82vw;
-    }
-}
-
-@media (max-width: 300px) {
-    .wooden-board {
-        width: 120vw;
-    }
-
-    .game-title {
-        line-height: 3.5vh;
-        font-size: clamp(3rem, 4vw, 5rem);
-    }
-
-    .back-button {
-        left: 64vw;
-        width: 50px;
-        height: 50px;
-    }
-
-    .game-start-button {
-        left: 24vw;
-        width: 50px;
-        height: 50px;
-    }
-
-    #player-selection-screen .board-header {
-        font-size: 14px;
-    }
-
-    #player-selection-screen .add-board {
-        width: 32vh;
-    }
-
-    #player-selection-screen .viking-item {
-        font-size: 18px;
-        gap: 1px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 26px;
-        height: 26px;
-    }
-
-    #ingame-screen .back-button {
-        left: 81vw;
     }
 }

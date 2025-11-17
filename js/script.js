@@ -93,6 +93,11 @@ if (addBtn && input) {
   const addViking = () => {
     const name = input.value.trim();
     if (name !== '') {
+      // Check if we've reached the maximum number of vikings (one per rune)
+      if (vikings.length >= runes.length) {
+        alert("No more players allowed!");
+        return;
+      }
       vikings.push(name);
       renderList();
       input.value = '';
@@ -152,9 +157,6 @@ function renderList() {
       // Inser the image of the rune and it's ID on the alt
       div.innerHTML = `<img src="${chosenRune.url}" alt="runa-${chosenRune.id}"><span>${name}</span>`;
       list.appendChild(div);
-    } else {
-      // If no more runes are available, show alert
-      alert("No more players allowed!")
     }
   });
 }
@@ -200,12 +202,24 @@ if (gameStartButton) {
         const total = vikings.length;
         if (total === 0) return;
 
+        // Calculate scale factor based on window size
+        let scale = 1.0;
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        
+        if (windowHeight <= 900 && windowWidth > 768) {
+          scale = 0.75; // 60% of original size
+        } else if (windowWidth <= 768) {
+          scale = 0.5; // Even smaller for mobile
+        }
 
-        const minRadius = 150; 
-        const maxRadius = 260; 
-        const radius = Math.min(maxRadius, minRadius + total * 6); 
-        const centerX = 250;
-        const centerY = 250;
+        const minRadius = 150 * scale; 
+        const maxRadius = 260 * scale; 
+        const radius = Math.min(maxRadius, minRadius + total * 6 * scale); 
+        const centerX = 250; // Keep center at container center
+        const centerY = 250; // Keep center at container center
+        const runeSize = 90 * scale;
+        const runeOffset = runeSize / 2;
 
         vikings.forEach((name, index) => {
           const angle = (index * (2 * Math.PI)) / total - Math.PI / 2;
@@ -216,8 +230,10 @@ if (gameStartButton) {
           const runeDiv = document.createElement('div');
           runeDiv.classList.add('rune-item');
           runeDiv.style.backgroundImage = `url(${rune.url})`;
-          runeDiv.style.left = `${x - 45}px`;
-          runeDiv.style.top = `${y - 45}px`;
+          runeDiv.style.width = `${runeSize}px`;
+          runeDiv.style.height = `${runeSize}px`;
+          runeDiv.style.left = `${x - runeOffset}px`;
+          runeDiv.style.top = `${y - runeOffset}px`;
 
 
            runeDiv.dataset.vikingName = name;
