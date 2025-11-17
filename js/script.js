@@ -39,11 +39,20 @@ if (playButton) {
 
 if (backButton) {
   backButton.addEventListener('click', function () {
-    if (homeScreen && playerSelectionScreen) {
-      playerSelectionScreen.style.display = 'none';
-      homeScreen.style.display = 'flex';
-      // Forest sound continues playing on home screen
-      soundManager.play('forest');
+    const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás a todos tus vikingos.');
+    
+    if (confirmar) {
+      vikings = [];
+      availableRunes = [...runes];
+      renderList();
+      
+      // Oculta la pantalla de selección y muestra el menú
+      if (homeScreen && playerSelectionScreen) {
+        playerSelectionScreen.style.display = 'none';
+        homeScreen.style.display = 'flex';
+        // Forest sound continues playing on home screen
+        soundManager.play('forest');
+      }
     }
   });
 }
@@ -227,14 +236,24 @@ if (gameStartButton) {
 }
 
 if (ingameHomeButton) {
-  ingameHomeButton.addEventListener('click', () => {
-    if (homeScreen && ingameScreen) {
-      ingameScreen.style.display = 'none';
-      homeScreen.style.display = 'flex';
+  ingameHomeButton.addEventListener('click', function() {
+    const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás todo el progreso.');
+    
+    if (confirmar) {
+      vikings = [];
+      availableRunes = [...runes];
+      renderList();
+      
+      // Oculta la pantalla de juego y muestra el menú
       if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
       if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
-      // Resume forest sound when returning to home screen
-      soundManager.play('forest');
+      
+      if (ingameScreen && homeScreen) {
+        ingameScreen.style.display = 'none';
+        homeScreen.style.display = 'flex';
+        // Resume forest sound when returning to home screen
+        soundManager.play('forest');
+      }
     }
   });
 }
