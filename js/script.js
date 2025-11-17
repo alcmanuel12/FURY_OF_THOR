@@ -1,7 +1,12 @@
 import { runes, brokenRunes } from './runes.js';
+import { soundManager } from './soundManager.js';
+
 let vikings = [];
 // Copy of runes array to track available runes
 let availableRunes = [...runes];
+
+// Register the forest sound
+soundManager.registerSound('forest', 'https://res.cloudinary.com/din119ww9/video/upload/v1763026026/sonido-bosque_h3l0u8.mp3', true);
 
 // "Home" screen HMTL elements
 const muteButton = document.getElementById('mute-button');
@@ -15,6 +20,7 @@ const closeInfo = document.getElementById('close-info');
 
 if (muteButton) {
   muteButton.addEventListener('click', function () {
+    const isMuted = soundManager.toggleMute();
     this.classList.toggle('mute-icon');
     this.classList.toggle('sound-icon');
   });
@@ -25,6 +31,8 @@ if (playButton) {
     if (homeScreen && playerSelectionScreen) {
       homeScreen.style.display = 'none';
       playerSelectionScreen.style.display = 'flex';
+      // Forest sound continues playing on player selection screen
+      soundManager.play('forest');
     }
   });
 }
@@ -34,6 +42,8 @@ if (backButton) {
     if (homeScreen && playerSelectionScreen) {
       playerSelectionScreen.style.display = 'none';
       homeScreen.style.display = 'flex';
+      // Forest sound continues playing on home screen
+      soundManager.play('forest');
     }
   });
 }
@@ -166,6 +176,9 @@ if (gameStartButton) {
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';
 
+      // Stop forest sound when entering ingame screen
+      soundManager.stop('forest');
+
       const isMobile = window.innerWidth <= 768;
       const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
       if (videoToPlay) videoToPlay.play().catch(() => {});
@@ -220,6 +233,8 @@ if (ingameHomeButton) {
       homeScreen.style.display = 'flex';
       if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
       if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
+      // Resume forest sound when returning to home screen
+      soundManager.play('forest');
     }
   });
 }
@@ -271,23 +286,6 @@ if (sacrificeActionButton) {
 // Preload Thor images when entering ingame screen to avoid "jumpy" transition
       preloadThorImages();
 
-
-if (ingameHomeButton) {
-  ingameHomeButton.addEventListener('click', () => {
-    if (homeScreen && ingameScreen) {
-      ingameScreen.style.display = 'none';
-      homeScreen.style.display = 'flex';
-  // Pause both videos when leaving the screen
-      if (ingameBackgroundVideo) {
-        ingameBackgroundVideo.pause();
-      }
-      if (ingameBackgroundVideoMobile) {
-        ingameBackgroundVideoMobile.pause();
-      }
-    }
-  });
-}
-
 if (sacrificeActionButton && thorCharacter) {
   sacrificeActionButton.addEventListener('click', () => {
  // Switch Thor to mad form
@@ -298,4 +296,15 @@ if (sacrificeActionButton && thorCharacter) {
       thorCharacter.classList.remove('thor-character-mad');
     }, 2000);
   });
+}
+
+// Start forest sound on page load (home screen)
+// Wait for DOM to be ready and then start the sound
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    soundManager.play('forest');
+  });
+} else {
+  // DOM is already ready
+  soundManager.play('forest');
 }
