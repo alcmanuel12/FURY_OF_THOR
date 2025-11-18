@@ -88,6 +88,17 @@ const removeBtn = document.getElementById('btn-remove');
 const gameStartButton = document.getElementById('game-start-button');
 const list = document.getElementById('vikingsList');
 
+if (input) {
+  input.addEventListener("input", () => {
+    
+    input.value = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ ]/g, "");
+    
+    if (input.value.length > 15) {
+      input.value = input.value.slice(0, 15);
+    }
+  });
+}
+
 
 if (addBtn && input) {
   const addViking = () => {
@@ -181,8 +192,17 @@ const preloadThorImages = () => {
 preloadThorImages();
 
 
-if (gameStartButton) {
+
+  if (gameStartButton) {
   gameStartButton.addEventListener('click', () => {
+
+    
+    if (vikings.length === 0) {
+      alert("You must add at least ONE Viking, warrior!");
+      return; 
+    }
+
+    
     if (playerSelectionScreen && ingameScreen) {
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';

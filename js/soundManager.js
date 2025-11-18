@@ -9,7 +9,7 @@ class SoundManager {
 
   // Register a new sound
   // type: 'background' (pauses/resumes on mute) or 'effect' (stops on mute, doesn't resume)
-  registerSound(name, url, loop = false, type = 'background', volume = 0.1) {
+  registerSound(name, url, loop = false, type = 'background', volume = 0.5) {
     const audio = new Audio(url);
     audio.loop = loop;
     audio.volume = volume;
