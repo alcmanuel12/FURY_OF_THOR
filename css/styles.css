@@ -513,7 +513,7 @@ button:hover,
 .rune-item.chosen {
     z-index: 20;
     transform: scale(1.5) translate(-50%, -50%);
-    left: 50% !important;
+    left: 55% !important;
     top: 50% !important;
 }
 
@@ -525,7 +525,7 @@ button:hover,
 .chosen-viking-name {
     position: absolute;
     top: 45%;
-    left: 48%;
+    left: 50%;
     transform: translateX(-50%);
     font-family: 'BoldPixels', sans-serif;
     font-size: 35px;
@@ -758,21 +758,16 @@ button:hover,
     }
 
     #runesCircleContainer {
-        position: absolute;
         top: 38%;
-        left: 58%;
-        transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
-        width: 500px;
-        height: 500px;
-        border-radius: 50%;
-        z-index: 8;
-        pointer-events: none;
-        opacity: 0;
-        filter: blur(6px);
-        transition:
-            opacity 1.2s ease-out,
-            transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-            filter 1.2s ease-out;
+        left: 50%;
+    }
+
+    .rune-item.chosen {
+        left: 54% !important;
+    }
+
+    .chosen-viking-name {
+        left: 50%;
     }
 
 }
