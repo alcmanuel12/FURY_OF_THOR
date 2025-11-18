@@ -2,13 +2,13 @@ import { runes, brokenRunes } from './runes.js';
 import { soundManager } from './soundManager.js';
 
 let vikings = [];
-// Copy of runes array to track available runes
+
 let availableRunes = [...runes];
 
-// Register the forest sound
+
 soundManager.registerSound('forest', 'https://res.cloudinary.com/din119ww9/video/upload/v1763026026/sonido-bosque_h3l0u8.mp3', true);
 
-// "Home" screen HMTL elements
+
 const muteButton = document.getElementById('mute-button');
 const playButton = document.getElementById('play-button');
 const backButton = document.getElementById('back-button');
@@ -31,7 +31,7 @@ if (playButton) {
     if (homeScreen && playerSelectionScreen) {
       homeScreen.style.display = 'none';
       playerSelectionScreen.style.display = 'flex';
-      // Forest sound continues playing on player selection screen
+      
       soundManager.play('forest');
     }
   });
@@ -46,11 +46,11 @@ if (backButton) {
       availableRunes = [...runes];
       renderList();
       
-      // Oculta la pantalla de selección y muestra el menú
+      
       if (homeScreen && playerSelectionScreen) {
         playerSelectionScreen.style.display = 'none';
         homeScreen.style.display = 'flex';
-        // Forest sound continues playing on home screen
+        
         soundManager.play('forest');
       }
     }
@@ -81,7 +81,7 @@ if (infoButton && infoPopup && closeInfo) {
   });
 }
 
-// "Add player" screen HMTL elements
+
 const input = document.getElementById('vikingName');
 const addBtn = document.getElementById('btn-add');
 const removeBtn = document.getElementById('btn-remove');
@@ -104,7 +104,7 @@ if (addBtn && input) {
   const addViking = () => {
     const name = input.value.trim();
     if (name !== '') {
-      // Check if we've reached the maximum number of vikings (one per rune)
+      
       if (vikings.length >= runes.length) {
         alert("No more players allowed!");
         return;
@@ -129,17 +129,17 @@ if (removeBtn && input) {
     const name = input.value.trim();
 
     if (name !== '') {
-      // Find the index using case-insensitive comparison
+      
       const index = vikings.findIndex(v => v.toLowerCase() === name.toLowerCase());
       if (index !== -1) {
-        // Remove the specific name from the list
+        
         vikings.splice(index, 1);
       } else {
-        // If name doesn't match, remove the last item
+        
         vikings.pop();
       }
     } else {
-      // If input is empty, remove the last item
+      
       vikings.pop();
     }
 
@@ -151,7 +151,7 @@ if (removeBtn && input) {
 function renderList() {
   if (!list) return;
 
-  // Reload list if have to re-render
+  
   availableRunes = [...runes];
 
   list.innerHTML = '';
@@ -160,19 +160,19 @@ function renderList() {
     div.classList.add('viking-item');
 
     if (availableRunes.length > 0) {
-      // Choose a random image from the rune list
+      
       const randomIndex = Math.floor(Math.random() * availableRunes.length);
       const chosenRune = availableRunes[randomIndex];
-      // Remove that rune from the list so that it doesn't appear again
+      
       availableRunes.splice(randomIndex, 1);
-      // Inser the image of the rune and it's ID on the alt
+      
       div.innerHTML = `<img src="${chosenRune.url}" alt="runa-${chosenRune.id}"><span>${name}</span>`;
       list.appendChild(div);
     }
   });
 }
 
-// "Ingame" screen HTML elements
+
 const ingameScreen = document.getElementById('ingame-screen');
 const ingameHomeButton = document.getElementById('ingame-home-button');
 const sacrificeActionButton = document.getElementById('sacrifice-action');
@@ -207,7 +207,7 @@ preloadThorImages();
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';
 
-      // Stop forest sound when entering ingame screen
+      
       soundManager.stop('forest');
 
       const isMobile = window.innerWidth <= 768;
@@ -222,22 +222,22 @@ preloadThorImages();
         const total = vikings.length;
         if (total === 0) return;
 
-        // Calculate scale factor based on window size
+        
         let scale = 1.0;
         const windowHeight = window.innerHeight;
         const windowWidth = window.innerWidth;
         
         if (windowHeight <= 900 && windowWidth > 768) {
-          scale = 0.75; // 60% of original size
+          scale = 0.75; 
         } else if (windowWidth <= 768) {
-          scale = 0.5; // Even smaller for mobile
+          scale = 0.5; 
         }
 
         const minRadius = 150 * scale; 
         const maxRadius = 260 * scale; 
         const radius = Math.min(maxRadius, minRadius + total * 6 * scale); 
-        const centerX = 250; // Keep center at container center
-        const centerY = 250; // Keep center at container center
+        const centerX = 250; 
+        const centerY = 250; 
         const runeSize = 90 * scale;
         const runeOffset = runeSize / 2;
 
@@ -256,7 +256,7 @@ preloadThorImages();
           runeDiv.style.top = `${y - runeOffset}px`;
 
 
-           runeDiv.dataset.vikingName = name;
+          runeDiv.dataset.vikingName = name;
 
           runesCircleContainer.appendChild(runeDiv);
           runeElements.push(runeDiv);
@@ -280,14 +280,14 @@ if (ingameHomeButton) {
       availableRunes = [...runes];
       renderList();
       
-      // Oculta la pantalla de juego y muestra el menú
+      
       if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
       if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
       
       if (ingameScreen && homeScreen) {
         ingameScreen.style.display = 'none';
         homeScreen.style.display = 'flex';
-        // Resume forest sound when returning to home screen
+        
         soundManager.play('forest');
       }
     }
@@ -330,7 +330,7 @@ if (sacrificeActionButton) {
   });
 }
 
-    // Ensure appropriate video plays when screen is shown
+    
       const isMobile = window.innerWidth <= 768;
       const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
       if (videoToPlay) {
@@ -338,28 +338,26 @@ if (sacrificeActionButton) {
           console.log('Video autoplay prevented:', err);
         });
       }
-// Preload Thor images when entering ingame screen to avoid "jumpy" transition
+
       preloadThorImages();
 
 if (sacrificeActionButton && thorCharacter) {
   sacrificeActionButton.addEventListener('click', () => {
- // Switch Thor to mad form
+
     thorCharacter.classList.add('thor-character-mad');
     
-// Return to relaxed form after 2 seconds
+
     setTimeout(() => {
       thorCharacter.classList.remove('thor-character-mad');
     }, 2000);
   });
 }
 
-// Start forest sound on page load (home screen)
-// Wait for DOM to be ready and then start the sound
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     soundManager.play('forest');
   });
 } else {
-  // DOM is already ready
   soundManager.play('forest');
 }
