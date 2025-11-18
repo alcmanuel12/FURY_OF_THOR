@@ -8,7 +8,8 @@ let availableRunes = [...runes];
 // Register the forest sound
 soundManager.registerSound('forest', 'https://res.cloudinary.com/din119ww9/video/upload/v1763026026/sonido-bosque_h3l0u8.mp3', true);
 soundManager.registerSound('ingame', 'https://res.cloudinary.com/din119ww9/video/upload/v1763454899/ytmp3free.cc_hausbrjotr-skullcrusher-youtubemp3free.org_ljh9jh.mp3', true)
-
+soundManager.registerSound('thunder', 'https://res.cloudinary.com/din119ww9/video/upload/v1763458555/thunder-25689_1_f6vf8f.mp3');
+soundManager.registerSound('screaming-thor', 'https://res.cloudinary.com/din119ww9/video/upload/v1763459080/epic-war-combat-scream-352707_ujbx7v.mp3');
 // "Home" screen HMTL elements
 const muteButton = document.getElementById('mute-button');
 const playButton = document.getElementById('play-button');
@@ -313,9 +314,10 @@ if (ingameHomeButton) {
 if (sacrificeActionButton) {
   sacrificeActionButton.addEventListener('click', () => {
     if (runeElements.length === 0) return; 
-
+    soundManager.play('screaming-thor');
     runeElements.forEach(r => {
       r.classList.remove('chosen', 'dimmed');
+      soundManager.play('thunder');
     });
 
 
