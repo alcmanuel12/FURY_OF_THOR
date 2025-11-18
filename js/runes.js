@@ -35,4 +35,3 @@ export const brokenRunes = [
     { id: 15, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728520/D_spkbzd.png" },
     { id: 16, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1763028411/runa_roto_II_t4mnpp.png"}
 ]
-
