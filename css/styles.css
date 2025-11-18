@@ -59,6 +59,7 @@ body {
     pointer-events: none;
 }
 
+
 .mute-button.mute-icon {
     background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
 }
@@ -176,6 +177,79 @@ body {
     background-repeat: no-repeat;
 }
 
+.info-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.3s ease;
+  }
+  .info-popup.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+   
+  .info-content {
+    position: relative;
+    height: 80%;
+    aspect-ratio: 0.8 / 1;
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/pergamino_uvllsi.png') no-repeat center;
+    background-size: contain;
+    color: #1a0d05;
+    font-family: 'BoldPixels', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 6vh 4vw;
+    z-index: 2;
+    border-radius: 10px;
+  }
+
+  .info-content h2 {
+    color: #3b1d09;
+    font-size: 3.5rem;
+    margin-top: 13vh;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 2px #f5d28c;
+    transform: translateX(10px);
+  }
+
+  .info-content p {
+    font-size: 24px;
+    color: #1a0d05;
+    line-height: 1.5;
+    width: 80%;
+    transform: translateX(15px);
+  }
+
+  .close-info {
+    position: fixed;
+    top: 90vh;
+    left: 48.5vw;
+    width: 70px;
+    height: 70px;
+    border: none;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762984088/close-icon_fbqvui.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 3;
+  }
+  .close-info:hover {
+    transform: scale(1.1);
+  }
+
 #player-selection-screen {
     padding-top: 0;
     justify-content: flex-start;
@@ -206,13 +280,11 @@ body {
 #player-selection-screen .board-header {
     background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762416014/teminalSuperior_osdhny.png') center/contain no-repeat;
     text-align: center;
-    font-size: 30px;
+    font-size: 24px;
     padding: 20px;
     color: #ffe6b3;
     letter-spacing: 1px;
     font-family: 'BoldPixels', sans-serif;
-    margin-top: -25px;
-
 }
 
 #player-selection-screen .board-body {
@@ -344,18 +416,18 @@ body {
 
 #ingame-screen .back-button {
     top: 3vh;
-    left: 92vw;
+    left: 89vw;
     position: fixed;
     z-index: 10;
 }
 
 #ingame-screen .sacrifice-action-btn {
     position: fixed;
-    bottom: 30px;
-    left: 50%;
+    bottom: 15px;
+    left: 50.2%;
     transform: translateX(-50%);
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
     border: none;
     background-color: transparent;
     background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png');
@@ -375,18 +447,13 @@ body {
     position: absolute;
     top: 38%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 470px;
-    height: 470px;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
     z-index: 8;
     pointer-events: none;
-}
-
-
-#runesCircleContainer {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
     filter: blur(6px);
     transition:
         opacity 1.2s ease-out,
@@ -402,16 +469,14 @@ body {
 
 .rune-item {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     transition: transform 0.3s ease;
 }
-
-
 
 .rune-item.chosen {
     z-index: 20;
@@ -443,80 +508,242 @@ body {
     opacity: 1;
 }
 
-@media (max-width: 1050px) {
-    #ingame-screen .back-button {
-        left: 91vw;
-    }
+.bubble {
+    position: relative;
+    display: flex;
+    margin: 10px;
+    margin-right: 125vh;
+    margin-top: 40vh;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'BoldPixels', sans-serif;
+    line-height: 1.3em;
+    letter-spacing: -0.02em;
+    background-color: #fff;
+    color: #000;
+    padding: 6px;
+    box-sizing: border-box;
+    width: 200px;
+    box-shadow:
+        0 -2px #fff,
+        0 -4px #000,
+        2px 0 #fff,
+        2px -2px #000,
+        4px 0 #000,
+        0 2px #fff,
+        0 4px #000,
+        -2px 0 #fff,
+        -2px 2px #000,
+        -4px 0 #000,
+        -2px -2px #000,
+        2px 2px #000;
 }
 
+.bubble.shadow {
+    box-shadow:
+        0 -2px #fff,
+        0 -4px #000,
+        2px 0 #fff,
+        2px -2px #000,
+        4px 0 #000,
+        0 2px #fff,
+        0 4px #000,
+        -2px 0 #fff,
+        -2px 2px #000,
+        -4px 0 #000,
+        -2px -2px #000,
+        2px 2px #000,
+        2px 6px rgba(0, 0, 0, 0.25),
+        6px 2px rgba(0, 0, 0, 0.25),
+        4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bubble.mini {
+    width: 110px;
+    font-size: 16px;
+    padding: 4px;
+    font-family: monospace;
+}
+
+.bubble.medium {
+    width: 350px;
+}
+
+.bubble.large {
+    width: 560px;
+    font-size: 24px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.bubble.grow {
+    width: initial;
+}
+
+.bubble::after {
+    content: '';
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.bubble.top::after {
+    height: 2px;
+    width: 2px;
+    top: -4px;
+    left: 16px;
+    box-shadow:
+        0 -2px #000,
+        0 -4px #000,
+        0 -6px #000,
+        0 -8px #000,
+        -2px -6px #000,
+        -4px -4px #000,
+        -6px -2px #000,
+        -2px -2px #fff,
+        -4px -2px #fff,
+        -2px -4px #fff,
+        -2px 0 #fff,
+        -4px 0 #fff,
+        -6px 0 #fff;
+}
+
+.bubble.right::after {
+    height: 2px;
+    width: 2px;
+    top: 42px;
+    right: -4px;
+    background: white;
+    box-shadow:
+        2px -2px #fff,
+        2px 0 #fff,
+        4px 0 #fff,
+        0 -4px #fff,
+        2px 2px #000,
+        4px 2px #000,
+        6px 2px #000,
+        8px 2px #000,
+        6px 0 #000,
+        4px -2px #000,
+        2px -4px #000,
+        0 -2px #fff;
+}
+
+.bubble.bottom::after {
+    height: 2px;
+    width: 2px;
+    bottom: -4px;
+    left: 16px;
+    box-shadow:
+        0 2px #000,
+        0 4px #000,
+        0 6px #000,
+        0 8px #000,
+        -2px 6px #000,
+        -4px 4px #000,
+        -6px 2px #000,
+        -2px 2px #fff,
+        -4px 2px #fff,
+        -2px 4px #fff,
+        -2px 0 #fff,
+        -4px 0 #fff,
+        -6px 0 #fff;
+}
+
+.bubble.left::after {
+    height: 2px;
+    width: 2px;
+    top: 10px;
+    left: -4px;
+    background: white;
+    box-shadow:
+        -2px -2px #fff,
+        -2px 0 #fff,
+        -4px 0 #fff,
+        0 -4px #fff,
+        -2px 2px #000,
+        -4px 2px #000,
+        -6px 2px #000,
+        -8px 2px #000,
+        -6px 0 #000,
+        -4px -2px #000,
+        -2px -4px #000,
+        0 -2px #fff;
+}
+
+
+@media (max-height: 900px) {
     .game-title {
-        -webkit-text-stroke: 4.25px #381C0E;
+        font-size: clamp(6rem, 12vw, 5rem);
+        -webkit-text-stroke: 4.5px #381C0E;
+        line-height: 8vh;
         word-spacing: -25px;
-
     }
 
-    .back-button {
-        top: 88vh;
+    .info-content {
+        height: 80%;
+        aspect-ratio: 0.8 / 1;
+      }
+
+    .info-content h2 {
+        font-size: 2.5rem;
+        margin-top: 12vh;
     }
 
-    .game-start-button {
-        top: 88vh;
+    .info-content p {
+        font-size: 19px;
     }
 
-    #player-selection-screen .add-board {
-        height: 34vh;
-    }
-
-    #player-selection-screen .container {
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 20px;
-        padding: 80px 20px 120px;
-        margin-top: 40px;
-    }
-
-    #player-selection-screen .vikings-list {
-        margin-top: 40px;
-        width: 90%;
+    .close-info {
+        top: 90vh;
+        width: 60px;
+        height: 60px;
     }
 
     #player-selection-screen .add-board {
-        width: 45vh;
-        padding: 50px 40px;
-    }
-
-    #player-selection-screen .input-wrapper input {
-        font-size: 20px;
+        padding: 40px;
     }
 
     #player-selection-screen .board-header {
-        font-size: 24px;
-    }
-
-    #player-selection-screen .viking-item {
-        gap: 10px;
-        font-size: 34px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 42px;
-        height: 42px;
-    }
-
-    #player-selection-screen .action-btn {
-        width: 58px;
-        height: 58px;
-    }
-
-    #ingame-screen .back-button {
-        left: 88vw;
+        font-size: 18px;
+        padding: 10px;
+        color: #ffe6b3;
+        letter-spacing: 1px;
+        font-family: 'BoldPixels', sans-serif;
     }
 
     #ingame-screen .sacrifice-action-btn {
-        width: 72px;
-        height: 72px;
+        bottom: 7.5px;
+        left: 50.2%;
+        width: 75px;
+        height: 75px;
     }
 
+    #ingame-screen .back-button {
+        left: 87vw;
+        width: 75px;
+        height: 75px;
+    }
+
+    #runesCircleContainer {
+        position: absolute;
+        top: 38%;
+        left: 58%;
+        transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        z-index: 8;
+        pointer-events: none;
+        opacity: 0;
+        filter: blur(6px);
+        transition:
+            opacity 1.2s ease-out,
+            transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+            filter 1.2s ease-out;
+    }
+
+}
 
 @media (max-width: 768px) {
 
@@ -586,7 +813,6 @@ body {
     }
 
     .close-info {
-
         position: absolute;
         top: 2vh;
         right: 2vw;
@@ -603,117 +829,38 @@ body {
         z-index: 10;
     }
 
-}
 
 
+    #player-selection-screen .input-wrapper input {
+        font-size: 19px;
+    }
 
+    #player-selection-screen .board-header {
+        font-size: 22px;
+    }
 
-#player-selection-screen .input-wrapper input {
-    font-size: 19px;
-}
+    #player-selection-screen .viking-item {
+        font-size: 32px;
+    }
 
-#player-selection-screen .board-header {
-    font-size: 22px;
-}
+    #player-selection-screen .viking-item img {
+        width: 40px;
+        height: 40px;
+    }
 
-#player-selection-screen .viking-item {
-    font-size: 32px;
-}
+    #player-selection-screen .action-btn {
+        width: 56px;
+        height: 56px;
+    }
 
-#player-selection-screen .viking-item img {
-    width: 40px;
-    height: 40px;
-}
+    #ingame-screen .back-button {
+        left: 88vw;
+        width: 60px;
+        height: 60px;
+    }
 
-#player-selection-screen .action-btn {
-    width: 56px;
-    height: 56px;
-}
-
-#ingame-screen .back-button {
-    left: 88vw;
-    width: 60px;
-    height: 60px;
-}
-
-#ingame-screen .sacrifice-action-btn {
-    width: 70px;
-    height: 70px;
-}
-
-
-
-.info-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    transition: opacity 0.3s ease;
-}
-
-.info-popup.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.info-content {
-    position: relative;
-    height: 70%;
-    aspect-ratio: 0.8 / 1;
-    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/pergamino_uvllsi.png') no-repeat center;
-    background-size: contain;
-    color: #1a0d05;
-    font-family: 'BoldPixels', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    padding: 6vh 4vw;
-    z-index: 2;
-    border-radius: 10px;
-}
-
-.info-content h2 {
-    color: #3b1d09;
-    font-size: 5rem;
-    margin-top: 10vh;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 2px #f5d28c;
-    transform: translateX(10px);
-}
-
-.info-content p {
-    font-size: 32px;
-    color: #1a0d05;
-    line-height: 1.5;
-    width: 80%;
-    transform: translateX(15px);
-}
-
-.close-info {
-    position: fixed;
-    top: 10vh;
-    left: 49vw;
-    width: 70px;
-    height: 70px;
-    border: none;
-    background-color: transparent;
-    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762984088/close-icon_fbqvui.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    z-index: 3;
-}
-
-.close-info:hover {
-    transform: scale(1.1);
+    #ingame-screen .sacrifice-action-btn {
+        width: 70px;
+        height: 70px;
+    }
 }
