@@ -7,6 +7,7 @@ let availableRunes = [...runes];
 
 // Register the forest sound
 soundManager.registerSound('forest', 'https://res.cloudinary.com/din119ww9/video/upload/v1763026026/sonido-bosque_h3l0u8.mp3', true);
+soundManager.registerSound('ingame', 'https://res.cloudinary.com/din119ww9/video/upload/v1763454899/ytmp3free.cc_hausbrjotr-skullcrusher-youtubemp3free.org_ljh9jh.mp3', true)
 
 // "Home" screen HMTL elements
 const muteButton = document.getElementById('mute-button');
@@ -189,6 +190,7 @@ if (gameStartButton) {
 
       // Stop forest sound when entering ingame screen
       soundManager.stop('forest');
+      soundManager.play('ingame');
 
       const isMobile = window.innerWidth <= 768;
       const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
@@ -236,7 +238,7 @@ if (gameStartButton) {
           runeDiv.style.top = `${y - runeOffset}px`;
 
 
-           runeDiv.dataset.vikingName = name;
+          runeDiv.dataset.vikingName = name;
 
           runesCircleContainer.appendChild(runeDiv);
           runeElements.push(runeDiv);
@@ -268,6 +270,7 @@ if (ingameHomeButton) {
         ingameScreen.style.display = 'none';
         homeScreen.style.display = 'flex';
         // Resume forest sound when returning to home screen
+        soundManager.stop('ingame')
         soundManager.play('forest');
       }
     }
@@ -341,5 +344,6 @@ if (document.readyState === 'loading') {
   });
 } else {
   // DOM is already ready
+
   soundManager.play('forest');
 }
