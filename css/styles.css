@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'BoldPixels';
     src: url('../assets/fonts/BoldPixels.otf') format('opentype'),
-         url('../assets/fonts/BoldPixels.ttf') format('truetype');
+        url('../assets/fonts/BoldPixels.ttf') format('truetype');
 }
 
 * {
@@ -1150,4 +1150,37 @@ html, body {
 
 .close-info:hover {
   transform: scale(1.1);
+}
+
+
+button,
+.mute-button,
+.info-button,
+.back-button,
+.play-button,
+.game-start-button,
+.action-btn,
+.sacrifice-action-btn,
+.close-info {
+    border-radius: 50%;
+  overflow: visible;
+  transition: transform 0.3s, filter 0.3s;
+  
+}
+
+
+button:hover,
+.mute-button:hover,
+.info-button:hover,
+.back-button:hover,
+.play-button:hover,
+.game-start-button:hover,
+.action-btn:hover,
+.sacrifice-action-btn:hover,
+.close-info:hover {
+  transform: translateZ(20px) scale(1.08);
+  filter: brightness(1.15);
+  box-shadow:
+    0 0 30px 10px rgba(0, 120, 255, 0.6),
+    0 0 10px 4px rgba(0, 120, 255, 0.4);
 }

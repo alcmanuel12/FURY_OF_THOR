@@ -29,15 +29,6 @@ if (playButton) {
   });
 }
 
-if (backButton) {
-  backButton.addEventListener('click', function () {
-    if (homeScreen && playerSelectionScreen) {
-      playerSelectionScreen.style.display = 'none';
-      homeScreen.style.display = 'flex';
-    }
-  });
-}
-
 if (infoButton && infoPopup && closeInfo) {
   
   infoButton.addEventListener('click', () => {
@@ -173,6 +164,10 @@ preloadThorImages();
 
 if (gameStartButton) {
   gameStartButton.addEventListener('click', () => {
+    if (vikings.length < 2){
+      // No hace nada si hay menos de 2 jugadores.
+      return window.confirm('Necesitas al menos 2 jugadores para empezar el juego.');
+    }
     if (playerSelectionScreen && ingameScreen) {
       playerSelectionScreen.style.display = 'none';
       ingameScreen.style.display = 'flex';
@@ -209,7 +204,7 @@ if (gameStartButton) {
           runeDiv.style.top = `${y - 45}px`;
 
 
-           runeDiv.dataset.vikingName = name;
+          runeDiv.dataset.vikingName = name;
 
           runesCircleContainer.appendChild(runeDiv);
           runeElements.push(runeDiv);
@@ -224,34 +219,24 @@ if (gameStartButton) {
   });
 }
 
-if (ingameHomeButton) {
-  ingameHomeButton.addEventListener('click', () => {
-    if (homeScreen && ingameScreen) {
-      ingameScreen.style.display = 'none';
-      homeScreen.style.display = 'flex';
+  if (ingameHomeButton) {
+  ingameHomeButton.addEventListener('click', function() {
+    const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás todo el progreso.');
+    if (confirmar) {
+      console.log("Aceptó salir");
+      vikings = [];
+      availableRunes = [...runes];
+      renderList();
       if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
       if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
+      if (ingameScreen && homeScreen) {
+        ingameScreen.style.display = 'none';
+        homeScreen.style.display = 'flex';
+      }
     }
   });
 }
 
-  if (ingameHomeButton) {
-    ingameHomeButton.addEventListener('click', function() {
-      const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás todo el progreso.');
-      if (confirmar) {
-        vikings = [];
-        availableRunes = [...runes];
-        renderList();
-        // Oculta la pantalla de juego y muestra el menú
-        if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
-        if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
-        if (ingameScreen && homeScreen) {
-          ingameScreen.style.display = 'none';
-          homeScreen.style.display = 'flex';
-        }
-      }
-    });
-  }
 
   if (ingameBackButton) {
     ingameBackButton.addEventListener('click', function() {
@@ -260,16 +245,13 @@ if (ingameHomeButton) {
         vikings = [];
         availableRunes = [...runes];
         renderList();
-        // Oculta la pantalla de juego y muestra el menú
-        if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
-        if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
-        if (ingameScreen && homeScreen) {
-          ingameScreen.style.display = 'none';
-          homeScreen.style.display = 'flex';
-        }
+      if (homeScreen && playerSelectionScreen) {
+      playerSelectionScreen.style.display = 'none';
+      homeScreen.style.display = 'flex';
       }
-    });
-  }
+    }
+  });
+}
 
 
 if (sacrificeActionButton && thorCharacter) {
