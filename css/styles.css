@@ -1149,7 +1149,7 @@ html, body {
 }
 
 .close-info:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 
@@ -1163,9 +1163,8 @@ button,
 .sacrifice-action-btn,
 .close-info {
     border-radius: 50%;
-  overflow: visible;
-  transition: transform 0.3s, filter 0.3s;
-  
+    overflow: visible;
+    transition: transform 0.3s, filter 0.3s;
 }
 
 
@@ -1178,9 +1177,9 @@ button:hover,
 .action-btn:hover,
 .sacrifice-action-btn:hover,
 .close-info:hover {
-  transform: translateZ(20px) scale(1.08);
-  filter: brightness(1.15);
-  box-shadow:
+transform: translateZ(20px) scale(1.08);
+filter: brightness(1.15);
+box-shadow:
     0 0 30px 10px rgba(0, 120, 255, 0.6),
     0 0 10px 4px rgba(0, 120, 255, 0.4);
 }
