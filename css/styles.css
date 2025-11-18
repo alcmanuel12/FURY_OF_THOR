@@ -189,13 +189,14 @@ body {
     align-items: center;
     z-index: 2000;
     transition: opacity 0.3s ease;
-  }
-  .info-popup.hidden {
+}
+
+.info-popup.hidden {
     opacity: 0;
     pointer-events: none;
-  }
-   
-  .info-content {
+}
+
+.info-content {
     position: relative;
     height: 80%;
     aspect-ratio: 0.8 / 1;
@@ -211,26 +212,26 @@ body {
     padding: 6vh 4vw;
     z-index: 2;
     border-radius: 10px;
-  }
+}
 
-  .info-content h2 {
+.info-content h2 {
     color: #3b1d09;
     font-size: 3.5rem;
     margin-top: 13vh;
     margin-bottom: 15px;
     text-shadow: 0 2px 2px #f5d28c;
     transform: translateX(10px);
-  }
+}
 
-  .info-content p {
+.info-content p {
     font-size: 24px;
     color: #1a0d05;
     line-height: 1.5;
     width: 80%;
     transform: translateX(15px);
-  }
+}
 
-  .close-info {
+.close-info {
     position: fixed;
     top: 90vh;
     left: 48.5vw;
@@ -245,12 +246,13 @@ body {
     cursor: pointer;
     transition: transform 0.2s ease;
     z-index: 3;
-  }
-  .close-info:hover {
-    transform: scale(1.1);
-  }
+}
 
-  button,
+.close-info:hover {
+    transform: scale(1.1);
+}
+
+button,
 .mute-button,
 .info-button,
 .back-button,
@@ -263,6 +265,7 @@ body {
     overflow: visible;
     transition: transform 0.3s, filter 0.3s;
 }
+
 button:hover,
 .mute-button:hover,
 .info-button:hover,
@@ -272,11 +275,11 @@ button:hover,
 .action-btn:hover,
 .sacrifice-action-btn:hover,
 .close-info:hover {
-transform: translateZ(20px) scale(1.08);
-filter: brightness(1.15);
-box-shadow:
-    0 0 30px 10px rgba(0, 120, 255, 0.6),
-    0 0 10px 4px rgba(0, 120, 255, 0.4);
+    transform: translateZ(20px) scale(1.08);
+    filter: brightness(1.15);
+    box-shadow:
+        0 0 30px 10px rgba(0, 120, 255, 0.6),
+        0 0 10px 4px rgba(0, 120, 255, 0.4);
 }
 
 #player-selection-screen {
@@ -712,7 +715,7 @@ box-shadow:
     .info-content {
         height: 80%;
         aspect-ratio: 0.8 / 1;
-      }
+    }
 
     .info-content h2 {
         font-size: 2.5rem;

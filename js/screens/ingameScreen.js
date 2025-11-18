@@ -53,6 +53,11 @@ export function initIngameScreen() {
                 thorCharacter.classList.remove('thor-character-mad');
             }, 2000);
         }
+
+        // Play lightning sound effect 1 second after sacrifice button is pressed
+        setTimeout(() => {
+            soundManager.play('lightning-effect');
+        }, 1000);
     }
 }
 
