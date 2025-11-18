@@ -512,7 +512,7 @@ box-shadow:
 .rune-item.chosen {
     z-index: 20;
     transform: scale(1.5) translate(-50%, -50%);
-    left: 50% !important;
+    left: 55% !important;
     top: 50% !important;
 }
 
@@ -524,7 +524,7 @@ box-shadow:
 .chosen-viking-name {
     position: absolute;
     top: 45%;
-    left: 48%;
+    left: 50%;
     transform: translateX(-50%);
     font-family: 'BoldPixels', sans-serif;
     font-size: 35px;
@@ -760,6 +760,13 @@ box-shadow:
         top: 38%;
         left: 50%;
     }
+
+    .rune-item.chosen {
+    left: 54% !important;
+}
+.chosen-viking-name {
+    left: 50%;
+}
 
 }
 
