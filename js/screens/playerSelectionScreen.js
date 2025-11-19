@@ -16,36 +16,61 @@ export function initPlayerSelectionScreen() {
     const ingameBackgroundVideo = document.getElementById('ingame-background-video');
     const ingameBackgroundVideoMobile = document.getElementById('ingame-background-video-mobile');
 
+    
+    const nameRegex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{1,15}$/;
+
     if (addBtn && input) {
         addBtn.addEventListener('click', () => addViking(input));
         input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                addViking(input);
-            }
+            if (e.key === 'Enter') addViking(input);
         });
     }
+    input.addEventListener('input', () => {
+    input.value = input.value
+        .replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g, '')
+        .substring(0, 15);
+});
 
     if (removeBtn && input) {
         removeBtn.addEventListener('click', () => removeViking(input));
     }
 
     if (backButton) {
-        backButton.addEventListener('click', () => handleBackClick(homeScreen, playerSelectionScreen));
+        backButton.addEventListener('click', () =>
+            handleBackClick(homeScreen, playerSelectionScreen)
+        );
     }
 
     if (gameStartButton) {
-        gameStartButton.addEventListener('click', () => handleGameStart(playerSelectionScreen, ingameScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile));
+        gameStartButton.addEventListener('click', () =>
+            handleGameStart(
+                playerSelectionScreen,
+                ingameScreen,
+                ingameBackgroundVideo,
+                ingameBackgroundVideoMobile
+            )
+        );
     }
 
+    
     function addViking(input) {
         const name = input.value.trim();
+
         if (name === '') return;
 
+        
         if (state.getVikings().length >= runes.length) {
-            alert("No more players allowed!");
+            alert('No more players allowed!');
             return;
         }
 
+        
+        if (!nameRegex.test(name)) {
+            alert('Nombre inválido. Solo letras, espacios y máximo 15 caracteres.');
+            return;
+        }
+
+        
         state.addViking(name);
         renderVikingsList();
         input.value = '';
@@ -56,7 +81,9 @@ export function initPlayerSelectionScreen() {
         const vikings = state.getVikings();
 
         if (name !== '') {
-            const index = vikings.findIndex(v => v.toLowerCase() === name.toLowerCase());
+            const index = vikings.findIndex(
+                (v) => v.toLowerCase() === name.toLowerCase()
+            );
             if (index !== -1) {
                 state.removeViking(index);
             } else {
@@ -71,7 +98,9 @@ export function initPlayerSelectionScreen() {
     }
 
     function handleBackClick(homeScreen, playerSelectionScreen) {
-        const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás a todos tus vikingos.');
+        const confirmar = window.confirm(
+            '¿Seguro que quieres volver?\nPerderás a todos tus vikingos.'
+        );
 
         if (confirmar) {
             state.clearVikings();
@@ -86,7 +115,16 @@ export function initPlayerSelectionScreen() {
         }
     }
 
-    function handleGameStart(playerSelectionScreen, ingameScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile) {
+    function handleGameStart(
+        playerSelectionScreen,
+        ingameScreen,
+        ingameBackgroundVideo,
+        ingameBackgroundVideoMobile
+    ) {
+        if (state.getVikings().length === 0) {
+        alert('You must add at least one viking before continuing.');
+        return;
+        }
         if (!playerSelectionScreen || !ingameScreen) return;
 
         playerSelectionScreen.style.display = 'none';
@@ -96,7 +134,9 @@ export function initPlayerSelectionScreen() {
         soundManager.play('ingame');
 
         const isMobile = window.innerWidth <= 768;
-        const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
+        const videoToPlay = isMobile
+            ? ingameBackgroundVideoMobile
+            : ingameBackgroundVideo;
         if (videoToPlay) videoToPlay.play().catch(() => {});
 
         renderRunesCircle();
