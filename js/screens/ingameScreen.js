@@ -11,7 +11,8 @@ export function initIngameScreen() {
     const ingameBackgroundVideoMobile = document.getElementById('ingame-background-video-mobile');
     const thorCharacter = document.getElementById('thor-character');
     const homeScreen = document.getElementById('home-screen');
-    const bubble = document.getElementById(".bubble.right")
+    const bubble = document.querySelector(".bubble.right");
+
 
     preloadThorImages();
 
@@ -21,7 +22,7 @@ export function initIngameScreen() {
 
     if (sacrificeActionButton) {
         sacrificeActionButton.addEventListener('click', () => handleSacrifice(thorCharacter));
-        sacrificeActionButton.addEventListener("click", () => changeBubbleText("By order of the gods, your blood will feed this sacred fire."));
+    
     }
 
     playBackgroundVideo(ingameBackgroundVideo, ingameBackgroundVideoMobile);
@@ -48,22 +49,30 @@ export function initIngameScreen() {
 
     function changeBubbleText(newText) {
             if (!bubble) return;
+            const phrases = [
+
+            ]
+
             bubble.textContent = newText; 
 }
 
 
-    function handleSacrifice(thorCharacter) {
-        selectRandomViking();
-        changeBubbleText(bubble)
 
-        if (thorCharacter) {
-            thorCharacter.classList.add('thor-character-mad');
-            setTimeout(() => {
-                thorCharacter.classList.remove('thor-character-mad');
-            }, 4000);
-        }
-            soundManager.play('lightning-effect');
-    }
+    function handleSacrifice(thorCharacter) {
+    selectRandomViking();
+
+    changeBubbleText("By order of the gods, your blood will feed this sacred fire.");
+
+  if (thorCharacter) {
+    thorCharacter.classList.add('thor-character-mad');
+    setTimeout(() => {
+      thorCharacter.classList.remove('thor-character-mad');
+    }, 4000);
+  }
+
+  soundManager.play('lightning-effect');
+}
+
 }
 
 function preloadThorImages() {
