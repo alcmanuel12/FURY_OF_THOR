@@ -189,13 +189,14 @@ body {
     align-items: center;
     z-index: 2000;
     transition: opacity 0.3s ease;
-  }
-  .info-popup.hidden {
+}
+
+.info-popup.hidden {
     opacity: 0;
     pointer-events: none;
-  }
-   
-  .info-content {
+}
+
+.info-content {
     position: relative;
     height: 80%;
     aspect-ratio: 0.8 / 1;
@@ -211,26 +212,26 @@ body {
     padding: 6vh 4vw;
     z-index: 2;
     border-radius: 10px;
-  }
+}
 
-  .info-content h2 {
+.info-content h2 {
     color: #3b1d09;
     font-size: 3.5rem;
     margin-top: 13vh;
     margin-bottom: 15px;
     text-shadow: 0 2px 2px #f5d28c;
     transform: translateX(10px);
-  }
+}
 
-  .info-content p {
+.info-content p {
     font-size: 24px;
     color: #1a0d05;
     line-height: 1.5;
     width: 80%;
     transform: translateX(15px);
-  }
+}
 
-  .close-info {
+.close-info {
     position: fixed;
     top: 90vh;
     left: 48.5vw;
@@ -245,12 +246,12 @@ body {
     cursor: pointer;
     transition: transform 0.2s ease;
     z-index: 3;
-  }
-  .close-info:hover {
-    transform: scale(1.1);
-  }
+}
 
-  
+.close-info:hover {
+    transform: scale(1.1);
+}
+
 button,
 .mute-button,
 .info-button,
@@ -264,6 +265,7 @@ button,
     overflow: visible;
     transition: transform 0.3s, filter 0.3s;
 }
+
 button:hover,
 .mute-button:hover,
 .info-button:hover,
@@ -273,13 +275,12 @@ button:hover,
 .action-btn:hover,
 .sacrifice-action-btn:hover,
 .close-info:hover {
-transform: translateZ(20px) scale(1.08);
-filter: brightness(1.15);
-box-shadow:
-    0 0 30px 10px rgba(0, 120, 255, 0.6),
-    0 0 10px 4px rgba(0, 120, 255, 0.4);
+    transform: translateZ(20px) scale(1.08);
+    filter: brightness(1.15);
+    box-shadow:
+        0 0 30px 10px rgba(0, 120, 255, 0.6),
+        0 0 10px 4px rgba(0, 120, 255, 0.4);
 }
-
 
 #player-selection-screen {
     padding-top: 0;
@@ -512,7 +513,7 @@ box-shadow:
 .rune-item.chosen {
     z-index: 20;
     transform: scale(1.5) translate(-50%, -50%);
-    left: 50% !important;
+    left: 55% !important;
     top: 50% !important;
 }
 
@@ -524,7 +525,7 @@ box-shadow:
 .chosen-viking-name {
     position: absolute;
     top: 45%;
-    left: 48%;
+    left: 50%;
     transform: translateX(-50%);
     font-family: 'BoldPixels', sans-serif;
     font-size: 35px;
@@ -714,7 +715,7 @@ box-shadow:
     .info-content {
         height: 80%;
         aspect-ratio: 0.8 / 1;
-      }
+    }
 
     .info-content h2 {
         font-size: 2.5rem;
@@ -757,21 +758,16 @@ box-shadow:
     }
 
     #runesCircleContainer {
-        position: absolute;
         top: 38%;
-        left: 58%;
-        transform: translate(-50%, -50%) scale(0.8) rotate(-15deg);
-        width: 500px;
-        height: 500px;
-        border-radius: 50%;
-        z-index: 8;
-        pointer-events: none;
-        opacity: 0;
-        filter: blur(6px);
-        transition:
-            opacity 1.2s ease-out,
-            transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-            filter 1.2s ease-out;
+        left: 50%;
+    }
+
+    .rune-item.chosen {
+        left: 54% !important;
+    }
+
+    .chosen-viking-name {
+        left: 50%;
     }
 
 }

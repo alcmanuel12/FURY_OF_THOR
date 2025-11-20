@@ -34,6 +34,4 @@ const brokenRunes = [
     { id: 14, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728520/L_-_M_btjoi6.png" },
     { id: 15, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728520/D_spkbzd.png" },
     { id: 16, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1763028411/runa_roto_II_t4mnpp.png"}
-];
-
-module.exports = { runes, brokenRunes };
+]

@@ -3,10 +3,10 @@ class SoundManager {
     this.isMuted = false;
     this.sounds = {};
     this.activeSounds = [];
-    this.soundTypes = {};
+    this.soundTypes = {}; 
   }
 
-  registerSound(name, url, loop = false, type = 'background', volume = 0.1) {
+  registerSound(name, url, loop = false, type = 'background', volume = 1) {
     const audio = new Audio(url);
     audio.loop = loop;
     audio.volume = volume;
@@ -17,7 +17,7 @@ class SoundManager {
 
   play(name) {
     if (this.sounds[name]) {
-      if (!this.activeSounds.includes(name)) {
+      if (this.activeSounds.indexOf(name) === -1) {
         this.activeSounds.push(name);
       }
       if (!this.isMuted) {
@@ -38,7 +38,7 @@ class SoundManager {
     if (this.sounds[name]) {
       this.sounds[name].pause();
       this.sounds[name].currentTime = 0;
-
+      
       const index = this.activeSounds.indexOf(name);
       if (index > -1) {
         this.activeSounds.splice(index, 1);
@@ -50,7 +50,8 @@ class SoundManager {
     this.isMuted = !this.isMuted;
 
     if (this.isMuted) {
-      this.activeSounds.forEach(soundName => {
+      for (let i = 0; i < this.activeSounds.length; i++) {
+        const soundName = this.activeSounds[i];
         const soundType = this.soundTypes[soundName] || 'background';
         if (soundType === 'background') {
           this.pause(soundName);
@@ -59,12 +60,13 @@ class SoundManager {
         }
       });
     } else {
-      this.activeSounds.forEach(soundName => {
+      for (let i = 0; i < this.activeSounds.length; i++) {
+        const soundName = this.activeSounds[i];
         const soundType = this.soundTypes[soundName] || 'background';
         if (soundType === 'background') {
           this.play(soundName);
         }
-      });
+      }
     }
 
     return this.isMuted;
