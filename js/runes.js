@@ -1,4 +1,4 @@
-const runes = [
+export const runes = [
     { id: 1, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819244/runa_1_bwbbcc.png" },
     { id: 2, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819249/runa_pezgrande_okbtby.png" },
     { id: 3, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819244/runa_b_ucuizq.png" },
@@ -15,9 +15,9 @@ const runes = [
     { id: 14, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819245/runa_l_huu9eo.png" },
     { id: 15, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761819245/runa_mx_gvy7aq.png" },
     { id: 16, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1763027656/runa_II_bcfzic.png" }
-];
+]
 
-const brokenRunes = [
+export const brokenRunes = [
     { id: 1, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728520/D_spkbzd.png" },
     { id: 2, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728526/Runa_Pez_pde9ip.png" },
     { id: 3, url: "https://res.cloudinary.com/djuisin8z/image/upload/v1761728519/B_-_M_1_waurld.png" },

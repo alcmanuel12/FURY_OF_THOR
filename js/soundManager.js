@@ -1,3 +1,5 @@
+
+// Sound Manager - Modular system for handling all game sounds
 class SoundManager {
   constructor() {
     this.isMuted = false;
@@ -20,8 +22,9 @@ class SoundManager {
       if (this.activeSounds.indexOf(name) === -1) {
         this.activeSounds.push(name);
       }
+      
       if (!this.isMuted) {
-        this.sounds[name].play().catch(err => {
+        this.sounds[name].play().catch(function(err) {
           console.log('Could not play sound ' + name + ':', err);
         });
       }
@@ -48,29 +51,31 @@ class SoundManager {
 
   toggleMute() {
     this.isMuted = !this.isMuted;
-
+    
     if (this.isMuted) {
       for (let i = 0; i < this.activeSounds.length; i++) {
         const soundName = this.activeSounds[i];
         const soundType = this.soundTypes[soundName] || 'background';
+        
         if (soundType === 'background') {
           this.pause(soundName);
         } else {
           this.stop(soundName);
         }
-      });
+      }
     } else {
       for (let i = 0; i < this.activeSounds.length; i++) {
         const soundName = this.activeSounds[i];
         const soundType = this.soundTypes[soundName] || 'background';
+        
         if (soundType === 'background') {
           this.play(soundName);
         }
       }
     }
-
+    
     return this.isMuted;
   }
 }
 
-module.exports = { SoundManager };
+export const soundManager = new SoundManager();
