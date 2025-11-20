@@ -1,7 +1,7 @@
 import { state } from '../state.js';
 import { soundManager } from '../soundManager.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
-import { selectRandomViking } from '../ui/runesCircle.js';
+import { selectRandomViking, breakChosenRune } from '../ui/runesCircle.js';
 
 export function initIngameScreen() {
     const ingameScreen = document.getElementById('ingame-screen');
@@ -68,6 +68,11 @@ export function initIngameScreen() {
     selectRandomViking();
     changeBubbleText();
 
+    // Después de la animación de selección, romper visualmente la runa escogida
+    setTimeout(() => {
+      breakChosenRune();
+    }, 1500);
+
   if (thorCharacter) {
     thorCharacter.classList.add('thor-character-mad');
     setTimeout(() => {
@@ -78,7 +83,10 @@ export function initIngameScreen() {
   soundManager.play('lightning-effect');
 }
 
+
+
 }
+
 
 function preloadThorImages() {
     const desktopMadImage = new Image();
@@ -93,4 +101,6 @@ function playBackgroundVideo(ingameBackgroundVideo, ingameBackgroundVideoMobile)
     if (videoToPlay) {
         videoToPlay.play().catch(() => {});
     }
+
+
 }
