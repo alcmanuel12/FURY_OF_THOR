@@ -49,19 +49,24 @@ export function initIngameScreen() {
 
     function changeBubbleText(newText) {
             if (!bubble) return;
-            const phrases = [
 
-            ]
+  const phrases = [
+    "By order of the gods, your blood will feed this sacred fire.",
+    "The runes have spoken. Your fate is sealed.",
+    "Tonight your soul will thunder in Valhalla.",
+    "The fire hungers. Your blood will answer.",
+    "The gods demand a sacrifice… and they chose you."
+  ];
 
-            bubble.textContent = newText; 
+  const randomIndex = Math.floor(Math.random() * phrases.length); 
+  bubble.textContent = phrases[randomIndex];
 }
 
 
 
     function handleSacrifice(thorCharacter) {
     selectRandomViking();
-
-    changeBubbleText("By order of the gods, your blood will feed this sacred fire.");
+    changeBubbleText();
 
   if (thorCharacter) {
     thorCharacter.classList.add('thor-character-mad');
