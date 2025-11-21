@@ -475,6 +475,18 @@ button:hover,
     transform: translateX(-50%) scale(1.1);
 }
 
+#ingame-screen .sacrifice-action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#ingame-screen .sacrifice-action-btn:disabled:hover {
+    transform: translateX(-50%) scale(1);
+    filter: none;
+    box-shadow: none;
+}
+
 #runesCircleContainer {
     position: absolute;
     top: 38%;

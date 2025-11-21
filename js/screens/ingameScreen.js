@@ -1,7 +1,7 @@
 import { state } from '../state.js';
 import { soundManager } from '../soundManager.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
-import { selectRandomViking, breakChosenRune } from '../ui/runesCircle.js';
+import { selectRandomViking, breakChosenRune, resetChosenRune } from '../ui/runesCircle.js';
 
 export function initIngameScreen() {
     const ingameScreen = document.getElementById('ingame-screen');
@@ -45,7 +45,17 @@ export function initIngameScreen() {
         }
     }
 
+    let isAnimationInProgress = false;
+
     function handleSacrifice(thorCharacter) {
+        if (isAnimationInProgress) return;
+        
+        isAnimationInProgress = true;
+        if (sacrificeActionButton) {
+            sacrificeActionButton.disabled = true;
+            sacrificeActionButton.style.pointerEvents = 'none';
+        }
+        
         selectRandomViking();
         changeBubbleText();
         setTimeout(() => {
@@ -56,7 +66,13 @@ export function initIngameScreen() {
             thorCharacter.classList.add('thor-character-mad');
             setTimeout(() => {
                 thorCharacter.classList.remove('thor-character-mad');
-            }, 4000);
+                resetChosenRune();
+                isAnimationInProgress = false;
+                if (sacrificeActionButton) {
+                    sacrificeActionButton.disabled = false;
+                    sacrificeActionButton.style.pointerEvents = 'auto';
+                }
+            }, 5000);
         }
         soundManager.play('lightning-effect');
     }

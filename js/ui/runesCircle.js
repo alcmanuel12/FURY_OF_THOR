@@ -108,3 +108,18 @@ export function breakChosenRune() {
     chosen.style.backgroundImage = `url(${broken.url})`;
     chosen.classList.add('broken');
 }
+
+export function resetChosenRune() {
+    const runeElements = state.getRuneElements();
+    if (runeElements.length === 0) return;
+
+    runeElements.forEach(r => {
+        r.classList.remove('chosen', 'dimmed');
+    });
+
+    const chosenNameEl = document.getElementById('chosenVikingName');
+    if (chosenNameEl) {
+        chosenNameEl.textContent = '';
+        chosenNameEl.classList.remove('visible');
+    }
+}
