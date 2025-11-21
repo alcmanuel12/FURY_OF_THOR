@@ -1,5 +1,5 @@
 import { state } from '../state.js';
-import { runes } from '../runes.js';
+import { runes, brokenRunes } from '../runes.js';
 
 export function renderRunesCircle() {
     const runesCircleContainer = document.getElementById('runesCircleContainer');
@@ -46,6 +46,7 @@ export function renderRunesCircle() {
         runeDiv.style.left = `${x - runeOffset}px`;
         runeDiv.style.top = `${y - runeOffset}px`;
         runeDiv.dataset.vikingName = name;
+        runeDiv.dataset.runeId = rune.id;
 
         runesCircleContainer.appendChild(runeDiv);
         runeElements.push(runeDiv);
@@ -73,13 +74,18 @@ export function selectRandomViking() {
         chosenNameEl.classList.remove('visible');
     }
 
-    const randomIndex = Math.floor(Math.random() * runeElements.length);
-    const chosenRune = runeElements[randomIndex];
+    const selectable = runeElements.filter(el => !el.classList.contains('broken'));
+    if (selectable.length === 0) return;
+
+    const selIndex = Math.floor(Math.random() * selectable.length);
+    const chosenRune = selectable[selIndex];
     const chosenName = chosenRune.dataset.vikingName;
+
+    const originalIndex = runeElements.indexOf(chosenRune)
 
     setTimeout(() => {
         runeElements.forEach((r, i) => {
-            if (i !== randomIndex) r.classList.add('dimmed');
+            if (i !== originalIndex) r.classList.add('dimmed');
         });
         chosenRune.classList.add('chosen');
 
@@ -90,4 +96,15 @@ export function selectRandomViking() {
             }
         }, 1300);
     }, 300);
+}
+
+export function breakChosenRune() {
+    const chosen = document.querySelector('.rune-item.chosen');
+    if (!chosen) return;
+    const runeId = parseInt(chosen.dataset.runeId, 10);
+    if (isNaN(runeId)) return;
+    const broken = brokenRunes.find(r => r.id === runeId);
+    if (!broken) return;
+    chosen.style.backgroundImage = `url(${broken.url})`;
+    chosen.classList.add('broken');
 }

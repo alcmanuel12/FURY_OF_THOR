@@ -528,9 +528,12 @@ button:hover,
     left: 50%;
     transform: translateX(-50%);
     font-family: 'BoldPixels', sans-serif;
-    font-size: 35px;
+    font-size: 50px;
+    background: linear-gradient(90deg, #189DF8 0%, #38FBF9 100%);
     color: #c5a746;
-    text-shadow: 3px 3px 8px #000;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     opacity: 0;
     transition: opacity 1.5s ease;
     z-index: 25;
