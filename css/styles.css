@@ -808,6 +808,8 @@ button:hover,
 
     .mute-button,
     .info-button {
+        top: 2vh;
+        right: 3vw;
         width: 60px;
         height: 60px;
     }
@@ -890,7 +892,7 @@ button:hover,
         width: 54px !important;
         height: 54px !important;
     }
-}
+
 
     .back-button {
         left: 50vw !important;  
@@ -944,10 +946,10 @@ button:hover,
 }
 
 #runesCircleContainer {
-    top: 38%;             
-    left: 40%;
-    width: 260px;
-    height: 260px;
+    top: 33%;             
+    left: 25%;
+    width: 240px;
+    height: 240px;
     transform: translate(-50%, -50%);
     opacity: 1;
     filter: none;
@@ -967,7 +969,7 @@ button:hover,
 }
 
 .chosen-viking-name {
-    top: 37%;
+    top: 28%;
     font-size: 20px;
     width: 90vw;
     text-align: center;
@@ -983,7 +985,7 @@ button:hover,
 
 .bubble {
     position: absolute;
-    top: 25vh;
+    top: 40vh;
     left: 0.5vw;
     width: 120px;
     font-size: 14px;
@@ -991,10 +993,12 @@ button:hover,
 }
 
 #ingame-screen .back-button {
-    top: calc(2vh + 60px);
-    top: 11vh;       
-    right: 5vh;
-    left: auto;
-    width: 60px;
-    height: 60px;
+position:50%;
+top: 12vh; 
+right: 5vw; 
+width: 60px; 
+height: 60px; 
+z-index: 999;
 }
+}
+
