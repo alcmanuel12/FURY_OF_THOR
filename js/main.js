@@ -15,6 +15,7 @@ function init() {
     initPlayerSelectionScreen();
     initIngameScreen();
     soundManager.play('forest');
+    initCreditScreen();
 }
 
 if (document.readyState === 'loading') {

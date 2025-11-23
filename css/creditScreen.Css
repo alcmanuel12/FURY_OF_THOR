@@ -1,0 +1,157 @@
+
+@font-face {
+    font-family: 'BoldPixels';
+    src: url('../assets/fonts/BoldPixels.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1763923517/desktop-background-ingame_4_mjxdvu.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.buttons {
+    position: absolute;
+    top: 3vh;
+    right: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.btn {
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.settings {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
+}
+
+.home {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png');
+}
+
+
+.bubble {
+    position: absolute;
+    top: 66%;
+    
+    left: 36%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    pointer-events: none;
+    
+}
+
+.bubble-img {
+    width: 100%;
+    display: block;
+    pointer-events: none;
+}
+
+
+.bubble-text {
+    position: absolute;
+    top: 44%;
+    
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    width: 70%;
+    
+    text-align: center;
+    font-family: 'BoldPixels', sans-serif;
+    font-size: 22px;
+    color: black;
+    line-height: 1.3;
+}
+
+
+.characters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.characters img {
+    position: absolute;
+    width: 130px;
+}
+
+.characters img:nth-child(1) {
+    left: 33%;
+    bottom: 2%;
+}
+
+.characters img:nth-child(2) {
+    left: 38%;
+    bottom: 6%;
+}
+
+.characters img:nth-child(3) {
+    left: 44%;
+    bottom: 11%;
+}
+
+.characters img:nth-child(4) {
+    left: 52%;
+    bottom: 6%;
+}
+
+.characters img:nth-child(5) {
+    left: 58%;
+    bottom: 2%;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1763630989/credit-screen-background-mobile_lwiygw.jpg');
+        background-size: cover;
+    }
+
+    .bubble {
+        width: 320px;
+        top: 55%;
+    }
+
+    .bubble-text {
+        font-size: 14px;
+        width: 75%;
+        top: 50%;
+    }
+
+    .characters img {
+        width: 80px;
+    }
+
+    .btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    .buttons {
+        top: 2vh;
+        right: 3vw;
+    }
+}
