@@ -64,7 +64,6 @@ export function selectRandomViking() {
     const runeElements = state.getRuneElements();
     if (runeElements.length === 0) return;
 
-    // Limpiar estados previos
     runeElements.forEach(r => {
         r.classList.remove('chosen', 'dimmed');
     });
@@ -75,16 +74,14 @@ export function selectRandomViking() {
         chosenNameEl.classList.remove('visible');
     }
 
-    // Filtrar solo las runas que no están rotas
     const selectable = runeElements.filter(el => !el.classList.contains('broken'));
-    if (selectable.length === 0) return; // nada seleccionable
+    if (selectable.length === 0) return;
 
     const selIndex = Math.floor(Math.random() * selectable.length);
     const chosenRune = selectable[selIndex];
     const chosenName = chosenRune.dataset.vikingName;
 
-    // Necesitamos el índice original para añadir dimmed a los demás
-    const originalIndex = runeElements.indexOf(chosenRune);
+    const originalIndex = runeElements.indexOf(chosenRune)
 
     setTimeout(() => {
         runeElements.forEach((r, i) => {
@@ -104,13 +101,25 @@ export function selectRandomViking() {
 export function breakChosenRune() {
     const chosen = document.querySelector('.rune-item.chosen');
     if (!chosen) return;
-
     const runeId = parseInt(chosen.dataset.runeId, 10);
     if (isNaN(runeId)) return;
-
     const broken = brokenRunes.find(r => r.id === runeId);
     if (!broken) return;
-
     chosen.style.backgroundImage = `url(${broken.url})`;
     chosen.classList.add('broken');
+}
+
+export function resetChosenRune() {
+    const runeElements = state.getRuneElements();
+    if (runeElements.length === 0) return;
+
+    runeElements.forEach(r => {
+        r.classList.remove('chosen', 'dimmed');
+    });
+
+    const chosenNameEl = document.getElementById('chosenVikingName');
+    if (chosenNameEl) {
+        chosenNameEl.textContent = '';
+        chosenNameEl.classList.remove('visible');
+    }
 }

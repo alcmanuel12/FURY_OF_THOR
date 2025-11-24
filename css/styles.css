@@ -61,11 +61,11 @@ body {
 
 
 .mute-button.mute-icon {
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
+    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762808735/mute-icon_txyjso.png');
 }
 
 .mute-button.sound-icon {
-    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762808735/mute-icon_txyjso.png');
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
 }
 
 .screen {
@@ -231,27 +231,6 @@ body {
     transform: translateX(15px);
 }
 
-.close-info {
-    position: fixed;
-    top: 90vh;
-    left: 48.5vw;
-    width: 70px;
-    height: 70px;
-    border: none;
-    background-color: transparent;
-    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762984088/close-icon_fbqvui.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    z-index: 3;
-}
-
-.close-info:hover {
-    transform: scale(1.1);
-}
-
 button,
 .mute-button,
 .info-button,
@@ -259,8 +238,7 @@ button,
 .play-button,
 .game-start-button,
 .action-btn,
-.sacrifice-action-btn,
-.close-info {
+.sacrifice-action-btn {
     border-radius: 50%;
     overflow: visible;
     transition: transform 0.3s, filter 0.3s;
@@ -273,8 +251,7 @@ button:hover,
 .play-button:hover,
 .game-start-button:hover,
 .action-btn:hover,
-.sacrifice-action-btn:hover,
-.close-info:hover {
+.sacrifice-action-btn:hover {
     transform: translateZ(20px) scale(1.08);
     filter: brightness(1.15);
     box-shadow:
@@ -475,6 +452,18 @@ button:hover,
     transform: translateX(-50%) scale(1.1);
 }
 
+#ingame-screen .sacrifice-action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#ingame-screen .sacrifice-action-btn:disabled:hover {
+    transform: translateX(-50%) scale(1);
+    filter: none;
+    box-shadow: none;
+}
+
 #runesCircleContainer {
     position: absolute;
     top: 38%;
@@ -528,12 +517,12 @@ button:hover,
     left: 50%;
     transform: translateX(-50%);
     font-family: 'BoldPixels', sans-serif;
-    font-size: 35px;
+    font-size: 50px;
     background: linear-gradient(90deg, #189DF8 0%, #38FBF9 100%);
+    color: #c5a746;
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;             
-    
+    color: transparent;
     opacity: 0;
     transition: opacity 1.5s ease;
     z-index: 25;
@@ -783,114 +772,219 @@ button:hover,
     }
 
     .screen {
-        padding-top: 10vh;
+        padding-top: 6vh;
+    }
+
+    .wooden-board {
+        width: 120vw;
+        transform: scale(1.25);
+        margin-top: 0vh;
+    }
+
+    .game-title {
+        font-size: clamp(3.6rem, 13vw, 4.6rem);
+        line-height: 5vh;
+        word-spacing: -10px;
+        -webkit-text-stroke: 3.125px #381C0E;
+    }
+
+    .play-button {
+        width: 90px;
+        height: 90px;
+        margin-top: 40vh;
+    }
+
+    .mute-button,
+    .info-button {
+        width: 50px;
+        height: 50px;
+        margin-top: 87vh;
+    }
+
+    .mute-button {
+        left: 4vw;
+    }
+
+    .info-button {
+        right: 4vw;
+    }
+
+    .info-content {
+        width: 95vw;
+    }
+
+    .info-content h2 {
+        font-size: 2rem;
+        margin-top: 19vh;
+        margin-bottom: 5px;
+    }
+
+    .info-content p {
+        font-size: 16px;
+        line-height: 1.3;
+        width: 80%;
+    }
+
+    #player-selection-screen {
+        padding-top: 0vh;
+    }
+
+    #player-selection-screen .container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 28px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #player-selection-screen .add-board {
+        width: 80vw;
+        background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') center/contain no-repeat;
+        padding: 22px 18px;
+        margin: 0 auto;
+        height: 31vh
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 17px;
+        margin-bottom: 5px;
+        margin-top: 30px;
+    }
+
+    #player-selection-screen .board-body {
+        width: 100%;
+        margin-top: 9px;
+    }
+
+    #player-selection-screen .input-wrapper {
+        width: 92%;
+        height: 42px;
+        margin: 0 auto 12px auto;
+        border-radius: 6px;
+        padding: 0 12px;
+    }
+
+    #player-selection-screen .input-wrapper input {
+        font-size: 18px;
+    }
+
+    #player-selection-screen .buttons-row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 1px;
+    }
+
+    #player-selection-screen .action-btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    #player-selection-screen .back-button {
+        left: 50vw;
+    }
+
+    #player-selection-screen .game-start-button {
+        left: 28vw;
+    }
+
+    #player-selection-screen .vikings-list {
+        width: 90%;
+        padding-top: 10px;
+        gap: 8px;
+        margin-top: -30px;
+        justify-content: space-around;
+    }
+
+    #player-selection-screen .vikings-list .viking-item {
+        font-size: 30px;
+        gap: 5px;
+    }
+
+    #player-selection-screen .vikings-list .viking-item img {
+        width: 40px;
+        height: 40px;
     }
 
     #ingame-screen .ingame-background-video-desktop {
         display: none;
     }
-
+    
     #ingame-screen .ingame-background-video-mobile {
         display: block;
     }
-
+    
     #ingame-screen .thor-character {
         background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902144/thor-mobile-background-relaxed_b3zn3o.png');
+        background-size: contain;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        transform: scale(1);  
+        transform-origin: bottom center;
     }
-
+    
     #ingame-screen .thor-character.thor-character-mad {
         background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png');
     }
-
-    .wooden-board {
+    
+    #runesCircleContainer {
+        top: 38%;             
+        left: 40%;
+        width: 260px;
+        height: 260px;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        filter: none;
+    }
+    
+    .rune-item {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .rune-item.chosen {
+        width: 90px !important;
+        height: 90px !important;
+        left: 50% !important;
+        top: 38% !important;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    
+    .chosen-viking-name {
+        top: 37%;
+        font-size: 20px;
         width: 90vw;
+        text-align: center;
     }
-
-    .game-title {
-        font-size: clamp(4rem, 12vw, 5rem);
-        -webkit-text-stroke: 4px #381C0E;
-        line-height: 6vh;
-        word-spacing: -15px;
-    }
-
-    .play-button {
-        width: 100px;
-        height: 100px;
-    }
-
-    .back-button {
-        left: 54vw;
-        top: 89vh;
-        width: 72px;
-        height: 72px;
-    }
-
-    .game-start-button {
-        left: 36vw;
-        top: 89vh;
-        width: 72px;
-        height: 72px;
-    }
-
-    .mute-button {
-        width: 60px;
-        height: 60px;
-    }
-
-    .info-button {
-        width: 60px;
-        height: 60px;
-    }
-
-    .close-info {
-        position: absolute;
-        top: 2vh;
-        right: 2vw;
-        width: 45px;
-        height: 45px;
-        border: none;
-        background-color: transparent;
-        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762984088/close-icon_fbqvui.png');
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-        z-index: 10;
-    }
-
-
-
-    #player-selection-screen .input-wrapper input {
-        font-size: 19px;
-    }
-
-    #player-selection-screen .board-header {
-        font-size: 22px;
-    }
-
-    #player-selection-screen .viking-item {
-        font-size: 32px;
-    }
-
-    #player-selection-screen .viking-item img {
-        width: 40px;
-        height: 40px;
-    }
-
-    #player-selection-screen .action-btn {
-        width: 56px;
-        height: 56px;
-    }
-
-    #ingame-screen .back-button {
-        left: 88vw;
-        width: 60px;
-        height: 60px;
-    }
-
+    
     #ingame-screen .sacrifice-action-btn {
+        bottom: 6vh;
+        left: 50%;
+        transform: translateX(-50%);
         width: 70px;
         height: 70px;
+    }
+    
+    .bubble {
+        position: absolute;
+        top: 25vh;
+        left: 0.5vw;
+        width: 120px;
+        font-size: 14px;
+        transform: scale(0.7);
+    }
+    
+    #ingame-screen .back-button {
+        top: calc(2vh + 60px);
+        top: 11vh;       
+        right: 5vh;
+        left: auto;
+        width: 60px;
+        height: 60px;
     }
 }

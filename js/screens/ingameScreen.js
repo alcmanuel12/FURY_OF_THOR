@@ -1,7 +1,7 @@
 import { state } from '../state.js';
 import { soundManager } from '../soundManager.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
-import { selectRandomViking, breakChosenRune } from '../ui/runesCircle.js';
+import { selectRandomViking, breakChosenRune, resetChosenRune } from '../ui/runesCircle.js';
 
 export function initIngameScreen() {
     const ingameScreen = document.getElementById('ingame-screen');
@@ -13,7 +13,6 @@ export function initIngameScreen() {
     const homeScreen = document.getElementById('home-screen');
     const bubble = document.querySelector(".bubble.right");
 
-
     preloadThorImages();
 
     if (ingameHomeButton) {
@@ -22,7 +21,6 @@ export function initIngameScreen() {
 
     if (sacrificeActionButton) {
         sacrificeActionButton.addEventListener('click', () => handleSacrifice(thorCharacter));
-    
     }
 
     playBackgroundVideo(ingameBackgroundVideo, ingameBackgroundVideoMobile);
@@ -47,46 +45,55 @@ export function initIngameScreen() {
         }
     }
 
-    function changeBubbleText(newText) {
-            if (!bubble) return;
-
-  const phrases = [
-    "By order of the gods, your blood will feed this sacred fire.",
-    "The runes have spoken. Your fate is sealed.",
-    "Tonight your soul will thunder in Valhalla.",
-    "The fire hungers. Your blood will answer.",
-    "The gods demand a sacrifice… and they chose you."
-  ];
-
-  const randomIndex = Math.floor(Math.random() * phrases.length); 
-  bubble.textContent = phrases[randomIndex];
-}
-
-
+    let isAnimationInProgress = false;
 
     function handleSacrifice(thorCharacter) {
-    selectRandomViking();
-    changeBubbleText();
+        if (isAnimationInProgress) return;
+        
+        isAnimationInProgress = true;
+        if (sacrificeActionButton) {
+            sacrificeActionButton.disabled = true;
+            sacrificeActionButton.style.pointerEvents = 'none';
+        }
+        
+        selectRandomViking();
+        changeBubbleText();
+        setTimeout(() => {
+            breakChosenRune();
+        }, 1500);
+        
+        if (thorCharacter) {
+            thorCharacter.classList.add('thor-character-mad');
+            setTimeout(() => {
+                thorCharacter.classList.remove('thor-character-mad');
+                resetChosenRune();
+                isAnimationInProgress = false;
+                if (sacrificeActionButton) {
+                    sacrificeActionButton.disabled = false;
+                    sacrificeActionButton.style.pointerEvents = 'auto';
+                }
+            }, 5000);
+        }
+        soundManager.play('lightning-effect');
+    }
 
-    // Después de la animación de selección, romper visualmente la runa escogida
-    setTimeout(() => {
-      breakChosenRune();
-    }, 1500);
+    function changeBubbleText(newText) {
+        if (!bubble) return;
 
-  if (thorCharacter) {
-    thorCharacter.classList.add('thor-character-mad');
-    setTimeout(() => {
-      thorCharacter.classList.remove('thor-character-mad');
-    }, 4000);
-  }
+        const phrases = [
+            "By order of the gods, your blood will feed this sacred fire.",
+            "The runes have spoken. Your fate is sealed.",
+            "Tonight your soul will thunder in Valhalla.",
+            "The fire hungers. Your blood will answer.",
+            "The gods demand a sacrifice… and they chose you."
+        ];
 
-  soundManager.play('lightning-effect');
+        const randomIndex = Math.floor(Math.random() * phrases.length);
+        bubble.textContent = phrases[randomIndex];
+    }
+
+
 }
-
-
-
-}
-
 
 function preloadThorImages() {
     const desktopMadImage = new Image();
@@ -99,8 +106,6 @@ function playBackgroundVideo(ingameBackgroundVideo, ingameBackgroundVideoMobile)
     const isMobile = window.innerWidth <= 768;
     const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
     if (videoToPlay) {
-        videoToPlay.play().catch(() => {});
+        videoToPlay.play().catch(() => { });
     }
-
-
 }
