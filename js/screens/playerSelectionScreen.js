@@ -16,12 +16,20 @@ export function initPlayerSelectionScreen() {
     const ingameBackgroundVideo = document.getElementById('ingame-background-video');
     const ingameBackgroundVideoMobile = document.getElementById('ingame-background-video-mobile');
 
+    const nameRegex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{1,15}$/;
+
     if (addBtn && input) {
         addBtn.addEventListener('click', () => addViking(input));
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 addViking(input);
             }
+        });
+
+        input.addEventListener('input', () => {
+            input.value = input.value
+                .replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ ]/g, '')
+                .substring(0, 15);
         });
     }
 
@@ -43,6 +51,11 @@ export function initPlayerSelectionScreen() {
 
         if (state.getVikings().length >= runes.length) {
             alert("No more players allowed!");
+            return;
+        }
+
+        if (!nameRegex.test(name)) {
+            alert('Invalid name. Only letters and spaces allowed. Maximum 15 characters.');
             return;
         }
 
@@ -88,6 +101,10 @@ export function initPlayerSelectionScreen() {
 
     function handleGameStart(playerSelectionScreen, ingameScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile) {
         if (!playerSelectionScreen || !ingameScreen) return;
+        if (state.getVikings().length === 0) {
+            alert('You must add at least one viking before continuing.');
+            return;
+        }
 
         playerSelectionScreen.style.display = 'none';
         ingameScreen.style.display = 'flex';
@@ -97,7 +114,7 @@ export function initPlayerSelectionScreen() {
 
         const isMobile = window.innerWidth <= 768;
         const videoToPlay = isMobile ? ingameBackgroundVideoMobile : ingameBackgroundVideo;
-        if (videoToPlay) videoToPlay.play().catch(() => {});
+        if (videoToPlay) videoToPlay.play().catch(() => { });
 
         renderRunesCircle();
     }
