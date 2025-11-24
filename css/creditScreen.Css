@@ -42,6 +42,7 @@ body {
 
 .settings {
     background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Ajustes_sbpegh.png');
+
 }
 
 .home {
@@ -56,7 +57,7 @@ body {
     top: 66%;
     left: 36%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 360px;
     aspect-ratio: 1 / 1;
     pointer-events: none;
 
@@ -68,7 +69,7 @@ body {
 
 .bubble-text {
     position: absolute;
-    top: 41%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
@@ -94,9 +95,9 @@ body {
     width: 130px;
 }
 
-.characters img:nth-child(1) { left: 33%; bottom: 2%; }
+.characters img:nth-child(1) { left: 32%; bottom: 2%; }
 .characters img:nth-child(2) { left: 38%; bottom: 6%; }
-.characters img:nth-child(3) { left: 44%; bottom: 11%; }
+.characters img:nth-child(3) { left: 45%; bottom: 11%; }
 .characters img:nth-child(4) { left: 52%; bottom: 6%; }
 .characters img:nth-child(5) { left: 58%; bottom: 2%; }
 
@@ -106,38 +107,49 @@ body {
 @media (max-width: 768px) {
     body {
         background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1763630989/credit-screen-background-mobile_lwiygw.jpg');
+        background-attachment: fixed;
     }
 
     .buttons .btn {
         width: 50px;
         height: 50px;
+        
     }
 
     .buttons {
-        top: 2vh;
+        top: 4vh;
         right: 3vw;
+
     }
 
     .bubble {
-        width: 250px;
-        top: 78%;
-        left: 28%;
+        width: 230px;
+        top: 67%;
+        left: 34%;
+        transform: scaleX(-1);
+
     }
 
+    .bubble * {
+    transform: scaleX(-1); 
+}
+
     .bubble-text {
-        font-size: 16px;
-        width: 75%;
-        top: 45%;
+        font-size: 14px;
+        width: 70%;
+        top: 26%;
+        left: 15%;
+        
     }
 
     .characters img {
-        width: 110px;
+        width: 90px;
     }
 
     
-    .characters img:nth-child(1) { left: 12%; bottom: 0%; }
-    .characters img:nth-child(2) { left: 27%; bottom: 0%; }
-    .characters img:nth-child(3) { left: 40%; bottom: 0%; }
-    .characters img:nth-child(4) { left: 55%; bottom: 0%; }
-    .characters img:nth-child(5) { left: 72%; bottom: 0%; }
+    .characters img:nth-child(1) { left: 1%; bottom: 0%; }
+    .characters img:nth-child(2) { left: 18%; bottom: 0%; }
+    .characters img:nth-child(3) { left: 36%; bottom: 0%; }
+    .characters img:nth-child(4) { left: 57%; bottom: 0%; }
+    .characters img:nth-child(5) { left: 78%; bottom: 0%; }
 }
