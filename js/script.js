@@ -1,6 +1,8 @@
 
 import { runes, brokenRunes } from './runes.js';
 import { soundManager } from './soundManager.js';
+import CustomAlertPop from './js/CustomAlertPop.js';
+
 
 let vikings = [];
 // Copy of runes array to track available runes
@@ -290,27 +292,42 @@ if (gameStartButton) {
 
 if (ingameHomeButton) {
   ingameHomeButton.addEventListener('click', function() {
-    const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás todo el progreso.');
-    
-    if (confirmar) {
-      vikings = [];
-      availableRunes = [...runes];
-      renderList();
-      
-      // Oculta la pantalla de juego y muestra el menú
-      if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
-      if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
-      
-      if (ingameScreen && homeScreen) {
-        ingameScreen.style.display = 'none';
-        homeScreen.style.display = 'flex';
-        // Resume forest sound when returning to home screen
-        soundManager.stop('ingame')
-        soundManager.play('forest');
+    const alertPopup = new CustomAlertPop({
+      title: 'Confirmar',
+      content: '¿Seguro que quieres volver?<br>Perderás todo el progreso.',
+      onFirstButtonClick: () => {
+        // Resetear estado
+        vikings = [];
+        availableRunes = [...runes];
+        renderList();
+
+        // Pausar videos
+        if (ingameBackgroundVideo) ingameBackgroundVideo.pause();
+        if (ingameBackgroundVideoMobile) ingameBackgroundVideoMobile.pause();
+
+        // Cambiar pantallas
+        if (ingameScreen && homeScreen) {
+          ingameScreen.style.display = 'none';
+          homeScreen.style.display = 'flex';
+
+          // Control de sonidos
+          soundManager.stop('ingame');
+          soundManager.play('forest');
+        }
+      },
+      onSecondButtonClick: () => {
+        // Cancelar — simplemente cerrar popup, no hace falta código extra
       }
-    }
+    });
+
+    // Poner texto claro a botones:
+    alertPopup.popupEl.querySelector('.btn1').textContent = 'Aceptar';
+    alertPopup.popupEl.querySelector('.btn2').textContent = 'Eliminar';
+
+    alertPopup.open();
   });
 }
+
 
 if (sacrificeActionButton) {
   sacrificeActionButton.addEventListener('click', () => {
