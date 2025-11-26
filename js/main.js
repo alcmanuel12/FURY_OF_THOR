@@ -2,6 +2,7 @@ import { soundManager } from './soundManager.js';
 import { initHomeScreen } from './screens/homeScreen.js';
 import { initPlayerSelectionScreen } from './screens/playerSelectionScreen.js';
 import { initIngameScreen } from './screens/ingameScreen.js';
+import { initCreditScreen } from './screens/creditScreen.js';
 import { alertPopup } from './alertPopup.js';
 
 function registerSounds() {
@@ -15,6 +16,7 @@ async function init() {
     initHomeScreen();
     initPlayerSelectionScreen();
     initIngameScreen();
+    initCreditScreen();
     
     await showSoundAlert();
     

@@ -777,6 +777,91 @@ button:hover,
         0 -2px #fff;
 }
 
+#credit-screen {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1763923517/desktop-background-ingame_4_mjxdvu.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 0;
+}
+
+.credit-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vh;
+    max-width: 500px;
+    height: 36vh;
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') no-repeat center;
+    background-size: 100% 100%;
+    color: #f2e6d0;
+    font-family: 'BoldPixels', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.credit-message {
+    font-size: 22px;
+    color: #f2e6d0;
+    line-height: 1.3;
+    width: 85%;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+}
+
+.credit-home-btn {
+    min-width: 120px;
+    height: 60px;
+}
+
+.credit-characters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.credit-characters img {
+    position: absolute;
+    width: 130px;
+}
+
+.credit-characters img:nth-child(1) {
+    left: 32%;
+    bottom: 2%;
+}
+
+.credit-characters img:nth-child(2) {
+    left: 38%;
+    bottom: 6%;
+}
+
+.credit-characters img:nth-child(3) {
+    left: 45%;
+    bottom: 11%;
+}
+
+.credit-characters img:nth-child(4) {
+    left: 52%;
+    bottom: 6%;
+}
+
+.credit-characters img:nth-child(5) {
+    left: 58%;
+    bottom: 2%;
+}
+
 
 @media (max-height: 900px) {
     .game-title {
@@ -1088,5 +1173,58 @@ button:hover,
         left: auto;
         width: 60px;
         height: 60px;
+    }
+
+    #credit-screen {
+        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1763630989/credit-screen-background-mobile_lwiygw.jpg');
+        background-attachment: fixed;
+    }
+
+    .credit-content {
+        width: 80vw;
+        max-width: 400px;
+        height: auto;
+        min-height: 200px;
+        padding: 30px 20px;
+    }
+
+    .credit-message {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .credit-home-btn {
+        min-width: 100px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .credit-characters img {
+        width: 90px;
+    }
+
+    .credit-characters img:nth-child(1) {
+        left: 1%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(2) {
+        left: 18%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(3) {
+        left: 36%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(4) {
+        left: 57%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(5) {
+        left: 78%;
+        bottom: 0%;
     }
 }
