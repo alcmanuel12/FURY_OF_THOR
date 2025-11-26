@@ -48,8 +48,10 @@ class SoundManager {
     }
   }
 
-  toggleMute() {
-    this.isMuted = !this.isMuted;
+  setMuted(muted) {
+    if (this.isMuted === muted) return this.isMuted;
+    
+    this.isMuted = muted;
     
     if (this.isMuted) {
       for (let i = 0; i < this.activeSounds.length; i++) {
@@ -73,6 +75,11 @@ class SoundManager {
       }
     }
     
+    return this.isMuted;
+  }
+
+  toggleMute() {
+    this.setMuted(!this.isMuted);
     return this.isMuted;
   }
 }

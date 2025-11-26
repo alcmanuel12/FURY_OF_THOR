@@ -2,6 +2,7 @@ import { state } from '../state.js';
 import { soundManager } from '../soundManager.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
 import { selectRandomViking, breakChosenRune, resetChosenRune } from '../ui/runesCircle.js';
+import { alertPopup } from '../alertPopup.js';
 
 export function initIngameScreen() {
     const ingameScreen = document.getElementById('ingame-screen');
@@ -25,8 +26,8 @@ export function initIngameScreen() {
 
     playBackgroundVideo(ingameBackgroundVideo, ingameBackgroundVideoMobile);
 
-    function handleHomeClick(ingameScreen, homeScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile) {
-        const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás todo el progreso.');
+    async function handleHomeClick(ingameScreen, homeScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile) {
+        const confirmar = await alertPopup.confirm('Are you sure you want to go back?\nYou will lose all progress.');
 
         if (confirmar) {
             state.clearVikings();

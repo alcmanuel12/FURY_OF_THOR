@@ -231,6 +231,88 @@ body {
     transform: translateX(15px);
 }
 
+.alert-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.3s ease;
+}
+
+.alert-popup.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.alert-content {
+    position: relative;
+    width: 50vh;
+    height: 36vh;
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') no-repeat center;
+    background-size: 100% 100%;
+    color: #f2e6d0;
+    font-family: 'BoldPixels', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.alert-message {
+    font-size: 24px;
+    color: #f2e6d0;
+    line-height: 1.4;
+    width: 85%;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+.alert-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.alert-btn {
+    min-width: 120px;
+    height: 60px;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/din119ww9/image/upload/v1763978538/Proyecto_nuevo_12_1_jjmdga.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    font-family: 'BoldPixels', sans-serif;
+    font-size: 24px;
+    color: #f2e6d0;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    padding: 0 20px;
+}
+
+.alert-btn:hover {
+    transform: scale(1.1);
+    filter: brightness(1.15);
+    box-shadow: none;
+}
+
+.alert-btn.hidden {
+    display: none;
+}
+
 button,
 .mute-button,
 .info-button,
@@ -823,6 +905,26 @@ button:hover,
         font-size: 16px;
         line-height: 1.3;
         width: 80%;
+    }
+
+    .alert-content {
+        padding: 30px 20px;
+    }
+
+    .alert-message {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .alert-btn {
+        min-width: 80px;
+        height: 45px;
+        font-size: 20px;
+        padding: 0 15px;
+    }
+
+    .alert-buttons {
+        gap: 15px;
     }
 
     #player-selection-screen {

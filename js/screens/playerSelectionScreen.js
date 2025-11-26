@@ -3,6 +3,7 @@ import { runes } from '../runes.js';
 import { soundManager } from '../soundManager.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
 import { renderRunesCircle } from '../ui/runesCircle.js';
+import { alertPopup } from '../alertPopup.js';
 
 export function initPlayerSelectionScreen() {
     const input = document.getElementById('vikingName');
@@ -50,12 +51,12 @@ export function initPlayerSelectionScreen() {
         if (name === '') return;
 
         if (state.getVikings().length >= runes.length) {
-            alert("No more players allowed!");
+            alertPopup.alert("No more players allowed!");
             return;
         }
 
         if (!nameRegex.test(name)) {
-            alert('Invalid name. Only letters and spaces allowed. Maximum 15 characters.');
+            alertPopup.alert('Invalid name. Only letters and spaces allowed. Maximum 15 characters.');
             return;
         }
 
@@ -83,8 +84,8 @@ export function initPlayerSelectionScreen() {
         renderVikingsList();
     }
 
-    function handleBackClick(homeScreen, playerSelectionScreen) {
-        const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás a todos tus vikingos.');
+    async function handleBackClick(homeScreen, playerSelectionScreen) {
+        const confirmar = await alertPopup.confirm('Are you sure you want to go back?\nYou will lose all your vikings.');
 
         if (confirmar) {
             state.clearVikings();
@@ -101,8 +102,8 @@ export function initPlayerSelectionScreen() {
 
     function handleGameStart(playerSelectionScreen, ingameScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile) {
         if (!playerSelectionScreen || !ingameScreen) return;
-        if (state.getVikings().length === 0) {
-            alert('You must add at least one viking before continuing.');
+        if (state.getVikings().length <= 1) {
+            alertPopup.alert('You must add at least two vikings before continuing.');
             return;
         }
 
