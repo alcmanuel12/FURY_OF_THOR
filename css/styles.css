@@ -313,6 +313,17 @@ body {
     display: none;
 }
 
+.alert-popup.winner-alert .alert-message {
+    font-size: 32px;
+}
+
+.alert-popup.winner-alert .alert-btn {
+    min-width: 180px;
+    height: 70px;
+    font-size: 28px;
+    padding: 0 25px;
+}
+
 button,
 .mute-button,
 .info-button,
@@ -1006,6 +1017,17 @@ button:hover,
         height: 45px;
         font-size: 20px;
         padding: 0 15px;
+    }
+
+    .alert-popup.winner-alert .alert-message {
+        font-size: 24px;
+    }
+
+    .alert-popup.winner-alert .alert-btn {
+        min-width: 160px;
+        height: 65px;
+        font-size: 24px;
+        padding: 0 20px;
     }
 
     .alert-buttons {

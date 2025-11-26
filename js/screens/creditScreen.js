@@ -1,6 +1,7 @@
 import { soundManager } from '../soundManager.js';
 import { state } from '../state.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
+import { resetGameState } from './ingameScreen.js';
 
 export function initCreditScreen() {
     const creditScreen = document.getElementById('credit-screen');
@@ -17,6 +18,7 @@ export function initCreditScreen() {
         state.clearVikings();
         state.resetAvailableRunes();
         renderVikingsList();
+        resetGameState();
 
         creditScreen.style.display = 'none';
         homeScreen.style.display = 'flex';

@@ -38,10 +38,16 @@ class AlertPopup {
         });
     }
 
-    show(message, showCancel = false, acceptText = 'OK', cancelText = 'Cancel') {
-        if (!this.popup || !this.messageEl) return;
+    show(message, showCancel = false, acceptText = 'OK', cancelText = 'Cancel', isHTML = false, extraClass = '') {
+        if (!this.popup || !this.messageEl) {
+            return Promise.resolve();
+        }
 
-        this.messageEl.textContent = message;
+        if (isHTML) {
+            this.messageEl.innerHTML = message;
+        } else {
+            this.messageEl.textContent = message;
+        }
 
         if (this.acceptBtn) {
             this.acceptBtn.textContent = acceptText;
@@ -56,6 +62,10 @@ class AlertPopup {
             }
         }
 
+        if (extraClass) {
+            this.popup.classList.add(extraClass);
+        }
+
         this.popup.classList.remove('hidden');
 
         return new Promise((resolve) => {
@@ -66,6 +76,7 @@ class AlertPopup {
     hide() {
         if (this.popup) {
             this.popup.classList.add('hidden');
+            this.popup.classList.remove('winner-alert');
         }
     }
 

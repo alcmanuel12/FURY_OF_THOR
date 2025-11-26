@@ -1,4 +1,3 @@
-// Sound Manager - Modular system for handling all game sounds
 class SoundManager {
   constructor() {
     this.isMuted = false;

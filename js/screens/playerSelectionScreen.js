@@ -4,6 +4,8 @@ import { soundManager } from '../soundManager.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
 import { renderRunesCircle } from '../ui/runesCircle.js';
 import { alertPopup } from '../alertPopup.js';
+import { resetGameState } from './ingameScreen.js';
+import { resetChosenRune } from '../ui/runesCircle.js';
 
 export function initPlayerSelectionScreen() {
     const input = document.getElementById('vikingName');
@@ -91,6 +93,8 @@ export function initPlayerSelectionScreen() {
             state.clearVikings();
             state.resetAvailableRunes();
             renderVikingsList();
+            resetGameState();
+            resetChosenRune();
 
             if (homeScreen && playerSelectionScreen) {
                 playerSelectionScreen.style.display = 'none';
@@ -118,5 +122,6 @@ export function initPlayerSelectionScreen() {
         if (videoToPlay) videoToPlay.play().catch(() => { });
 
         renderRunesCircle();
+        resetGameState();
     }
 }
