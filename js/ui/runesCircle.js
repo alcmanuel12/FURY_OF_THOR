@@ -41,7 +41,7 @@ export function renderRunesCircle() {
 
         const rune = runes[index % runes.length];
         vikingToRune[name] = rune;
-        
+
         const runeDiv = document.createElement('div');
         runeDiv.classList.add('rune-item');
         runeDiv.style.backgroundImage = `url(${rune.url})`;
@@ -112,7 +112,7 @@ export function breakChosenRune() {
     if (!broken) return null;
     chosen.style.backgroundImage = `url(${broken.url})`;
     chosen.classList.add('broken');
-    
+
     return chosen.dataset.vikingName;
 }
 

@@ -17,18 +17,18 @@ async function init() {
     initPlayerSelectionScreen();
     initIngameScreen();
     initCreditScreen();
-    
+
     await showSoundAlert();
-    
+
     soundManager.play('forest');
 }
 
 async function showSoundAlert() {
     const message = 'For security reasons, the browser enforces sounds to be muted on arrival.\n\nThis game has sounds and it\'s highly recommended to enable them for the best experience.';
     const result = await alertPopup.show(message, true, 'OK', 'Mute');
-    
+
     const muteButton = document.getElementById('mute-button');
-    
+
     if (result) {
         soundManager.setMuted(false);
         if (muteButton) {
