@@ -1149,7 +1149,7 @@ button:hover,
     #runesCircleContainer {
         position: absolute;
         top: 20%;
-        left: 20%;
+        left: 18.25%;
         width: 260px;
         height: 260px;
         transform: translate(-50%, -50%);
@@ -1163,17 +1163,17 @@ button:hover,
     .rune-item.chosen {
         width: 80px !important;
         height: 80px !important;
-        top: 90% !important;
-        left: 92% !important;
+        top: 96% !important;
+        left: 96% !important;
         transform: translate(-50%, -50%) scale(1.1);
     }
 
     .chosen-viking-name {
-        top: 40%;
-        font-size: 22px;
+        top: 43%;
+        font-size: 32px;
         width: 90vw;
         transform: translate(-50%, -50%);
-        left: 50%;
+        left: 52%;
         text-align: center;
     }
 
