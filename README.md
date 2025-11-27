@@ -1,4 +1,9 @@
-# <div align="center">⚡🪓 **F U R Y   O F   T H O R** 🪓⚡</div>
+# <div align="center"><h1 align="center">
+  **ᚠᚢᚱᛁ &nbsp; ᛟᚠ &nbsp; ᚦᛟᚱ** 
+  <br>
+  <sub>**F U R Y &nbsp; O F &nbsp; T H O R**</sub>
+  </h1>
+</div>
 
 <div align="center">
 <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/fury-of-thor-logo_bvj0vs.png" width="200"/>
@@ -190,7 +195,57 @@ Each team member contributed to:
 * Pixel-art adjustments
 * Audio integration
 * Testing & bug fixing
-  
+---
+## <div align="center">🛡️ **Team Members**</div>
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" width="260">
+      <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/Assets_Alvaro_vnpnbc.png" width="130" style="border-radius: 50%; box-shadow: 0 0 10px #000;">
+      <h3>Álvaro</h3>
+      <i>⚡ Scrum Master</i><br>
+      <sub>Guardian of the Ritual Flow</sub>
+    </td>
+
+   <td align="center" width="260">
+      <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/asset_Oum_f0tn4x.png" width="130" style="border-radius: 50%; box-shadow: 0 0 10px #000;">
+      <h3>Oumniya</h3>
+      <i>🪶 Product Owner</i><br>
+      <sub>Voice of the Gods • Keeper of Vision</sub>
+    </td>
+
+   <td align="center" width="260">
+      <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/aset_Manue_js6yz6.png" width="130" style="border-radius: 50%; box-shadow: 0 0 10px #000;">
+      <h3>Manuel</h3>
+      <i>🛡️ Full-Stack Developer</i><br>
+      <sub>Builder of Runes & Ritual Logic</sub>
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td align="center" width="260">
+      <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/aset_Gerardo_zz54sh.png" width="130" style="border-radius: 50%; box-shadow: 0 0 10px #000;">
+      <h3>Gerardo</h3>
+      <i>🛡️ Full-Stack Developer</i><br>
+      <sub>Architect of Circles & Divine Animations</sub>
+    </td>
+
+   <td align="center" width="260">
+      <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/asset_Alex_hxrfda.png" width="130" style="border-radius: 50%; box-shadow: 0 0 10px #000;">
+      <h3>Alejandro</h3>
+      <i>🛡️ Full-Stack Developer</i><br>
+      <sub>Crafter of UI Spells & Mobile Magic</sub>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+---
 # <div align="center">⚡ Final Blessing</div>
 
 <div align="center">
@@ -202,9 +257,4 @@ Each team member contributed to:
 </div>
 
 ---
-
 # <div align="center">🪓 **S K Å L !** 🪓</div>
-
----
-
-
