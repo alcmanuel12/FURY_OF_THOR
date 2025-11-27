@@ -935,60 +935,79 @@ button:hover,
     #ingame-screen .thor-character.thor-character-mad {
         background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png');
     }
-    
-    #runesCircleContainer {
-        top: 38%;             
-        left: 40%;
-        width: 260px;
-        height: 260px;
-        transform: translate(-50%, -50%);
-        opacity: 1;
-        filter: none;
-    }
-    
-    .rune-item {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .rune-item.chosen {
-        width: 90px !important;
-        height: 90px !important;
-        left: 50% !important;
-        top: 38% !important;
-        transform: translate(-50%, -50%) scale(1.2);
-    }
-    
-    .chosen-viking-name {
-        top: 37%;
-        font-size: 20px;
-        width: 90vw;
-        text-align: center;
-    }
-    
-    #ingame-screen .sacrifice-action-btn {
-        bottom: 6vh;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 70px;
-        height: 70px;
-    }
-    
-    .bubble {
-        position: absolute;
-        top: 25vh;
-        left: 0.5vw;
-        width: 120px;
-        font-size: 14px;
-        transform: scale(0.7);
-    }
-    
-    #ingame-screen .back-button {
-        top: calc(2vh + 60px);
-        top: 11vh;       
-        right: 5vh;
-        left: auto;
-        width: 60px;
-        height: 60px;
-    }
+
+#ingame-screen {
+    overflow: hidden;
+    position: relative;
+}
+
+#runesCircleContainer {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 260px;
+    height: 260px;
+    transform: translate(-50%, -50%);
+}
+
+.rune-item {
+    width: 55px;
+    height: 55px;
+}
+
+.rune-item.chosen {
+    width: 80px !important;
+    height: 80px !important;
+    top: 90% !important;
+    left: 92% !important;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.chosen-viking-name {
+    top: 40%;
+    font-size: 22px;
+    width: 90vw;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    text-align: center;
+}
+
+.bubble {
+    position: absolute;
+    top: 22vh;                 
+    left: 15%;
+    transform: translateX(-50%) scale(0.50);
+    z-index: 9999 !important;
+    max-width: 260px;        
+}
+
+#info-popup:not(.hidden) {
+    z-index: 99999 !important;
+}
+
+#info-popup:not(.hidden) {
+    pointer-events: all;
+}
+
+#info-popup:not(.hidden) ~ * .bubble,
+#info-popup:not(.hidden) .bubble {
+    display: none !important;
+}
+
+#ingame-screen .sacrifice-action-btn {
+    bottom: 6vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+}
+
+#ingame-screen .back-button {
+    top: calc(2vh + 60px);
+    top: 2vh;       
+    right: 1vh;
+    left: auto;
+    width: 50px;
+    height: 50px;
+}
 }

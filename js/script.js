@@ -154,8 +154,13 @@ if (gameStartButton) {
         const total = vikings.length;
         if (total === 0) return;
 
-const containerSize = runesCircleContainer.offsetWidth;
-const baseRadius = containerSize / 2.6; // cercle plus serré
+
+let containerSize = runesCircleContainer.offsetWidth;
+
+if (window.innerWidth <= 768) {
+    containerSize = 260; 
+}
+const baseRadius = containerSize / 2.6; 
 const radiusAdjustment = Math.max(0.9, 1.2 - vikings.length * 0.03);
 const radius = baseRadius * radiusAdjustment;
 const centerX = containerSize / 2;
