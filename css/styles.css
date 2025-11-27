@@ -513,6 +513,35 @@ button:hover,
     background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902368/thor-background-shouting_quv4zf.png');
 }
 
+.lightning-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.lightning-animation.hidden {
+    display: none;
+}
+
+.lightning-animation:not(.hidden) {
+    opacity: 1;
+}
+
+.lightning-animation img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #ingame-screen .back-button {
     top: 3vh;
     left: 89vw;
