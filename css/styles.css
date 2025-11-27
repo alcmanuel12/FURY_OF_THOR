@@ -335,7 +335,6 @@ button,
     border-radius: 50%;
     overflow: visible;
     transition: transform 0.3s, filter 0.3s;
-    
 }
 
 button:hover,
@@ -631,11 +630,11 @@ button:hover,
     display: flex;
     margin: 10px;
     margin-right: 125vh;
-    margin-top: 38vh;
+    margin-top: 40vh;
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'BoldPixels', sans-serif;
-    line-height: 0.7em;
+    line-height: 1.3em;
     letter-spacing: -0.02em;
     background-color: #fff;
     color: #000;
@@ -1127,11 +1126,11 @@ button:hover,
     #ingame-screen .ingame-background-video-desktop {
         display: none;
     }
-    
+
     #ingame-screen .ingame-background-video-mobile {
         display: block;
     }
-    
+
     #ingame-screen .thor-character {
         background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902144/thor-mobile-background-relaxed_b3zn3o.png');
         background-size: contain;
@@ -1139,14 +1138,14 @@ button:hover,
         background-repeat: no-repeat;
         width: 100%;
         height: 100%;
-        transform: scale(1);  
+        transform: scale(1.2);
         transform-origin: bottom center;
     }
-    
+
     #ingame-screen .thor-character.thor-character-mad {
         background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png');
     }
-    
+
     #runesCircleContainer {
         position: absolute;
         top: 20%;
@@ -1155,12 +1154,12 @@ button:hover,
         height: 260px;
         transform: translate(-50%, -50%);
     }
-    
+
     .rune-item {
         width: 55px;
         height: 55px;
     }
-    
+
     .rune-item.chosen {
         width: 80px !important;
         height: 80px !important;
@@ -1168,7 +1167,7 @@ button:hover,
         left: 92% !important;
         transform: translate(-50%, -50%) scale(1.1);
     }
-    
+
     .chosen-viking-name {
         top: 40%;
         font-size: 22px;
@@ -1177,14 +1176,17 @@ button:hover,
         left: 50%;
         text-align: center;
     }
-    
+
     .bubble {
+        margin-top: 31vh;
+        font-size: 30px;
+        line-height: 0.7em;
         position: absolute;
-        top: 22vh;                 
+        top: 22vh;
         left: 15%;
         transform: translateX(-50%) scale(0.50);
         z-index: 9999 !important;
-        max-width: 260px;        
+        max-width: 260px;
     }
 
     #info-popup:not(.hidden) {
@@ -1195,11 +1197,15 @@ button:hover,
         pointer-events: all;
     }
 
-    #info-popup:not(.hidden) ~ * .bubble,
+    #info-popup:not(.hidden)~* .bubble,
     #info-popup:not(.hidden) .bubble {
         display: none !important;
     }
-    
+
+    #alert-popup:not(.hidden) {
+        z-index: 99999 !important;
+    }
+
     #ingame-screen .sacrifice-action-btn {
         bottom: 6vh;
         left: 50%;
@@ -1207,10 +1213,10 @@ button:hover,
         width: 70px;
         height: 70px;
     }
-    
+
     #ingame-screen .back-button {
         top: calc(2vh + 60px);
-        top: 2vh;       
+        top: 2vh;
         right: 1vh;
         left: auto;
         width: 50px;
