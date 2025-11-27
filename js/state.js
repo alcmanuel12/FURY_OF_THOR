@@ -3,6 +3,7 @@ import { runes } from './runes.js';
 let vikings = [];
 let availableRunes = [...runes];
 let runeElements = [];
+let vikingToRune = {};
 
 export const state = {
     getVikings: () => vikings,
@@ -18,5 +19,10 @@ export const state = {
 
     getRuneElements: () => runeElements,
     setRuneElements: (elements) => { runeElements = elements; },
-    clearRuneElements: () => { runeElements = []; }
+    clearRuneElements: () => { runeElements = []; },
+
+    getVikingToRune: () => vikingToRune,
+    setVikingToRune: (mapping) => { vikingToRune = mapping; },
+    getVikingRune: (vikingName) => { return vikingToRune[vikingName]; },
+    clearVikingToRune: () => { vikingToRune = {}; }
 };

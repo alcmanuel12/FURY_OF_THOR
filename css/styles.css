@@ -231,6 +231,99 @@ body {
     transform: translateX(15px);
 }
 
+.alert-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.3s ease;
+}
+
+.alert-popup.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.alert-content {
+    position: relative;
+    width: 50vh;
+    height: 36vh;
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') no-repeat center;
+    background-size: 100% 100%;
+    color: #f2e6d0;
+    font-family: 'BoldPixels', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.alert-message {
+    font-size: 24px;
+    color: #f2e6d0;
+    line-height: 1.4;
+    width: 85%;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+.alert-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.alert-btn {
+    min-width: 120px;
+    height: 60px;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/din119ww9/image/upload/v1763978538/Proyecto_nuevo_12_1_jjmdga.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    font-family: 'BoldPixels', sans-serif;
+    font-size: 24px;
+    color: #f2e6d0;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    padding: 0 20px;
+}
+
+.alert-btn:hover {
+    transform: scale(1.1);
+    filter: brightness(1.15);
+    box-shadow: none;
+}
+
+.alert-btn.hidden {
+    display: none;
+}
+
+.alert-popup.winner-alert .alert-message {
+    font-size: 32px;
+}
+
+.alert-popup.winner-alert .alert-btn {
+    min-width: 180px;
+    height: 70px;
+    font-size: 28px;
+    padding: 0 25px;
+}
+
 button,
 .mute-button,
 .info-button,
@@ -695,6 +788,91 @@ button:hover,
         0 -2px #fff;
 }
 
+#credit-screen {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1763923517/desktop-background-ingame_4_mjxdvu.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 0;
+}
+
+.credit-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vh;
+    max-width: 500px;
+    height: 36vh;
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') no-repeat center;
+    background-size: 100% 100%;
+    color: #f2e6d0;
+    font-family: 'BoldPixels', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.credit-message {
+    font-size: 22px;
+    color: #f2e6d0;
+    line-height: 1.3;
+    width: 85%;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+}
+
+.credit-home-btn {
+    min-width: 120px;
+    height: 60px;
+}
+
+.credit-characters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.credit-characters img {
+    position: absolute;
+    width: 130px;
+}
+
+.credit-characters img:nth-child(1) {
+    left: 32%;
+    bottom: 2%;
+}
+
+.credit-characters img:nth-child(2) {
+    left: 38%;
+    bottom: 6%;
+}
+
+.credit-characters img:nth-child(3) {
+    left: 45%;
+    bottom: 11%;
+}
+
+.credit-characters img:nth-child(4) {
+    left: 52%;
+    bottom: 6%;
+}
+
+.credit-characters img:nth-child(5) {
+    left: 58%;
+    bottom: 2%;
+}
+
 
 @media (max-height: 900px) {
     .game-title {
@@ -823,6 +1001,37 @@ button:hover,
         font-size: 16px;
         line-height: 1.3;
         width: 80%;
+    }
+
+    .alert-content {
+        padding: 30px 20px;
+    }
+
+    .alert-message {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .alert-btn {
+        min-width: 80px;
+        height: 45px;
+        font-size: 20px;
+        padding: 0 15px;
+    }
+
+    .alert-popup.winner-alert .alert-message {
+        font-size: 24px;
+    }
+
+    .alert-popup.winner-alert .alert-btn {
+        min-width: 160px;
+        height: 65px;
+        font-size: 24px;
+        padding: 0 20px;
+    }
+
+    .alert-buttons {
+        gap: 15px;
     }
 
     #player-selection-screen {
@@ -968,6 +1177,77 @@ button:hover,
         transform: translateX(-50%);
         width: 70px;
         height: 70px;
+    }
+    
+    .bubble {
+        position: absolute;
+        top: 25vh;
+        left: 0.5vw;
+        width: 120px;
+        font-size: 14px;
+        transform: scale(0.7);
+    }
+    
+    #ingame-screen .back-button {
+        top: calc(2vh + 60px);
+        top: 11vh;       
+        right: 5vh;
+        left: auto;
+        width: 60px;
+        height: 60px;
+    }
+
+    #credit-screen {
+        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1763630989/credit-screen-background-mobile_lwiygw.jpg');
+        background-attachment: fixed;
+    }
+
+    .credit-content {
+        width: 80vw;
+        max-width: 400px;
+        height: auto;
+        min-height: 200px;
+        padding: 30px 20px;
+    }
+
+    .credit-message {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .credit-home-btn {
+        min-width: 100px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .credit-characters img {
+        width: 90px;
+    }
+
+    .credit-characters img:nth-child(1) {
+        left: 1%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(2) {
+        left: 18%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(3) {
+        left: 36%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(4) {
+        left: 57%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(5) {
+        left: 78%;
+        bottom: 0%;
     }
     
     .bubble {
