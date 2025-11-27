@@ -1,5 +1,6 @@
 import { state } from '../state.js';
 import { runes, brokenRunes } from '../runes.js';
+import { persistence } from '../persistence.js';
 
 export function renderRunesCircle() {
     const runesCircleContainer = document.getElementById('runesCircleContainer');
@@ -62,6 +63,7 @@ export function renderRunesCircle() {
     runesCircleContainer.classList.remove('visible');
     setTimeout(() => {
         runesCircleContainer.classList.add('visible');
+        persistence.save();
     }, 100);
 }
 
@@ -112,6 +114,8 @@ export function breakChosenRune() {
     if (!broken) return null;
     chosen.style.backgroundImage = `url(${broken.url})`;
     chosen.classList.add('broken');
+    
+    persistence.save();
 
     return chosen.dataset.vikingName;
 }

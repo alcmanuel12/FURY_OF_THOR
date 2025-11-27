@@ -3,6 +3,7 @@ import { soundManager } from '../soundManager.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
 import { selectRandomViking, breakChosenRune, resetChosenRune } from '../ui/runesCircle.js';
 import { alertPopup } from '../alertPopup.js';
+import { persistence } from '../persistence.js';
 
 let isAnimationInProgress = false;
 let gameEnded = false;
@@ -10,6 +11,8 @@ let gameEnded = false;
 export function resetGameState() {
     gameEnded = false;
     isAnimationInProgress = false;
+    persistence.setGameEnded(false);
+    persistence.setWinnerName(null);
 
     const chosenNameEl = document.getElementById('chosenVikingName');
     if (chosenNameEl) {
@@ -24,6 +27,60 @@ export function resetGameState() {
     }
 
     resetChosenRune();
+}
+
+export function setGameEnded(value) {
+    gameEnded = value;
+}
+
+export function getGameEnded() {
+    return gameEnded;
+}
+
+export async function restoreWinner(winnerName) {
+    const winnerRune = state.getVikingRune(winnerName);
+    if (!winnerRune) return;
+
+    const runeElements = state.getRuneElements();
+    const winnerRuneElement = runeElements.find(el =>
+        el.dataset.vikingName === winnerName && !el.classList.contains('broken')
+    );
+
+    if (winnerRuneElement) {
+        runeElements.forEach(r => {
+            r.classList.remove('chosen', 'dimmed');
+        });
+        winnerRuneElement.classList.add('chosen');
+    }
+
+    const chosenNameEl = document.getElementById('chosenVikingName');
+    if (chosenNameEl) {
+        chosenNameEl.textContent = winnerName;
+        chosenNameEl.classList.add('visible');
+    }
+
+    const winnerMessage = `
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <div style="font-size: 32px;">The winner is:</div>
+            <div style="display: flex; align-items: center; gap: 15px; font-size: 36px;">
+                <img src="${winnerRune.url}" alt="Winner rune" style="width: 55px; height: 55px;" />
+                <span>${winnerName}</span>
+            </div>
+        </div>
+    `;
+
+    const result = await alertPopup.show(winnerMessage, false, 'Credits', '', true, 'winner-alert');
+
+    if (result) {
+        const creditScreen = document.getElementById('credit-screen');
+        const ingameScreen = document.getElementById('ingame-screen');
+        if (creditScreen && ingameScreen) {
+            ingameScreen.style.display = 'none';
+            creditScreen.style.display = 'flex';
+            soundManager.stop('ingame');
+            persistence.save();
+        }
+    }
 }
 
 export function initIngameScreen() {
@@ -67,6 +124,8 @@ export function initIngameScreen() {
                 homeScreen.style.display = 'flex';
                 soundManager.stop('ingame');
                 soundManager.play('forest');
+                persistence.clear();
+                persistence.save();
             }
         }
     }
@@ -105,11 +164,15 @@ export function initIngameScreen() {
                     thorCharacter.classList.remove('thor-character-mad');
                 }
                 resetChosenRune();
+                persistence.save();
 
                 const remainingVikings = state.getVikings();
                 if (remainingVikings.length === 1) {
                     gameEnded = true;
                     const winnerName = remainingVikings[0];
+                    persistence.setGameEnded(true);
+                    persistence.setWinnerName(winnerName);
+                    persistence.save();
 
                     setTimeout(() => {
                         selectWinner(winnerName);
@@ -150,41 +213,7 @@ export function initIngameScreen() {
     }
 
     async function showWinner(winnerName) {
-        const winnerRune = state.getVikingRune(winnerName);
-        if (!winnerRune) return;
-
-        const runeElements = state.getRuneElements();
-        const winnerRuneElement = runeElements.find(el =>
-            el.dataset.vikingName === winnerName && !el.classList.contains('broken')
-        );
-
-        if (winnerRuneElement) {
-            runeElements.forEach(r => {
-                r.classList.remove('chosen', 'dimmed');
-            });
-            winnerRuneElement.classList.add('chosen');
-        }
-
-        const winnerMessage = `
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-                <div style="font-size: 32px;">The winner is:</div>
-                <div style="display: flex; align-items: center; gap: 15px; font-size: 36px;">
-                    <img src="${winnerRune.url}" alt="Winner rune" style="width: 55px; height: 55px;" />
-                    <span>${winnerName}</span>
-                </div>
-            </div>
-        `;
-
-        const result = await alertPopup.show(winnerMessage, false, 'Credits', '', true, 'winner-alert');
-
-        if (result) {
-            const creditScreen = document.getElementById('credit-screen');
-            if (creditScreen && ingameScreen) {
-                ingameScreen.style.display = 'none';
-                creditScreen.style.display = 'flex';
-                soundManager.stop('ingame');
-            }
-        }
+        await restoreWinner(winnerName);
     }
 
     function changeBubbleText(newText) {

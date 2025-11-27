@@ -2,6 +2,7 @@ import { soundManager } from '../soundManager.js';
 import { state } from '../state.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
 import { resetGameState } from './ingameScreen.js';
+import { persistence } from '../persistence.js';
 
 export function initCreditScreen() {
     const creditScreen = document.getElementById('credit-screen');
@@ -24,6 +25,8 @@ export function initCreditScreen() {
         homeScreen.style.display = 'flex';
         soundManager.stop('ingame');
         soundManager.play('forest');
+        persistence.clear();
+        persistence.save();
     }
 }
 

@@ -1,5 +1,3 @@
-// CustomAlertPop.js
-
 export default class CustomAlertPop {
     constructor({ title = '', content = '', parent = document.body, onFirstButtonClick = null, onSecondButtonClick = null }) {
         this.title = title;
@@ -23,10 +21,8 @@ export default class CustomAlertPop {
         </div>
     `;
 
-    // Append to parent
     this.parent.appendChild(popup);
 
-    // Bind button events
     const btn1 = popup.querySelector('.btn1');
     const btn2 = popup.querySelector('.btn2');
 

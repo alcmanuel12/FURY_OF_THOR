@@ -1,5 +1,6 @@
 import { state } from '../state.js';
 import { runes } from '../runes.js';
+import { persistence } from '../persistence.js';
 
 export function renderVikingsList() {
     const list = document.getElementById('vikingsList');
@@ -22,4 +23,6 @@ export function renderVikingsList() {
             list.appendChild(div);
         }
     });
+    
+    persistence.save();
 }

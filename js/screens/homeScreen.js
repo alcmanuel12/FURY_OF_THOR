@@ -1,4 +1,5 @@
 import { soundManager } from '../soundManager.js';
+import { persistence } from '../persistence.js';
 
 export function initHomeScreen() {
     const muteButton = document.getElementById('mute-button');
@@ -31,6 +32,7 @@ export function initHomeScreen() {
             homeScreen.style.display = 'none';
             playerSelectionScreen.style.display = 'flex';
             soundManager.play('forest');
+            persistence.save();
         }
     }
 

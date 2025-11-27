@@ -4,6 +4,14 @@ class SoundManager {
     this.sounds = {};
     this.activeSounds = [];
     this.soundTypes = {};
+    window._isMuted = false;
+    window._currentSound = null;
+  }
+
+  saveState() {
+    import('./persistence.js').then(({ persistence }) => {
+      persistence.save();
+    });
   }
 
   registerSound(name, url, loop = false, type = 'background', volume = 1) {
@@ -26,6 +34,12 @@ class SoundManager {
           console.log('Could not play sound ' + name + ':', err);
         });
       }
+      
+      const soundType = this.soundTypes[name] || 'background';
+      if (soundType === 'background') {
+        window._currentSound = name;
+        this.saveState();
+      }
     }
   }
 
@@ -44,6 +58,11 @@ class SoundManager {
       if (index > -1) {
         this.activeSounds.splice(index, 1);
       }
+      const soundType = this.soundTypes[name] || 'background';
+      if (soundType === 'background' && window._currentSound === name) {
+        window._currentSound = null;
+        this.saveState();
+      }
     }
   }
 
@@ -51,6 +70,7 @@ class SoundManager {
     if (this.isMuted === muted) return this.isMuted;
 
     this.isMuted = muted;
+    window._isMuted = muted;
 
     if (this.isMuted) {
       for (let i = 0; i < this.activeSounds.length; i++) {
@@ -74,6 +94,7 @@ class SoundManager {
       }
     }
 
+    this.saveState();
     return this.isMuted;
   }
 

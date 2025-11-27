@@ -6,6 +6,7 @@ import { renderRunesCircle } from '../ui/runesCircle.js';
 import { alertPopup } from '../alertPopup.js';
 import { resetGameState } from './ingameScreen.js';
 import { resetChosenRune } from '../ui/runesCircle.js';
+import { persistence } from '../persistence.js';
 
 export function initPlayerSelectionScreen() {
     const input = document.getElementById('vikingName');
@@ -105,6 +106,8 @@ export function initPlayerSelectionScreen() {
                 playerSelectionScreen.style.display = 'none';
                 homeScreen.style.display = 'flex';
                 soundManager.play('forest');
+                persistence.clear();
+                persistence.save();
             }
         }
     }
@@ -129,5 +132,6 @@ export function initPlayerSelectionScreen() {
 
         renderRunesCircle();
         resetGameState();
+        persistence.save();
     }
 }
