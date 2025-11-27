@@ -20,7 +20,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-    cursor: url('https://res.cloudinary.com/din119ww9/image/upload/v1764231991/image_4_2x_1_dp84vz.png') 0 0, auto;
+    cursor: url('https://res.cloudinary.com/din119ww9/image/upload/v1764232821/image_4_2x_1_1_bayylw.png') 0 0, auto !important;
 }
 
 .mute-button {
@@ -28,7 +28,7 @@ body {
     top: 3vh;
     left: 2vw;
     border: none;
-    cursor: pointer;
+    
     width: 75px;
     height: 75px;
     background-color: transparent;
@@ -50,7 +50,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border: none;
-    cursor: pointer;
     z-index: 900;
     transition: opacity 0.3s ease;
 }
@@ -131,7 +130,6 @@ body {
     background: none;
     border: none;
     padding: 0;
-    cursor: pointer;
     display: block;
     width: 100px;
     height: 100px;
@@ -149,7 +147,6 @@ body {
     background: none;
     border: none;
     padding: 0;
-    cursor: pointer;
     display: block;
     width: 75px;
     height: 75px;
@@ -167,7 +164,6 @@ body {
     background: none;
     border: none;
     padding: 0;
-    cursor: pointer;
     display: block;
     width: 75px;
     height: 75px;
@@ -296,7 +292,6 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    cursor: pointer;
     font-family: 'BoldPixels', sans-serif;
     font-size: 24px;
     color: #f2e6d0;
@@ -336,6 +331,7 @@ button,
     border-radius: 50%;
     overflow: visible;
     transition: transform 0.3s, filter 0.3s;
+    cursor: inherit;
 }
 
 button:hover,
@@ -439,7 +435,7 @@ button:hover,
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    cursor: pointer;
+    cursor: inherit;
     transition: transform 0.2s ease;
 }
 
@@ -537,7 +533,6 @@ button:hover,
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    cursor: pointer;
     transition: transform 0.2s ease;
     z-index: 10;
 }
