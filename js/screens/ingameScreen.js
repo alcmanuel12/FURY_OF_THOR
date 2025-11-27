@@ -17,6 +17,12 @@ export function resetGameState() {
         chosenNameEl.classList.remove('visible');
     }
 
+    const sacrificeActionButton = document.getElementById('sacrifice-action');
+    if (sacrificeActionButton) {
+        sacrificeActionButton.disabled = false;
+        sacrificeActionButton.style.pointerEvents = 'auto';
+    }
+
     resetChosenRune();
 }
 
