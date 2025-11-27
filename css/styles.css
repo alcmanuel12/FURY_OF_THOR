@@ -802,7 +802,7 @@ button:hover,
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vw;         /* MÁS ANCHO */
+    width: 80vw;         
     max-width: 900px;    
     height: auto;        
     background-size: 100% 100%;
@@ -865,7 +865,7 @@ text-shadow:
 .name {
     position: absolute;
     font-size: 30px;
-    color: #f2e6d0;
+    color: #c5a746;
     font-family: 'BoldPixels', sans-serif;
     text-shadow: 
     -2px -2px 0 #000,  
@@ -1002,7 +1002,35 @@ text-shadow:
         left: 50%;
     }
 
+    credit-content {
+        width: 60vw;
+        max-width: 400px;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    .credit-message {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .credit-character {
+        width: 110px;
+    }
+
+    /* Ajusto las posiciones para 900px */
+    .credit-character.c1 { left:25%; bottom:0%; }
+    .credit-character.c2 { left:35%; bottom:3%; }
+    .credit-character.c3 { left:47%; bottom:7%; }
+    .credit-character.c4 { left:59%; bottom:3%; }
+    .credit-character.c5 { left:70%; bottom:0%; }
+
+    .char-name {
+        font-size: 20px;
+    }
 }
+
+
 
 @media (max-width: 768px) {
 
@@ -1273,7 +1301,7 @@ text-shadow:
     }
 
     .credit-message {
-        font-size: 16px;
+        font-size: 30px;
         margin-bottom: 25px;
     }
 
@@ -1289,29 +1317,57 @@ text-shadow:
 
     .credit-characters img:nth-child(1) {
         left: 1%;
-        bottom: 0%;
+        bottom: 12%;
     }
 
     .credit-characters img:nth-child(2) {
         left: 18%;
-        bottom: 0%;
+        bottom: 12%;
     }
 
     .credit-characters img:nth-child(3) {
         left: 36%;
-        bottom: 0%;
+        bottom: 12%;
     }
 
     .credit-characters img:nth-child(4) {
         left: 57%;
-        bottom: 0%;
+        bottom: 12%;
     }
 
     .credit-characters img:nth-child(5) {
         left: 80%;
-        bottom: 0%;
+        bottom: 12%;
     }
-    
+    .name.n1 {
+    left: 3%;
+    bottom: 22%; 
+}
+
+
+.name.n2 {
+    left: 10%;
+    bottom: 9%;
+}
+
+
+.name.n3 {
+    left: 38.5%;
+    bottom: 9%;
+}
+
+
+.name.n4 {
+    left: 53%;
+    bottom: 22%;
+}
+
+
+.name.n5 {
+    left: 61%;
+    bottom: 18%;
+}
+
     .bubble {
         position: absolute;
         top: 25vh;
