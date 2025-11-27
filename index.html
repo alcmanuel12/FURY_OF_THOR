@@ -26,7 +26,7 @@
       </p>
     </div>
   </div>
-  
+
   <div id="alert-popup" class="alert-popup hidden">
     <div class="alert-content">
       <p class="alert-message"></p>
@@ -36,7 +36,7 @@
       </div>
     </div>
   </div>
-  
+
   <div id="home-screen" class="screen">
     <div class="board-container">
       <div class="wooden-board">
@@ -45,6 +45,7 @@
     </div>
     <button class="play-button" id="play-button"></button>
   </div>
+
   <div id="player-selection-screen" class="screen" style="display: none">
     <div class="container">
       <div class="add-board">
@@ -66,6 +67,7 @@
     <button class="back-button" id="back-button"></button>
     <button class="game-start-button" id="game-start-button"></button>
   </div>
+
   <div id="ingame-screen" class="screen" style="display: none">
     <video id="ingame-background-video" class="ingame-background-video ingame-background-video-desktop" autoplay loop muted playsinline>
       <source src="https://res.cloudinary.com/diycpogap/video/upload/background-ingame-video_jha53m.mp4" type="video/mp4">
@@ -73,6 +75,7 @@
     <video id="ingame-background-video-mobile" class="ingame-background-video ingame-background-video-mobile" autoplay loop muted playsinline>
       <source src="https://res.cloudinary.com/diycpogap/video/upload/mobile-background-ingame-video_aa7uxu.mp4" type="video/mp4">
     </video>
+
     <div class="thor-character" id="thor-character"></div>
     <div class="bubble right">Welcome to my ritual. Are you ready to achieve the Valhalla?</div>
     <div class="runes-circle-container" id="runesCircleContainer"></div>
@@ -80,19 +83,34 @@
     <button class="back-button" id="ingame-home-button"></button>
     <button class="sacrifice-action-btn" id="sacrifice-action"></button>
   </div>
+
+  
   <div id="credit-screen" class="screen" style="display: none">
+
     <div class="credit-content">
-      <p class="credit-message">Thank for playing. Best regards from Oumnilla, Manue, Alex Gerardo, and Alvaro. And remember, see you in Valhalla!</p>
-      <button class="alert-btn credit-home-btn" id="credit-home-button">Home</button>
+      <p class="credit-message">Thank for playing. Best regards:</p>
+      <button class="credits-home-button" id="credit-home-button"></button>
+
     </div>
+
     <div class="credit-characters">
-      <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/aset_Manue_js6yz6.png" alt="Manue" />
+      <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/aset_Manue_js6yz6.png" alt="Manue"  />
       <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/asset_Oum_f0tn4x.png" alt="Oumnilla" />
       <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/Assets_Alvaro_vnpnbc.png" alt="Alvaro" />
       <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/aset_Gerardo_zz54sh.png" alt="Gerardo" />
       <img src="https://res.cloudinary.com/djuisin8z/image/upload/v1763656697/asset_Alex_hxrfda.png" alt="Alex" />
     </div>
-  </div>
-</body>
 
+    
+    <div class="names">
+      <span class="name n1">Manue</span>
+      <span class="name n2">Oumnilla</span>
+      <span class="name n3">Álvaro</span>
+      <span class="name n4">Gerardo</span>
+      <span class="name n5">Alex</span>
+    </div>
+
+  </div>
+
+</body>
 </html>

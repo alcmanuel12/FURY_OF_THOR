@@ -802,10 +802,9 @@ button:hover,
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50vh;
-    max-width: 500px;
-    height: 36vh;
-    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') no-repeat center;
+    width: 80vw;         /* MÁS ANCHO */
+    max-width: 900px;    
+    height: auto;        
     background-size: 100% 100%;
     color: #f2e6d0;
     font-family: 'BoldPixels', sans-serif;
@@ -819,19 +818,38 @@ button:hover,
     box-sizing: border-box;
 }
 
+
 .credit-message {
-    font-size: 22px;
-    color: #f2e6d0;
-    line-height: 1.3;
-    width: 85%;
-    margin-bottom: 30px;
-    word-wrap: break-word;
+    font-size: 50px;
+color: #c5a746;
+line-height: 1.3;
+width: 85%;
+margin-bottom: 30px;
+word-wrap: break-word;
+text-shadow: 
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    2px  2px 0 #000,
+    2px  2px 0 #000;
 }
 
-.credit-home-btn {
-    min-width: 120px;
+.credits-home-button {
+    position: absolute;  
+    min-width: 60px;
     height: 60px;
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    top: 215%;   
+    right: -30%; 
 }
+
 
 .credit-characters {
     position: absolute;
@@ -841,6 +859,49 @@ button:hover,
     height: 100%;
     z-index: 5;
     pointer-events: none;
+}
+
+
+.name {
+    position: absolute;
+    font-size: 30px;
+    color: #f2e6d0;
+    font-family: 'BoldPixels', sans-serif;
+    text-shadow: 
+    -2px -2px 0 #000,  
+    2px -2px 0 #000,
+    2px  2px 0 #000,
+    2px  2px 0 #000;
+}
+
+
+.name.n1 {
+    left: 34%;
+    bottom: 18%; 
+}
+
+
+.name.n2 {
+    left: 38.5%;
+    bottom: 22%;
+}
+
+
+.name.n3 {
+    left: 46.5%;
+    bottom: 27%;
+}
+
+
+.name.n4 {
+    left: 53%;
+    bottom: 22%;
+}
+
+
+.name.n5 {
+    left: 61%;
+    bottom: 18%;
 }
 
 .credit-characters img {
@@ -859,7 +920,7 @@ button:hover,
 }
 
 .credit-characters img:nth-child(3) {
-    left: 45%;
+    left: 44.5%;
     bottom: 11%;
 }
 
@@ -869,9 +930,10 @@ button:hover,
 }
 
 .credit-characters img:nth-child(5) {
-    left: 58%;
+    left: 59%;
     bottom: 2%;
 }
+
 
 
 @media (max-height: 900px) {
@@ -1246,7 +1308,7 @@ button:hover,
     }
 
     .credit-characters img:nth-child(5) {
-        left: 78%;
+        left: 80%;
         bottom: 0%;
     }
     

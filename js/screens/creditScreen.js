@@ -7,12 +7,21 @@ export function initCreditScreen() {
     const creditScreen = document.getElementById('credit-screen');
     const creditHomeButton = document.getElementById('credit-home-button');
     const homeScreen = document.getElementById('home-screen');
+    const names = document.querySelector('.names');
 
-    if (creditHomeButton) {
-        creditHomeButton.addEventListener('click', () => handleHomeClick(creditScreen, homeScreen));
+
+    function showCreditScreen() {
+        creditScreen.style.display = 'block';
+        if (names) names.style.display = 'block';
     }
 
-    function handleHomeClick(creditScreen, homeScreen) {
+
+
+    if (creditHomeButton) {
+        creditHomeButton.addEventListener('click', () => handleHomeClick());
+    }
+
+    function handleHomeClick() {
         if (!creditScreen || !homeScreen) return;
 
         state.clearVikings();
@@ -22,8 +31,14 @@ export function initCreditScreen() {
 
         creditScreen.style.display = 'none';
         homeScreen.style.display = 'flex';
+
+
+        if (names) names.style.display = 'none';
+
         soundManager.stop('ingame');
         soundManager.play('forest');
     }
-}
 
+
+    return { showCreditScreen };
+}
