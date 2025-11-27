@@ -61,6 +61,7 @@ export function initIngameScreen() {
                 homeScreen.style.display = 'flex';
                 soundManager.stop('ingame');
                 soundManager.play('forest');
+                state.setCurrentScreen('home');
             }
         }
     }

@@ -31,6 +31,7 @@ export function initHomeScreen() {
             homeScreen.style.display = 'none';
             playerSelectionScreen.style.display = 'flex';
             soundManager.play('forest');
+            state.setCurrentScreen('player-selection');
         }
     }
 

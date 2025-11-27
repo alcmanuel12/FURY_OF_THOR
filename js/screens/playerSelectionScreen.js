@@ -100,6 +100,7 @@ export function initPlayerSelectionScreen() {
                 playerSelectionScreen.style.display = 'none';
                 homeScreen.style.display = 'flex';
                 soundManager.play('forest');
+                state.setCurrentScreen('home');
             }
         }
     }
@@ -123,5 +124,6 @@ export function initPlayerSelectionScreen() {
 
         renderRunesCircle();
         resetGameState();
+        state.setCurrentScreen('ingame');
     }
 }
