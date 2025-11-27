@@ -902,6 +902,86 @@ button:hover,
         height: 60px;
     }
 
+    .info-content {
+        position: relative;
+        height: 80%;
+        aspect-ratio: 0.8 / 1;
+        background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/pergamino_uvllsi.png') no-repeat center;
+        background-size: contain;
+        color: #1a0d05;
+        font-family: 'BoldPixels', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        padding: 6vh 4vw;
+        z-index: 2;
+        border-radius: 10px;
+    }
+    
+    .info-content h2 {
+        color: #3b1d09;
+        font-size: 3.5rem;
+        margin-top: 13vh;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 2px #f5d28c;
+        transform: translateX(10px);
+    }
+    
+    .info-content p {
+        font-size: 24px;
+        color: #1a0d05;
+        line-height: 1.5;
+        width: 80%;
+        transform: translateX(15px);
+    }
+    
+    .alert-popup {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .alert-popup.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    
+    .alert-message {
+        font-size: 20px;
+        line-height: 1.2;
+        margin: 0;
+    }
+    
+    .alert-buttons {
+        margin: 0;
+    }
+    
+    .alert-btn:hover {
+        transform: scale(1.1);
+        filter: brightness(1.15);
+        box-shadow: none;
+    }
+    
+    .alert-btn.hidden {
+        display: none;
+    }
+    
+    .alert-popup.winner-alert .alert-message {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .alert-popup.winner-alert .alert-btn {
+        min-width: 180px;
+        height: 60px;
+        font-size: 28px;
+        padding: 0 25px;
+    }
+
     #player-selection-screen .add-board {
         padding: 40px;
     }
