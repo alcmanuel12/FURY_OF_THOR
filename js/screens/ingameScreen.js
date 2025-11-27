@@ -71,6 +71,8 @@ export function initIngameScreen() {
         }
     }
 
+    let isAnimationInProgress = false;
+
     function handleSacrifice(thorCharacter) {
         if (isAnimationInProgress || gameEnded) return;
 

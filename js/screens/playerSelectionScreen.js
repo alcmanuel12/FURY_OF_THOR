@@ -62,6 +62,11 @@ export function initPlayerSelectionScreen() {
             return;
         }
 
+        if (!nameRegex.test(name)) {
+            alert('Invalid name. Only letters and spaces allowed. Maximum 15 characters.');
+            return;
+        }
+
         state.addViking(name);
         renderVikingsList();
         input.value = '';
@@ -106,6 +111,7 @@ export function initPlayerSelectionScreen() {
 
     function handleGameStart(playerSelectionScreen, ingameScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile) {
         if (!playerSelectionScreen || !ingameScreen) return;
+
         if (state.getVikings().length <= 1) {
             alertPopup.alert('You must add at least two vikings before continuing.');
             return;
