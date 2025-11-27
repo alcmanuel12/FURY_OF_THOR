@@ -147,23 +147,26 @@ export function initIngameScreen() {
         if (thorCharacter) {
             thorCharacter.classList.add('thor-character-mad');
         }
-        soundManager.play('lightning-effect');
 
-        const lightningAnimation = document.getElementById('lightning-animation');
-        if (lightningAnimation) {
-            const img = lightningAnimation.querySelector('img');
-            if (img) {
-                const baseUrl = 'https://res.cloudinary.com/diycpogap/image/upload/v1764270037/lightning-animation-final_sa1xdi.gif';
-                img.src = baseUrl + '?t=' + Date.now();
-            }
-            lightningAnimation.classList.remove('hidden');
-            
-            setTimeout(() => {
-                if (lightningAnimation) {
-                    lightningAnimation.classList.add('hidden');
+        setTimeout(() => {
+            soundManager.play('lightning-effect');
+
+            const lightningAnimation = document.getElementById('lightning-animation');
+            if (lightningAnimation) {
+                const img = lightningAnimation.querySelector('img');
+                if (img) {
+                    const baseUrl = 'https://res.cloudinary.com/diycpogap/image/upload/v1764270037/lightning-animation-final_sa1xdi.gif';
+                    img.src = baseUrl + '?t=' + Date.now();
                 }
-            }, 1900);
-        }
+                lightningAnimation.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    if (lightningAnimation) {
+                        lightningAnimation.classList.add('hidden');
+                    }
+                }, 1900);
+            }
+        }, 750);
 
         setTimeout(() => {
             const eliminatedViking = breakChosenRune();
@@ -201,7 +204,7 @@ export function initIngameScreen() {
                     }
                 }
             }, 3500);
-        }, 1500);
+        }, 2250);
     }
 
     function selectWinner(winnerName) {
