@@ -19,14 +19,10 @@ export const state = {
 
     getRuneElements: () => runeElements,
     setRuneElements: (elements) => { runeElements = elements; },
-<<<<<<< HEAD
-    clearRuneElements: () => { runeElements = []; }
-=======
     clearRuneElements: () => { runeElements = []; },
 
     getVikingToRune: () => vikingToRune,
     setVikingToRune: (mapping) => { vikingToRune = mapping; },
     getVikingRune: (vikingName) => { return vikingToRune[vikingName]; },
     clearVikingToRune: () => { vikingToRune = {}; }
->>>>>>> alvaro
 };

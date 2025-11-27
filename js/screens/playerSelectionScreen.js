@@ -111,13 +111,9 @@ export function initPlayerSelectionScreen() {
 
     function handleGameStart(playerSelectionScreen, ingameScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile) {
         if (!playerSelectionScreen || !ingameScreen) return;
-<<<<<<< HEAD
-        if (state.getVikings().length === 0) {
-            alert('You must add at least one viking before continuing.');
-=======
+
         if (state.getVikings().length <= 1) {
             alertPopup.alert('You must add at least two vikings before continuing.');
->>>>>>> alvaro
             return;
         }
 

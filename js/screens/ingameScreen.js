@@ -2,8 +2,6 @@ import { state } from '../state.js';
 import { soundManager } from '../soundManager.js';
 import { renderVikingsList } from '../ui/vikingsList.js';
 import { selectRandomViking, breakChosenRune, resetChosenRune } from '../ui/runesCircle.js';
-<<<<<<< HEAD
-=======
 import { alertPopup } from '../alertPopup.js';
 
 let isAnimationInProgress = false;
@@ -21,7 +19,6 @@ export function resetGameState() {
 
     resetChosenRune();
 }
->>>>>>> alvaro
 
 export function initIngameScreen() {
     const ingameScreen = document.getElementById('ingame-screen');
@@ -68,9 +65,8 @@ export function initIngameScreen() {
         }
     }
 
-<<<<<<< HEAD
     let isAnimationInProgress = false;
-=======
+
     function handleSacrifice(thorCharacter) {
         if (isAnimationInProgress || gameEnded) return;
 
@@ -82,40 +78,9 @@ export function initIngameScreen() {
 
         selectRandomViking();
         changeBubbleText();
->>>>>>> alvaro
 
-    function handleSacrifice(thorCharacter) {
-        if (isAnimationInProgress) return;
-        
-        isAnimationInProgress = true;
-        if (sacrificeActionButton) {
-            sacrificeActionButton.disabled = true;
-            sacrificeActionButton.style.pointerEvents = 'none';
-        }
-        
-        selectRandomViking();
-        changeBubbleText();
-        setTimeout(() => {
-            breakChosenRune();
-        }, 1500);
-        
         if (thorCharacter) {
             thorCharacter.classList.add('thor-character-mad');
-<<<<<<< HEAD
-            setTimeout(() => {
-                thorCharacter.classList.remove('thor-character-mad');
-                resetChosenRune();
-                isAnimationInProgress = false;
-                if (sacrificeActionButton) {
-                    sacrificeActionButton.disabled = false;
-                    sacrificeActionButton.style.pointerEvents = 'auto';
-                }
-            }, 5000);
-        }
-        soundManager.play('lightning-effect');
-    }
-
-=======
         }
         soundManager.play('lightning-effect');
 
@@ -216,7 +181,6 @@ export function initIngameScreen() {
         }
     }
 
->>>>>>> alvaro
     function changeBubbleText(newText) {
         if (!bubble) return;
 

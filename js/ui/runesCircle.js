@@ -105,15 +105,6 @@ export function selectRandomViking() {
 
 export function breakChosenRune() {
     const chosen = document.querySelector('.rune-item.chosen');
-<<<<<<< HEAD
-    if (!chosen) return;
-    const runeId = parseInt(chosen.dataset.runeId, 10);
-    if (isNaN(runeId)) return;
-    const broken = brokenRunes.find(r => r.id === runeId);
-    if (!broken) return;
-    chosen.style.backgroundImage = `url(${broken.url})`;
-    chosen.classList.add('broken');
-=======
     if (!chosen) return null;
     const runeId = parseInt(chosen.dataset.runeId, 10);
     if (isNaN(runeId)) return null;
@@ -123,7 +114,6 @@ export function breakChosenRune() {
     chosen.classList.add('broken');
 
     return chosen.dataset.vikingName;
->>>>>>> alvaro
 }
 
 export function resetChosenRune() {
