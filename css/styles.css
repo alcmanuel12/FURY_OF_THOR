@@ -1,7 +1,7 @@
 @font-face {
-    font-family: 'BoldPixels';
-    src: url('../assets/fonts/BoldPixels.otf') format('opentype'),
-        url('../assets/fonts/BoldPixels.ttf') format('truetype');
+    font-family: "BoldPixels";
+    src: url("../assets/fonts/BoldPixels.otf") format("opentype"),
+        url("../assets/fonts/BoldPixels.ttf") format("truetype");
 }
 
 * {
@@ -15,7 +15,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #000000;
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/desktop-background-start-cropped_djmrwd.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,7 +44,7 @@ body {
     width: 75px;
     height: 75px;
     background-color: transparent;
-    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762981474/lore-parchment_xmzlab.png');
+    background-image: url("https://res.cloudinary.com/diycpogap/image/upload/v1762981474/lore-parchment_xmzlab.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -59,13 +59,12 @@ body {
     pointer-events: none;
 }
 
-
 .mute-button.mute-icon {
-    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762808735/mute-icon_txyjso.png');
+    background-image: url("https://res.cloudinary.com/diycpogap/image/upload/v1762808735/mute-icon_txyjso.png");
 }
 
 .mute-button.sound-icon {
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png");
 }
 
 .screen {
@@ -90,7 +89,7 @@ body {
     max-width: 700px;
     margin: 0 auto 30px;
 
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/tablero_dham52.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -108,18 +107,18 @@ body {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
     font-size: clamp(6rem, 12vw, 5rem);
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
     margin: 0;
     padding: 0;
-    background: radial-gradient(ellipse at center, #F3BC55 0%, #E09637 100%);
+    background: radial-gradient(ellipse at center, #f3bc55 0%, #e09637 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    -webkit-text-stroke: 4.5px #381C0E;
+    -webkit-text-stroke: 4.5px #381c0e;
     white-space: normal;
     width: 75%;
     line-height: 6vh;
@@ -135,7 +134,7 @@ body {
     width: 100px;
     height: 100px;
     background-color: transparent;
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747882/Play_ofexbx.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -153,7 +152,7 @@ body {
     width: 75px;
     height: 75px;
     background-color: transparent;
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -171,7 +170,7 @@ body {
     width: 75px;
     height: 75px;
     background-color: transparent;
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/Okay_x51t8w.png');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/Okay_x51t8w.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -200,10 +199,10 @@ body {
     position: relative;
     height: 80%;
     aspect-ratio: 0.8 / 1;
-    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/pergamino_uvllsi.png') no-repeat center;
+    background: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/pergamino_uvllsi.png") no-repeat center;
     background-size: contain;
     color: #1a0d05;
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -254,10 +253,10 @@ body {
     position: relative;
     width: 50vh;
     height: 36vh;
-    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') no-repeat center;
+    background: url("https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png") no-repeat center;
     background-size: 100% 100%;
     color: #f2e6d0;
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -291,12 +290,12 @@ body {
     border: none;
     border-radius: 0;
     background-color: transparent;
-    background-image: url('https://res.cloudinary.com/din119ww9/image/upload/v1763978538/Proyecto_nuevo_12_1_jjmdga.png');
+    background-image: url("https://res.cloudinary.com/din119ww9/image/upload/v1763978538/Proyecto_nuevo_12_1_jjmdga.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
     font-size: 24px;
     color: #f2e6d0;
     transition: transform 0.2s ease, filter 0.2s ease;
@@ -347,8 +346,7 @@ button:hover,
 .sacrifice-action-btn:hover {
     transform: translateZ(20px) scale(1.08);
     filter: brightness(1.15);
-    box-shadow:
-        0 0 30px 10px rgba(0, 120, 255, 0.6),
+    box-shadow: 0 0 30px 10px rgba(0, 120, 255, 0.6),
         0 0 10px 4px rgba(0, 120, 255, 0.4);
 }
 
@@ -369,7 +367,7 @@ button:hover,
 }
 
 #player-selection-screen .add-board {
-    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') center/contain no-repeat;
+    background: url("https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png") center/contain no-repeat;
     background-size: 100% 100%;
     width: 50vh;
     height: 36vh;
@@ -380,13 +378,13 @@ button:hover,
 }
 
 #player-selection-screen .board-header {
-    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762416014/teminalSuperior_osdhny.png') center/contain no-repeat;
+    background: url("https://res.cloudinary.com/djuisin8z/image/upload/v1762416014/teminalSuperior_osdhny.png") center/contain no-repeat;
     text-align: center;
     font-size: 24px;
     padding: 20px;
     color: #ffe6b3;
     letter-spacing: 1px;
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
 }
 
 #player-selection-screen .board-body {
@@ -411,7 +409,7 @@ button:hover,
     flex: 1;
     outline: none;
     font-size: 20px;
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
 }
 
 #player-selection-screen .input-wrapper input::placeholder {
@@ -447,11 +445,11 @@ button:hover,
 }
 
 #player-selection-screen .cross {
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156684/asset_eliminar_lzygb1.png');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1762156684/asset_eliminar_lzygb1.png");
 }
 
 #player-selection-screen .plus {
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/mas_thh33r.png');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/mas_thh33r.png");
 }
 
 #player-selection-screen .vikings-list {
@@ -469,7 +467,7 @@ button:hover,
     align-items: center;
     gap: 10px;
     font-size: 36px;
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
     color: #f2e6d0;
 }
 
@@ -503,7 +501,7 @@ button:hover,
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762901731/thor-background-relaxed_csuq0f.png');
+    background-image: url("https://res.cloudinary.com/diycpogap/image/upload/v1762901731/thor-background-relaxed_csuq0f.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -513,7 +511,7 @@ button:hover,
 }
 
 #ingame-screen .thor-character.thor-character-mad {
-    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902368/thor-background-shouting_quv4zf.png');
+    background-image: url("https://res.cloudinary.com/diycpogap/image/upload/v1762902368/thor-background-shouting_quv4zf.png");
 }
 
 #ingame-screen .back-button {
@@ -532,7 +530,7 @@ button:hover,
     height: 90px;
     border: none;
     background-color: transparent;
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1762156683/aset_rayo_pfqqwh.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -569,10 +567,8 @@ button:hover,
     pointer-events: none;
     opacity: 0;
     filter: blur(6px);
-    transition:
-        opacity 1.2s ease-out,
-        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 1.2s ease-out;
+    transition: opacity 1.2s ease-out,
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), filter 1.2s ease-out;
 }
 
 #runesCircleContainer.visible {
@@ -603,15 +599,14 @@ button:hover,
     opacity: 0.3;
 }
 
-
 .chosen-viking-name {
     position: absolute;
     top: 45%;
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
     font-size: 50px;
-    background: linear-gradient(90deg, #189DF8 0%, #38FBF9 100%);
+    background: linear-gradient(90deg, #189df8 0%, #38fbf9 100%);
     color: #c5a746;
     -webkit-background-clip: text;
     background-clip: text;
@@ -633,7 +628,7 @@ button:hover,
     margin-top: 40vh;
     text-align: center;
     font-size: 20px;
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
     line-height: 1.3em;
     letter-spacing: -0.02em;
     background-color: #fff;
@@ -641,38 +636,16 @@ button:hover,
     padding: 6px;
     box-sizing: border-box;
     width: 200px;
-    box-shadow:
-        0 -2px #fff,
-        0 -4px #000,
-        2px 0 #fff,
-        2px -2px #000,
-        4px 0 #000,
-        0 2px #fff,
-        0 4px #000,
-        -2px 0 #fff,
-        -2px 2px #000,
-        -4px 0 #000,
-        -2px -2px #000,
-        2px 2px #000;
+    box-shadow: 0 -2px #fff, 0 -4px #000, 2px 0 #fff, 2px -2px #000, 4px 0 #000,
+        0 2px #fff, 0 4px #000, -2px 0 #fff, -2px 2px #000, -4px 0 #000,
+        -2px -2px #000, 2px 2px #000;
 }
 
 .bubble.shadow {
-    box-shadow:
-        0 -2px #fff,
-        0 -4px #000,
-        2px 0 #fff,
-        2px -2px #000,
-        4px 0 #000,
-        0 2px #fff,
-        0 4px #000,
-        -2px 0 #fff,
-        -2px 2px #000,
-        -4px 0 #000,
-        -2px -2px #000,
-        2px 2px #000,
-        2px 6px rgba(0, 0, 0, 0.25),
-        6px 2px rgba(0, 0, 0, 0.25),
-        4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 -2px #fff, 0 -4px #000, 2px 0 #fff, 2px -2px #000, 4px 0 #000,
+        0 2px #fff, 0 4px #000, -2px 0 #fff, -2px 2px #000, -4px 0 #000,
+        -2px -2px #000, 2px 2px #000, 2px 6px rgba(0, 0, 0, 0.25),
+        6px 2px rgba(0, 0, 0, 0.25), 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .bubble.mini {
@@ -698,7 +671,7 @@ button:hover,
 }
 
 .bubble::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     box-sizing: border-box;
@@ -709,20 +682,9 @@ button:hover,
     width: 2px;
     top: -4px;
     left: 16px;
-    box-shadow:
-        0 -2px #000,
-        0 -4px #000,
-        0 -6px #000,
-        0 -8px #000,
-        -2px -6px #000,
-        -4px -4px #000,
-        -6px -2px #000,
-        -2px -2px #fff,
-        -4px -2px #fff,
-        -2px -4px #fff,
-        -2px 0 #fff,
-        -4px 0 #fff,
-        -6px 0 #fff;
+    box-shadow: 0 -2px #000, 0 -4px #000, 0 -6px #000, 0 -8px #000, -2px -6px #000,
+        -4px -4px #000, -6px -2px #000, -2px -2px #fff, -4px -2px #fff,
+        -2px -4px #fff, -2px 0 #fff, -4px 0 #fff, -6px 0 #fff;
 }
 
 .bubble.right::after {
@@ -731,19 +693,9 @@ button:hover,
     top: 42px;
     right: -4px;
     background: white;
-    box-shadow:
-        2px -2px #fff,
-        2px 0 #fff,
-        4px 0 #fff,
-        0 -4px #fff,
-        2px 2px #000,
-        4px 2px #000,
-        6px 2px #000,
-        8px 2px #000,
-        6px 0 #000,
-        4px -2px #000,
-        2px -4px #000,
-        0 -2px #fff;
+    box-shadow: 2px -2px #fff, 2px 0 #fff, 4px 0 #fff, 0 -4px #fff, 2px 2px #000,
+        4px 2px #000, 6px 2px #000, 8px 2px #000, 6px 0 #000, 4px -2px #000,
+        2px -4px #000, 0 -2px #fff;
 }
 
 .bubble.bottom::after {
@@ -751,20 +703,9 @@ button:hover,
     width: 2px;
     bottom: -4px;
     left: 16px;
-    box-shadow:
-        0 2px #000,
-        0 4px #000,
-        0 6px #000,
-        0 8px #000,
-        -2px 6px #000,
-        -4px 4px #000,
-        -6px 2px #000,
-        -2px 2px #fff,
-        -4px 2px #fff,
-        -2px 4px #fff,
-        -2px 0 #fff,
-        -4px 0 #fff,
-        -6px 0 #fff;
+    box-shadow: 0 2px #000, 0 4px #000, 0 6px #000, 0 8px #000, -2px 6px #000,
+        -4px 4px #000, -6px 2px #000, -2px 2px #fff, -4px 2px #fff, -2px 4px #fff,
+        -2px 0 #fff, -4px 0 #fff, -6px 0 #fff;
 }
 
 .bubble.left::after {
@@ -773,23 +714,13 @@ button:hover,
     top: 10px;
     left: -4px;
     background: white;
-    box-shadow:
-        -2px -2px #fff,
-        -2px 0 #fff,
-        -4px 0 #fff,
-        0 -4px #fff,
-        -2px 2px #000,
-        -4px 2px #000,
-        -6px 2px #000,
-        -8px 2px #000,
-        -6px 0 #000,
-        -4px -2px #000,
-        -2px -4px #000,
-        0 -2px #fff;
+    box-shadow: -2px -2px #fff, -2px 0 #fff, -4px 0 #fff, 0 -4px #fff,
+        -2px 2px #000, -4px 2px #000, -6px 2px #000, -8px 2px #000, -6px 0 #000,
+        -4px -2px #000, -2px -4px #000, 0 -2px #fff;
 }
 
 #credit-screen {
-    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1763923517/desktop-background-ingame_4_mjxdvu.png');
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1763923517/desktop-background-ingame_4_mjxdvu.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -802,12 +733,12 @@ button:hover,
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80vw;         
-    max-width: 900px;    
-    height: auto;        
+    width: 80vw;
+    max-width: 900px;
+    height: auto;
     background-size: 100% 100%;
     color: #f2e6d0;
-    font-family: 'BoldPixels', sans-serif;
+    font-family: "BoldPixels", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -818,23 +749,18 @@ button:hover,
     box-sizing: border-box;
 }
 
-
 .credit-message {
     font-size: 50px;
-color: #c5a746;
-line-height: 1.3;
-width: 85%;
-margin-bottom: 30px;
-word-wrap: break-word;
-text-shadow: 
-    -2px -2px 0 #000,  
-    2px -2px 0 #000,
-    2px  2px 0 #000,
-    2px  2px 0 #000;
+    color: #c5a746;
+    line-height: 1.3;
+    width: 85%;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000;
 }
 
 .credits-home-button {
-    position: absolute;  
+    position: absolute;
     min-width: 60px;
     height: 60px;
     background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png");
@@ -846,10 +772,9 @@ text-shadow:
     outline: none;
     cursor: pointer;
 
-    top: 215%;   
-    right: -30%; 
+    top: 270%;
+    right: -35%;
 }
-
 
 .credit-characters {
     position: absolute;
@@ -861,43 +786,33 @@ text-shadow:
     pointer-events: none;
 }
 
-
 .name {
     position: absolute;
     font-size: 30px;
     color: #c5a746;
-    font-family: 'BoldPixels', sans-serif;
-    text-shadow: 
-    -2px -2px 0 #000,  
-    2px -2px 0 #000,
-    2px  2px 0 #000,
-    2px  2px 0 #000;
+    font-family: "BoldPixels", sans-serif;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, 2px 2px 0 #000, 2px 2px 0 #000;
 }
-
 
 .name.n1 {
     left: 34%;
-    bottom: 18%; 
+    bottom: 18%;
 }
-
 
 .name.n2 {
-    left: 38.5%;
+    left: 41%;
     bottom: 22%;
 }
-
 
 .name.n3 {
     left: 46.5%;
     bottom: 27%;
 }
 
-
 .name.n4 {
     left: 53%;
     bottom: 22%;
 }
-
 
 .name.n5 {
     left: 61%;
@@ -934,12 +849,10 @@ text-shadow:
     bottom: 2%;
 }
 
-
-
 @media (max-height: 900px) {
     .game-title {
         font-size: clamp(6rem, 12vw, 5rem);
-        -webkit-text-stroke: 4.5px #381C0E;
+        -webkit-text-stroke: 4.5px #381c0e;
         line-height: 8vh;
         word-spacing: -25px;
     }
@@ -973,7 +886,7 @@ text-shadow:
         padding: 10px;
         color: #ffe6b3;
         letter-spacing: 1px;
-        font-family: 'BoldPixels', sans-serif;
+        font-family: "BoldPixels", sans-serif;
     }
 
     #ingame-screen .sacrifice-action-btn {
@@ -1018,25 +931,41 @@ text-shadow:
         width: 110px;
     }
 
-    /* Ajusto las posiciones para 900px */
-    .credit-character.c1 { left:25%; bottom:0%; }
-    .credit-character.c2 { left:35%; bottom:3%; }
-    .credit-character.c3 { left:47%; bottom:7%; }
-    .credit-character.c4 { left:59%; bottom:3%; }
-    .credit-character.c5 { left:70%; bottom:0%; }
+    .credit-character.c1 {
+        left: 25%;
+        bottom: 0%;
+    }
+
+    .credit-character.c2 {
+        left: 35%;
+        bottom: 3%;
+    }
+
+    .credit-character.c3 {
+        left: 47%;
+        bottom: 7%;
+    }
+
+    .credit-character.c4 {
+        left: 59%;
+        bottom: 3%;
+    }
+
+    .credit-character.c5 {
+        left: 70%;
+        bottom: 0%;
+    }
 
     .char-name {
         font-size: 20px;
     }
 }
 
-
-
 @media (max-width: 768px) {
 
     html,
     body {
-        background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/mobile-background-start-cropped_oumb7m.jpg');
+        background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761727900/mobile-background-start-cropped_oumb7m.jpg");
     }
 
     .screen {
@@ -1053,7 +982,7 @@ text-shadow:
         font-size: clamp(3.6rem, 13vw, 4.6rem);
         line-height: 5vh;
         word-spacing: -10px;
-        -webkit-text-stroke: 3.125px #381C0E;
+        -webkit-text-stroke: 3.125px #381c0e;
     }
 
     .play-button {
@@ -1063,7 +992,7 @@ text-shadow:
     }
 
     .mute-button,
-    .info-button {
+    .info-button{
         width: 50px;
         height: 50px;
         margin-top: 87vh;
@@ -1140,10 +1069,10 @@ text-shadow:
 
     #player-selection-screen .add-board {
         width: 80vw;
-        background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') center/contain no-repeat;
+        background: url("https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png") center/contain no-repeat;
         padding: 22px 18px;
         margin: 0 auto;
-        height: 31vh
+        height: 31vh;
     }
 
     #player-selection-screen .board-header {
@@ -1211,28 +1140,28 @@ text-shadow:
     #ingame-screen .ingame-background-video-desktop {
         display: none;
     }
-    
+
     #ingame-screen .ingame-background-video-mobile {
         display: block;
     }
-    
+
     #ingame-screen .thor-character {
-        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902144/thor-mobile-background-relaxed_b3zn3o.png');
+        background-image: url("https://res.cloudinary.com/diycpogap/image/upload/v1762902144/thor-mobile-background-relaxed_b3zn3o.png");
         background-size: contain;
         background-position: bottom center;
         background-repeat: no-repeat;
         width: 100%;
         height: 100%;
-        transform: scale(1);  
+        transform: scale(1);
         transform-origin: bottom center;
     }
-    
+
     #ingame-screen .thor-character.thor-character-mad {
-        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png');
+        background-image: url("https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png");
     }
-    
+
     #runesCircleContainer {
-        top: 38%;             
+        top: 38%;
         left: 40%;
         width: 260px;
         height: 260px;
@@ -1240,12 +1169,12 @@ text-shadow:
         opacity: 1;
         filter: none;
     }
-    
+
     .rune-item {
         width: 60px;
         height: 60px;
     }
-    
+
     .rune-item.chosen {
         width: 90px !important;
         height: 90px !important;
@@ -1253,14 +1182,14 @@ text-shadow:
         top: 38% !important;
         transform: translate(-50%, -50%) scale(1.2);
     }
-    
+
     .chosen-viking-name {
         top: 37%;
         font-size: 20px;
         width: 90vw;
         text-align: center;
     }
-    
+
     #ingame-screen .sacrifice-action-btn {
         bottom: 6vh;
         left: 50%;
@@ -1268,7 +1197,7 @@ text-shadow:
         width: 70px;
         height: 70px;
     }
-    
+
     .bubble {
         position: absolute;
         top: 25vh;
@@ -1277,10 +1206,10 @@ text-shadow:
         font-size: 14px;
         transform: scale(0.7);
     }
-    
+
     #ingame-screen .back-button {
         top: calc(2vh + 60px);
-        top: 11vh;       
+        top: 11vh;
         right: 5vh;
         left: auto;
         width: 60px;
@@ -1288,7 +1217,7 @@ text-shadow:
     }
 
     #credit-screen {
-        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1763630989/credit-screen-background-mobile_lwiygw.jpg');
+        background-image: url("https://res.cloudinary.com/diycpogap/image/upload/v1763630989/credit-screen-background-mobile_lwiygw.jpg");
         background-attachment: fixed;
     }
 
@@ -1309,6 +1238,7 @@ text-shadow:
         min-width: 100px;
         height: 50px;
         font-size: 20px;
+        left: 50%;
     }
 
     .credit-characters img {
@@ -1337,36 +1267,33 @@ text-shadow:
 
     .credit-characters img:nth-child(5) {
         left: 80%;
-        bottom: 12%;
+        bottom: 14%;
     }
+
     .name.n1 {
-    left: 3%;
-    bottom: 22%; 
-}
+        left: 4%;
+        bottom: 23%;
+    }
 
+    .name.n2 {
+        left: 22%;
+        bottom: 9%;
+    }
 
-.name.n2 {
-    left: 10%;
-    bottom: 9%;
-}
+    .name.n3 {
+        left: 38.5%;
+        bottom: 9%;
+    }
 
+    .name.n4 {
+        left: 55%;
+        bottom: 22%;
+    }
 
-.name.n3 {
-    left: 38.5%;
-    bottom: 9%;
-}
-
-
-.name.n4 {
-    left: 53%;
-    bottom: 22%;
-}
-
-
-.name.n5 {
-    left: 61%;
-    bottom: 18%;
-}
+    .name.n5 {
+        left: 84%;
+        bottom: 11%;
+    }
 
     .bubble {
         position: absolute;
@@ -1376,13 +1303,57 @@ text-shadow:
         font-size: 14px;
         transform: scale(0.7);
     }
-    
-    #ingame-screen .back-button {
-        top: calc(2vh + 60px);
-        top: 11vh;       
-        right: 5vh;
-        left: auto;
-        width: 60px;
-        height: 60px;
+
+
+    .credit-message {
+        font-size: 50px;
+        color: oklab(73.657% -0.00407 0.1202);
+        line-height: 1.3;
+        width: 85%;
+        margin-bottom: 30px;
+        word-wrap: break-word;
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, 2px 2px 0 #000,
+            2px 2px 0 #000;
     }
+
+    #credit-screen .back-button {
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+
+    width: 60px;
+    height: 60px;
+
+    z-index: 9999;
+
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+
+    border: none;
+    outline: none;
+}
+#credit-screen .back-button {
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+
+    width: 60px;
+    height: 60px;
+
+    z-index: 9999;
+
+    background-image: url("https://res.cloudinary.com/djuisin8z/image/upload/v1761747881/casa_ydmzkk.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+
+    border: none;
+    outline: none;
+}
+
+
 }
