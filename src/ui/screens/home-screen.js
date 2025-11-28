@@ -1,5 +1,5 @@
-import { soundManager } from '../soundManager.js';
-import { persistence } from '../persistence.js';
+import { soundManager } from '../../core/sound-manager.js';
+import { persistence } from '../../core/persistence.js';
 
 export function initHomeScreen() {
     const muteButton = document.getElementById('mute-button');
@@ -55,3 +55,4 @@ export function initHomeScreen() {
         });
     }
 }
+

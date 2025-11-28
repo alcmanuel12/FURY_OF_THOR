@@ -1,8 +1,8 @@
-import { soundManager } from '../soundManager.js';
-import { state } from '../state.js';
-import { renderVikingsList } from '../ui/vikingsList.js';
-import { resetGameState } from './ingameScreen.js';
-import { persistence } from '../persistence.js';
+import { soundManager } from '../../core/sound-manager.js';
+import { state } from '../../core/state.js';
+import { renderVikingsList } from '../vikings-list.js';
+import { resetGameState } from './ingame-screen.js';
+import { persistence } from '../../core/persistence.js';
 
 export function initCreditScreen() {
     const creditScreen = document.getElementById('credit-screen');

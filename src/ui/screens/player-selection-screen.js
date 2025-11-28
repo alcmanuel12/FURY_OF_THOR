@@ -1,12 +1,12 @@
-import { state } from '../state.js';
-import { runes } from '../runes.js';
-import { soundManager } from '../soundManager.js';
-import { renderVikingsList } from '../ui/vikingsList.js';
-import { renderRunesCircle } from '../ui/runesCircle.js';
-import { alertPopup } from '../alertPopup.js';
-import { resetGameState } from './ingameScreen.js';
-import { resetChosenRune } from '../ui/runesCircle.js';
-import { persistence } from '../persistence.js';
+import { state } from '../../core/state.js';
+import { runes } from '../../core/runes.js';
+import { soundManager } from '../../core/sound-manager.js';
+import { renderVikingsList } from '../vikings-list.js';
+import { renderRunesCircle } from '../runes-circle.js';
+import { alertPopup } from '../alert-popup.js';
+import { resetGameState } from './ingame-screen.js';
+import { resetChosenRune } from '../runes-circle.js';
+import { persistence } from '../../core/persistence.js';
 
 export function initPlayerSelectionScreen() {
     const input = document.getElementById('vikingName');
@@ -135,3 +135,4 @@ export function initPlayerSelectionScreen() {
         persistence.save();
     }
 }
+

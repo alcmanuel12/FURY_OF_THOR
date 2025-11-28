@@ -1,9 +1,9 @@
-import { state } from '../state.js';
-import { soundManager } from '../soundManager.js';
-import { renderVikingsList } from '../ui/vikingsList.js';
-import { selectRandomViking, breakChosenRune, resetChosenRune } from '../ui/runesCircle.js';
-import { alertPopup } from '../alertPopup.js';
-import { persistence } from '../persistence.js';
+import { state } from '../../core/state.js';
+import { soundManager } from '../../core/sound-manager.js';
+import { renderVikingsList } from '../vikings-list.js';
+import { selectRandomViking, breakChosenRune, resetChosenRune } from '../runes-circle.js';
+import { alertPopup } from '../alert-popup.js';
+import { persistence } from '../../core/persistence.js';
 import { Typewriter } from '../typewriter.js';
 
 let isAnimationInProgress = false;
@@ -280,3 +280,4 @@ function playBackgroundVideo(ingameBackgroundVideo, ingameBackgroundVideoMobile)
         videoToPlay.play().catch(() => { });
     }
 }
+

@@ -1,6 +1,6 @@
-import { state } from '../state.js';
-import { runes, brokenRunes } from '../runes.js';
-import { persistence } from '../persistence.js';
+import { state } from '../core/state.js';
+import { runes, brokenRunes } from '../core/runes.js';
+import { persistence } from '../core/persistence.js';
 
 export function renderRunesCircle() {
     const runesCircleContainer = document.getElementById('runesCircleContainer');
@@ -134,3 +134,4 @@ export function resetChosenRune() {
         chosenNameEl.classList.remove('visible');
     }
 }
+

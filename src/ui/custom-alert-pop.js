@@ -64,3 +64,4 @@ export default class CustomAlertPop {
         this.popupEl.remove();
     }
 }
+

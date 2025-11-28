@@ -1,11 +1,11 @@
-import { soundManager } from './soundManager.js';
-import { initHomeScreen } from './screens/homeScreen.js';
-import { initPlayerSelectionScreen } from './screens/playerSelectionScreen.js';
-import { initIngameScreen } from './screens/ingameScreen.js';
-import { initCreditScreen } from './screens/creditScreen.js';
-import { alertPopup } from './alertPopup.js';
-import { persistence } from './persistence.js';
-import { state } from './state.js';
+import { soundManager } from './core/sound-manager.js';
+import { initHomeScreen } from './ui/screens/home-screen.js';
+import { initPlayerSelectionScreen } from './ui/screens/player-selection-screen.js';
+import { initIngameScreen } from './ui/screens/ingame-screen.js';
+import { initCreditScreen } from './ui/screens/credit-screen.js';
+import { alertPopup } from './ui/alert-popup.js';
+import { persistence } from './core/persistence.js';
+import { state } from './core/state.js';
 
 function registerSounds() {
     soundManager.registerSound('forest', 'https://res.cloudinary.com/din119ww9/video/upload/v1763026026/sonido-bosque_h3l0u8.mp3', true);
@@ -73,7 +73,7 @@ async function restoreState(savedState) {
     
     if (screenToRestore === 'player-selection-screen') {
         persistence.restoreScreen('player-selection-screen');
-        const { renderVikingsList } = await import('./ui/vikingsList.js');
+        const { renderVikingsList } = await import('./ui/vikings-list.js');
         renderVikingsList();
         soundManager.play('forest');
         persistence.setIsRestoring(false);
@@ -84,7 +84,7 @@ async function restoreState(savedState) {
             state.setVikings(savedState.vikings);
         }
         
-        const { setGameEnded } = await import('./screens/ingameScreen.js');
+        const { setGameEnded } = await import('./ui/screens/ingame-screen.js');
         if (savedState.gameEnded) {
             setGameEnded(true);
             persistence.setGameEnded(true);
@@ -108,12 +108,12 @@ async function restoreState(savedState) {
             
             if (savedState.gameEnded && savedState.winnerName) {
                 setTimeout(async () => {
-                    const { restoreWinner } = await import('./screens/ingameScreen.js');
+                    const { restoreWinner } = await import('./ui/screens/ingame-screen.js');
                     await restoreWinner(savedState.winnerName);
                 }, 600);
             }
         } else {
-            const { renderRunesCircle } = await import('./ui/runesCircle.js');
+            const { renderRunesCircle } = await import('./ui/runes-circle.js');
             renderRunesCircle();
             
             setTimeout(() => {
@@ -123,7 +123,7 @@ async function restoreState(savedState) {
                 
                 if (savedState.gameEnded && savedState.winnerName) {
                     setTimeout(async () => {
-                        const { restoreWinner } = await import('./screens/ingameScreen.js');
+                        const { restoreWinner } = await import('./ui/screens/ingame-screen.js');
                         await restoreWinner(savedState.winnerName);
                     }, 300);
                 }
@@ -184,3 +184,4 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+
