@@ -20,6 +20,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    cursor: url('https://res.cloudinary.com/din119ww9/image/upload/v1764232821/image_4_2x_1_1_bayylw.png') 0 0, auto !important;
 }
 
 .mute-button {
@@ -27,7 +28,7 @@ body {
     top: 3vh;
     left: 2vw;
     border: none;
-    cursor: pointer;
+    
     width: 75px;
     height: 75px;
     background-color: transparent;
@@ -49,7 +50,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     border: none;
-    cursor: pointer;
     z-index: 900;
     transition: opacity 0.3s ease;
 }
@@ -65,7 +65,7 @@ body {
 }
 
 .mute-button.sound-icon {
-    background-image: url(' https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762423571/aset_mute_gykvou.png');
 }
 
 .screen {
@@ -130,7 +130,6 @@ body {
     background: none;
     border: none;
     padding: 0;
-    cursor: pointer;
     display: block;
     width: 100px;
     height: 100px;
@@ -148,7 +147,6 @@ body {
     background: none;
     border: none;
     padding: 0;
-    cursor: pointer;
     display: block;
     width: 75px;
     height: 75px;
@@ -166,7 +164,6 @@ body {
     background: none;
     border: none;
     padding: 0;
-    cursor: pointer;
     display: block;
     width: 75px;
     height: 75px;
@@ -216,7 +213,7 @@ body {
 
 .info-content h2 {
     color: #3b1d09;
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     margin-top: 13vh;
     margin-bottom: 15px;
     text-shadow: 0 2px 2px #f5d28c;
@@ -231,25 +228,96 @@ body {
     transform: translateX(15px);
 }
 
-.close-info {
+.alert-popup {
     position: fixed;
-    top: 90vh;
-    left: 48.5vw;
-    width: 70px;
-    height: 70px;
-    border: none;
-    background-color: transparent;
-    background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762984088/close-icon_fbqvui.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    transition: opacity 0.3s ease;
 }
 
-.close-info:hover {
+.alert-popup.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.alert-content {
+    position: relative;
+    width: 50vh;
+    height: 36vh;
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') no-repeat center;
+    background-size: 100% 100%;
+    color: #f2e6d0;
+    font-family: 'BoldPixels', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.alert-message {
+    font-size: 24px;
+    color: #f2e6d0;
+    line-height: 1.4;
+    width: 85%;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+.alert-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.alert-btn {
+    min-width: 120px;
+    height: 60px;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: url('https://res.cloudinary.com/din119ww9/image/upload/v1763978538/Proyecto_nuevo_12_1_jjmdga.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'BoldPixels', sans-serif;
+    font-size: 24px;
+    color: #f2e6d0;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    padding: 0 20px;
+}
+
+.alert-btn:hover {
     transform: scale(1.1);
+    filter: brightness(1.15);
+    box-shadow: none;
+}
+
+.alert-btn.hidden {
+    display: none;
+}
+
+.alert-popup.winner-alert .alert-message {
+    font-size: 32px;
+}
+
+.alert-popup.winner-alert .alert-btn {
+    min-width: 180px;
+    height: 70px;
+    font-size: 28px;
+    padding: 0 25px;
 }
 
 button,
@@ -259,11 +327,11 @@ button,
 .play-button,
 .game-start-button,
 .action-btn,
-.sacrifice-action-btn,
-.close-info {
+.sacrifice-action-btn {
     border-radius: 50%;
     overflow: visible;
     transition: transform 0.3s, filter 0.3s;
+    cursor: inherit;
 }
 
 button:hover,
@@ -273,8 +341,7 @@ button:hover,
 .play-button:hover,
 .game-start-button:hover,
 .action-btn:hover,
-.sacrifice-action-btn:hover,
-.close-info:hover {
+.sacrifice-action-btn:hover {
     transform: translateZ(20px) scale(1.08);
     filter: brightness(1.15);
     box-shadow:
@@ -368,7 +435,7 @@ button:hover,
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    cursor: pointer;
+    cursor: inherit;
     transition: transform 0.2s ease;
 }
 
@@ -446,6 +513,35 @@ button:hover,
     background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902368/thor-background-shouting_quv4zf.png');
 }
 
+.lightning-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.lightning-animation.hidden {
+    display: none;
+}
+
+.lightning-animation:not(.hidden) {
+    opacity: 1;
+}
+
+.lightning-animation img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 #ingame-screen .back-button {
     top: 3vh;
     left: 89vw;
@@ -466,13 +562,24 @@ button:hover,
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    cursor: pointer;
     transition: transform 0.2s ease;
     z-index: 10;
 }
 
 #ingame-screen .sacrifice-action-btn:hover {
     transform: translateX(-50%) scale(1.1);
+}
+
+#ingame-screen .sacrifice-action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#ingame-screen .sacrifice-action-btn:disabled:hover {
+    transform: translateX(-50%) scale(1);
+    filter: none;
+    box-shadow: none;
 }
 
 #runesCircleContainer {
@@ -528,9 +635,12 @@ button:hover,
     left: 50%;
     transform: translateX(-50%);
     font-family: 'BoldPixels', sans-serif;
-    font-size: 35px;
+    font-size: 50px;
+    background: linear-gradient(90deg, #189DF8 0%, #38FBF9 100%);
     color: #c5a746;
-    text-shadow: 3px 3px 8px #000;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     opacity: 0;
     transition: opacity 1.5s ease;
     z-index: 25;
@@ -703,6 +813,91 @@ button:hover,
         0 -2px #fff;
 }
 
+#credit-screen {
+    background-image: url('https://res.cloudinary.com/djuisin8z/image/upload/v1763923517/desktop-background-ingame_4_mjxdvu.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 0;
+}
+
+.credit-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vh;
+    max-width: 500px;
+    height: 36vh;
+    background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') no-repeat center;
+    background-size: 100% 100%;
+    color: #f2e6d0;
+    font-family: 'BoldPixels', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 30px;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.credit-message {
+    font-size: 22px;
+    color: #f2e6d0;
+    line-height: 1.3;
+    width: 85%;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+}
+
+.credit-home-btn {
+    min-width: 120px;
+    height: 60px;
+}
+
+.credit-characters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.credit-characters img {
+    position: absolute;
+    width: 130px;
+}
+
+.credit-characters img:nth-child(1) {
+    left: 32%;
+    bottom: 2%;
+}
+
+.credit-characters img:nth-child(2) {
+    left: 38%;
+    bottom: 6%;
+}
+
+.credit-characters img:nth-child(3) {
+    left: 45%;
+    bottom: 11%;
+}
+
+.credit-characters img:nth-child(4) {
+    left: 52%;
+    bottom: 6%;
+}
+
+.credit-characters img:nth-child(5) {
+    left: 58%;
+    bottom: 2%;
+}
+
 
 @media (max-height: 900px) {
     .game-title {
@@ -730,6 +925,51 @@ button:hover,
         top: 90vh;
         width: 60px;
         height: 60px;
+    }
+    
+    .alert-popup {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .alert-popup.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    
+    .alert-message {
+        font-size: 20px;
+        line-height: 1.2;
+        margin: 0;
+    }
+    
+    .alert-buttons {
+        margin: 0;
+    }
+    
+    .alert-btn:hover {
+        transform: scale(1.1);
+        filter: brightness(1.15);
+        box-shadow: none;
+    }
+    
+    .alert-btn.hidden {
+        display: none;
+    }
+    
+    .alert-popup.winner-alert .alert-message {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .alert-popup.winner-alert .alert-btn {
+        min-width: 180px;
+        height: 60px;
+        font-size: 28px;
+        padding: 0 25px;
     }
 
     #player-selection-screen .add-board {
@@ -780,7 +1020,177 @@ button:hover,
     }
 
     .screen {
-        padding-top: 10vh;
+        padding-top: 6vh;
+    }
+
+    .wooden-board {
+        width: 120vw;
+        transform: scale(1.25);
+        margin-top: 0vh;
+    }
+
+    .game-title {
+        font-size: clamp(3.6rem, 13vw, 4.6rem);
+        line-height: 5vh;
+        word-spacing: -10px;
+        -webkit-text-stroke: 3.125px #381C0E;
+    }
+
+    .play-button {
+        width: 90px;
+        height: 90px;
+        margin-top: 40vh;
+    }
+
+    .mute-button,
+    .info-button {
+        width: 50px;
+        height: 50px;
+        margin-top: 87vh;
+    }
+
+    .mute-button {
+        left: 4vw;
+    }
+
+    .info-button {
+        right: 4vw;
+    }
+
+    .info-content {
+        width: 95vw;
+    }
+
+    .info-content h2 {
+        font-size: 2rem;
+        margin-top: 19vh;
+        margin-bottom: 5px;
+    }
+
+    .info-content p {
+        font-size: 16px;
+        line-height: 1.3;
+        width: 80%;
+    }
+
+    .alert-content {
+        padding: 30px 20px;
+    }
+
+    .alert-message {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .alert-btn {
+        min-width: 80px;
+        height: 45px;
+        font-size: 20px;
+        padding: 0 15px;
+    }
+
+    .alert-popup.winner-alert .alert-message {
+        font-size: 24px;
+    }
+
+    .alert-popup.winner-alert .alert-btn {
+        min-width: 160px;
+        height: 65px;
+        font-size: 24px;
+        padding: 0 20px;
+    }
+
+    .alert-buttons {
+        gap: 15px;
+    }
+
+    #player-selection-screen {
+        padding-top: 0vh;
+    }
+
+    #player-selection-screen .container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 28px;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    #player-selection-screen .add-board {
+        width: 80vw;
+        background: url('https://res.cloudinary.com/djuisin8z/image/upload/v1762417265/pizarra_uwoqkh.png') center/contain no-repeat;
+        padding: 22px 18px;
+        margin: 0 auto;
+        height: 31vh
+    }
+
+    #player-selection-screen .board-header {
+        font-size: 17px;
+        margin-bottom: 5px;
+        margin-top: 30px;
+    }
+
+    #player-selection-screen .board-body {
+        width: 100%;
+        margin-top: 9px;
+    }
+
+    #player-selection-screen .input-wrapper {
+        width: 92%;
+        height: 42px;
+        margin: 0 auto 12px auto;
+        border-radius: 6px;
+        padding: 0 12px;
+    }
+
+    #player-selection-screen .input-wrapper input {
+        font-size: 18px;
+    }
+
+    #player-selection-screen .buttons-row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 1px;
+    }
+
+    #player-selection-screen .action-btn {
+        width: 50px;
+        height: 50px;
+    }
+
+    #player-selection-screen .back-button {
+        left: 50vw;
+    }
+
+    #player-selection-screen .game-start-button {
+        left: 28vw;
+    }
+
+    #player-selection-screen .vikings-list {
+        width: 90%;
+        padding-top: 10px;
+        gap: 8px;
+        margin-top: -30px;
+        justify-content: space-around;
+    }
+
+    #player-selection-screen .vikings-list .viking-item {
+        font-size: 30px;
+        gap: 5px;
+    }
+
+    #player-selection-screen .vikings-list .viking-item img {
+        width: 40px;
+        height: 40px;
+    }
+
+    #ingame-screen {
+        overflow: hidden;
+        position: relative;
     }
 
     #ingame-screen .ingame-background-video-desktop {
@@ -793,101 +1203,146 @@ button:hover,
 
     #ingame-screen .thor-character {
         background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902144/thor-mobile-background-relaxed_b3zn3o.png');
+        background-size: contain;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        transform: scale(1.2);
+        transform-origin: bottom center;
     }
 
     #ingame-screen .thor-character.thor-character-mad {
         background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762902299/thor-mobile-background-shouting_imbjrs.png');
     }
 
-    .wooden-board {
-        width: 90vw;
-    }
-
-    .game-title {
-        font-size: clamp(4rem, 12vw, 5rem);
-        -webkit-text-stroke: 4px #381C0E;
-        line-height: 6vh;
-        word-spacing: -15px;
-    }
-
-    .play-button {
-        width: 100px;
-        height: 100px;
-    }
-
-    .back-button {
-        left: 54vw;
-        top: 89vh;
-        width: 72px;
-        height: 72px;
-    }
-
-    .game-start-button {
-        left: 36vw;
-        top: 89vh;
-        width: 72px;
-        height: 72px;
-    }
-
-    .mute-button {
-        width: 60px;
-        height: 60px;
-    }
-
-    .info-button {
-        width: 60px;
-        height: 60px;
-    }
-
-    .close-info {
+    #runesCircleContainer {
         position: absolute;
-        top: 2vh;
-        right: 2vw;
-        width: 45px;
-        height: 45px;
-        border: none;
-        background-color: transparent;
-        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1762984088/close-icon_fbqvui.png');
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-        z-index: 10;
+        top: 20%;
+        left: 18.25%;
+        width: 260px;
+        height: 260px;
+        transform: translate(-50%, -50%);
     }
 
-
-
-    #player-selection-screen .input-wrapper input {
-        font-size: 19px;
+    .rune-item {
+        width: 55px;
+        height: 55px;
     }
 
-    #player-selection-screen .board-header {
-        font-size: 22px;
+    .rune-item.chosen {
+        width: 80px !important;
+        height: 80px !important;
+        top: 96% !important;
+        left: 96% !important;
+        transform: translate(-50%, -50%) scale(1.1);
     }
 
-    #player-selection-screen .viking-item {
+    .chosen-viking-name {
+        top: 43%;
         font-size: 32px;
+        width: 90vw;
+        transform: translate(-50%, -50%);
+        left: 52%;
+        text-align: center;
     }
 
-    #player-selection-screen .viking-item img {
-        width: 40px;
-        height: 40px;
+    .bubble {
+        margin-top: 31vh;
+        font-size: 30px;
+        line-height: 0.7em;
+        position: absolute;
+        top: 22vh;
+        left: 15%;
+        transform: translateX(-50%) scale(0.50);
+        z-index: 9999 !important;
+        max-width: 260px;
     }
 
-    #player-selection-screen .action-btn {
-        width: 56px;
-        height: 56px;
+    #info-popup:not(.hidden) {
+        z-index: 99999 !important;
     }
 
-    #ingame-screen .back-button {
-        left: 88vw;
-        width: 60px;
-        height: 60px;
+    #info-popup:not(.hidden) {
+        pointer-events: all;
+    }
+
+    #info-popup:not(.hidden)~* .bubble,
+    #info-popup:not(.hidden) .bubble {
+        display: none !important;
+    }
+
+    #alert-popup:not(.hidden) {
+        z-index: 99999 !important;
     }
 
     #ingame-screen .sacrifice-action-btn {
+        bottom: 6vh;
+        left: 50%;
+        transform: translateX(-50%);
         width: 70px;
         height: 70px;
+    }
+
+    #ingame-screen .back-button {
+        top: calc(2vh + 60px);
+        top: 2vh;
+        right: 1vh;
+        left: auto;
+        width: 50px;
+        height: 50px;
+    }
+
+    #credit-screen {
+        background-image: url('https://res.cloudinary.com/diycpogap/image/upload/v1763630989/credit-screen-background-mobile_lwiygw.jpg');
+        background-attachment: fixed;
+    }
+
+    .credit-content {
+        width: 80vw;
+        max-width: 400px;
+        height: auto;
+        min-height: 200px;
+        padding: 30px 20px;
+    }
+
+    .credit-message {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .credit-home-btn {
+        min-width: 100px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .credit-characters img {
+        width: 90px;
+    }
+
+    .credit-characters img:nth-child(1) {
+        left: 1%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(2) {
+        left: 18%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(3) {
+        left: 36%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(4) {
+        left: 57%;
+        bottom: 0%;
+    }
+
+    .credit-characters img:nth-child(5) {
+        left: 78%;
+        bottom: 0%;
     }
 }

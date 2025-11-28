@@ -1,4 +1,5 @@
-import { soundManager } from '../soundManager.js';
+import { soundManager } from '../../core/sound-manager.js';
+import { persistence } from '../../core/persistence.js';
 
 export function initHomeScreen() {
     const muteButton = document.getElementById('mute-button');
@@ -7,7 +8,6 @@ export function initHomeScreen() {
     const playerSelectionScreen = document.getElementById('player-selection-screen');
     const infoButton = document.getElementById('info-button');
     const infoPopup = document.getElementById('info-popup');
-    const closeInfo = document.getElementById('close-info');
 
     if (muteButton) {
         muteButton.addEventListener('click', handleMuteClick);
@@ -17,8 +17,8 @@ export function initHomeScreen() {
         playButton.addEventListener('click', handlePlayClick);
     }
 
-    if (infoButton && infoPopup && closeInfo) {
-        initInfoPopup(infoButton, infoPopup, closeInfo);
+    if (infoButton && infoPopup) {
+        initInfoPopup(infoButton, infoPopup);
     }
 
     function handleMuteClick() {
@@ -32,17 +32,13 @@ export function initHomeScreen() {
             homeScreen.style.display = 'none';
             playerSelectionScreen.style.display = 'flex';
             soundManager.play('forest');
+            persistence.save();
         }
     }
 
-    function initInfoPopup(infoButton, infoPopup, closeInfo) {
+    function initInfoPopup(infoButton, infoPopup) {
         infoButton.addEventListener('click', () => {
             infoPopup.classList.remove('hidden');
-        });
-
-        closeInfo.addEventListener('click', (e) => {
-            e.stopPropagation();
-            infoPopup.classList.add('hidden');
         });
 
         const infoContent = document.querySelector('.info-content');
@@ -59,3 +55,4 @@ export function initHomeScreen() {
         });
     }
 }
+

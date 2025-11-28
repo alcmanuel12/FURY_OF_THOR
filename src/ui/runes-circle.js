@@ -1,5 +1,6 @@
-import { state } from '../state.js';
-import { runes } from '../runes.js';
+import { state } from '../core/state.js';
+import { runes, brokenRunes } from '../core/runes.js';
+import { persistence } from '../core/persistence.js';
 
 export function renderRunesCircle() {
     const runesCircleContainer = document.getElementById('runesCircleContainer');
@@ -7,6 +8,7 @@ export function renderRunesCircle() {
 
     runesCircleContainer.innerHTML = '';
     state.clearRuneElements();
+    state.clearVikingToRune();
 
     const vikings = state.getVikings();
     const total = vikings.length;
@@ -31,6 +33,7 @@ export function renderRunesCircle() {
     const runeOffset = runeSize / 2;
 
     const runeElements = [];
+    const vikingToRune = {};
 
     vikings.forEach((name, index) => {
         const angle = (index * (2 * Math.PI)) / total - Math.PI / 2;
@@ -38,6 +41,8 @@ export function renderRunesCircle() {
         const y = centerY + Math.sin(angle) * radius;
 
         const rune = runes[index % runes.length];
+        vikingToRune[name] = rune;
+
         const runeDiv = document.createElement('div');
         runeDiv.classList.add('rune-item');
         runeDiv.style.backgroundImage = `url(${rune.url})`;
@@ -46,16 +51,19 @@ export function renderRunesCircle() {
         runeDiv.style.left = `${x - runeOffset}px`;
         runeDiv.style.top = `${y - runeOffset}px`;
         runeDiv.dataset.vikingName = name;
+        runeDiv.dataset.runeId = rune.id;
 
         runesCircleContainer.appendChild(runeDiv);
         runeElements.push(runeDiv);
     });
 
     state.setRuneElements(runeElements);
+    state.setVikingToRune(vikingToRune);
 
     runesCircleContainer.classList.remove('visible');
     setTimeout(() => {
         runesCircleContainer.classList.add('visible');
+        persistence.save();
     }, 100);
 }
 
@@ -73,13 +81,18 @@ export function selectRandomViking() {
         chosenNameEl.classList.remove('visible');
     }
 
-    const randomIndex = Math.floor(Math.random() * runeElements.length);
-    const chosenRune = runeElements[randomIndex];
+    const selectable = runeElements.filter(el => !el.classList.contains('broken'));
+    if (selectable.length === 0) return;
+
+    const selIndex = Math.floor(Math.random() * selectable.length);
+    const chosenRune = selectable[selIndex];
     const chosenName = chosenRune.dataset.vikingName;
+
+    const originalIndex = runeElements.indexOf(chosenRune)
 
     setTimeout(() => {
         runeElements.forEach((r, i) => {
-            if (i !== randomIndex) r.classList.add('dimmed');
+            if (i !== originalIndex) r.classList.add('dimmed');
         });
         chosenRune.classList.add('chosen');
 
@@ -91,3 +104,34 @@ export function selectRandomViking() {
         }, 1300);
     }, 300);
 }
+
+export function breakChosenRune() {
+    const chosen = document.querySelector('.rune-item.chosen');
+    if (!chosen) return null;
+    const runeId = parseInt(chosen.dataset.runeId, 10);
+    if (isNaN(runeId)) return null;
+    const broken = brokenRunes.find(r => r.id === runeId);
+    if (!broken) return null;
+    chosen.style.backgroundImage = `url(${broken.url})`;
+    chosen.classList.add('broken');
+    
+    persistence.save();
+
+    return chosen.dataset.vikingName;
+}
+
+export function resetChosenRune() {
+    const runeElements = state.getRuneElements();
+    if (runeElements.length === 0) return;
+
+    runeElements.forEach(r => {
+        r.classList.remove('chosen', 'dimmed');
+    });
+
+    const chosenNameEl = document.getElementById('chosenVikingName');
+    if (chosenNameEl) {
+        chosenNameEl.textContent = '';
+        chosenNameEl.classList.remove('visible');
+    }
+}
+

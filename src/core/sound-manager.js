@@ -1,11 +1,17 @@
-
-// Sound Manager - Modular system for handling all game sounds
 class SoundManager {
   constructor() {
     this.isMuted = false;
     this.sounds = {};
     this.activeSounds = [];
-    this.soundTypes = {}; 
+    this.soundTypes = {};
+    window._isMuted = false;
+    window._currentSound = null;
+  }
+
+  saveState() {
+    import('./persistence.js').then(({ persistence }) => {
+      persistence.save();
+    });
   }
 
   registerSound(name, url, loop = false, type = 'background', volume = 1) {
@@ -22,11 +28,17 @@ class SoundManager {
       if (this.activeSounds.indexOf(name) === -1) {
         this.activeSounds.push(name);
       }
-      
+
       if (!this.isMuted) {
-        this.sounds[name].play().catch(function(err) {
+        this.sounds[name].play().catch((err) => {
           console.log('Could not play sound ' + name + ':', err);
         });
+      }
+      
+      const soundType = this.soundTypes[name] || 'background';
+      if (soundType === 'background') {
+        window._currentSound = name;
+        this.saveState();
       }
     }
   }
@@ -41,22 +53,30 @@ class SoundManager {
     if (this.sounds[name]) {
       this.sounds[name].pause();
       this.sounds[name].currentTime = 0;
-      
+
       const index = this.activeSounds.indexOf(name);
       if (index > -1) {
         this.activeSounds.splice(index, 1);
       }
+      const soundType = this.soundTypes[name] || 'background';
+      if (soundType === 'background' && window._currentSound === name) {
+        window._currentSound = null;
+        this.saveState();
+      }
     }
   }
 
-  toggleMute() {
-    this.isMuted = !this.isMuted;
-    
+  setMuted(muted) {
+    if (this.isMuted === muted) return this.isMuted;
+
+    this.isMuted = muted;
+    window._isMuted = muted;
+
     if (this.isMuted) {
       for (let i = 0; i < this.activeSounds.length; i++) {
         const soundName = this.activeSounds[i];
         const soundType = this.soundTypes[soundName] || 'background';
-        
+
         if (soundType === 'background') {
           this.pause(soundName);
         } else {
@@ -67,15 +87,22 @@ class SoundManager {
       for (let i = 0; i < this.activeSounds.length; i++) {
         const soundName = this.activeSounds[i];
         const soundType = this.soundTypes[soundName] || 'background';
-        
+
         if (soundType === 'background') {
           this.play(soundName);
         }
       }
     }
-    
+
+    this.saveState();
+    return this.isMuted;
+  }
+
+  toggleMute() {
+    this.setMuted(!this.isMuted);
     return this.isMuted;
   }
 }
 
 export const soundManager = new SoundManager();
+
