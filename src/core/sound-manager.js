@@ -30,7 +30,7 @@ class SoundManager {
       }
 
       if (!this.isMuted) {
-        this.sounds[name].play().catch(function (err) {
+        this.sounds[name].play().catch((err) => {
           console.log('Could not play sound ' + name + ':', err);
         });
       }

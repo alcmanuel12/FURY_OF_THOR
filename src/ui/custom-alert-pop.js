@@ -12,43 +12,43 @@ export default class CustomAlertPop {
         const popup = document.createElement('div');
         popup.className = 'custom-alert-pop hidden';
 
-    popup.innerHTML = `
-        <h2>${this.title}</h2>
-        <div class="content">${this.content}</div>
-        <div class="buttons">
-            <button class="btn1"></button>
-            <button class="btn2"></button>
-        </div>
-    `;
+        popup.innerHTML = `
+            <h2>${this.title}</h2>
+            <div class="content">${this.content}</div>
+            <div class="buttons">
+                <button class="btn1"></button>
+                <button class="btn2"></button>
+            </div>
+        `;
 
-    this.parent.appendChild(popup);
+        this.parent.appendChild(popup);
 
-    const btn1 = popup.querySelector('.btn1');
-    const btn2 = popup.querySelector('.btn2');
+        const btn1 = popup.querySelector('.btn1');
+        const btn2 = popup.querySelector('.btn2');
 
-    btn1.onclick = () => {
-        if (typeof this.onFirstButtonClick === 'function') {
-            this.onFirstButtonClick();
-        }
-        this.close();
-    };
+        btn1.onclick = () => {
+            if (typeof this.onFirstButtonClick === 'function') {
+                this.onFirstButtonClick();
+            }
+            this.close();
+        };
 
-    btn2.onclick = () => {
-        if (typeof this.onSecondButtonClick === 'function') {
-            this.onSecondButtonClick();
-        }
-        this.close();
-    };
+        btn2.onclick = () => {
+            if (typeof this.onSecondButtonClick === 'function') {
+                this.onSecondButtonClick();
+            }
+            this.close();
+        };
 
-    return popup;
+        return popup;
     }
 
     open() {
-    this.popupEl.classList.remove('hidden');
+        this.popupEl.classList.remove('hidden');
     }
 
     close() {
-    this.popupEl.classList.add('hidden');
+        this.popupEl.classList.add('hidden');
     }
 
     setContent({ title, content }) {
