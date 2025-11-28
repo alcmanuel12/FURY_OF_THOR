@@ -4,6 +4,7 @@ import { renderVikingsList } from '../ui/vikingsList.js';
 import { selectRandomViking, breakChosenRune, resetChosenRune } from '../ui/runesCircle.js';
 import { alertPopup } from '../alertPopup.js';
 import { persistence } from '../persistence.js';
+import { Typewriter } from '../typewriter.js';
 
 let isAnimationInProgress = false;
 let gameEnded = false;
@@ -97,8 +98,36 @@ export function initIngameScreen() {
 
     resetGameState();
 
+    const typewriter = new Typewriter(bubble, null, {
+        deleteSpeed: 30,
+        typeSpeed: 50,
+        minDelay: 4000,
+        maxDelay: 6000,
+        pauseBeforeTyping: 200,
+        checkActive: () => {
+            return !getGameEnded() && ingameScreen.style.display !== 'none';
+        }
+    });
+
+    const observer = new MutationObserver(() => {
+        if (ingameScreen.style.display !== 'none' && ingameScreen.style.display !== '') {
+            typewriter.start();
+        } else {
+            typewriter.stop();
+        }
+    });
+
+    observer.observe(ingameScreen, { attributes: true, attributeFilter: ['style'] });
+
+    if (ingameScreen.style.display !== 'none' && ingameScreen.style.display !== '') {
+        typewriter.start();
+    }
+
     if (ingameHomeButton) {
-        ingameHomeButton.addEventListener('click', () => handleHomeClick(ingameScreen, homeScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile));
+        ingameHomeButton.addEventListener('click', () => {
+            typewriter.stop();
+            handleHomeClick(ingameScreen, homeScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile);
+        });
     }
 
     if (sacrificeActionButton) {
@@ -142,7 +171,6 @@ export function initIngameScreen() {
         }
 
         selectRandomViking();
-        changeBubbleText();
 
         if (thorCharacter) {
             thorCharacter.classList.add('thor-character-mad');
@@ -188,10 +216,12 @@ export function initIngameScreen() {
                 const remainingVikings = state.getVikings();
                 if (remainingVikings.length === 1) {
                     gameEnded = true;
+                    setGameEnded(true);
                     const winnerName = remainingVikings[0];
                     persistence.setGameEnded(true);
                     persistence.setWinnerName(winnerName);
                     persistence.save();
+                    typewriter.stop();
 
                     setTimeout(() => {
                         selectWinner(winnerName);
@@ -234,23 +264,6 @@ export function initIngameScreen() {
     async function showWinner(winnerName) {
         await restoreWinner(winnerName);
     }
-
-    function changeBubbleText(newText) {
-        if (!bubble) return;
-
-        const phrases = [
-            "By order of the gods, your blood will feed this sacred fire.",
-            "The runes have spoken. Your fate is sealed.",
-            "Tonight your soul will thunder in Valhalla.",
-            "The fire hungers. Your blood will answer.",
-            "The gods demand a sacrifice… and they chose you."
-        ];
-
-        const randomIndex = Math.floor(Math.random() * phrases.length);
-        bubble.textContent = phrases[randomIndex];
-    }
-
-
 }
 
 function preloadThorImages() {
