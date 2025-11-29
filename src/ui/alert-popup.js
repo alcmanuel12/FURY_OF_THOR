@@ -1,20 +1,27 @@
 class AlertPopup {
     constructor() {
+        this.popup = null;
+        this.messageEl = null;
+        this.acceptBtn = null;
+        this.cancelBtn = null;
+        this.resolvePromise = null;
+    }
+
+    init() {
+        // Solo inicializa una vez
+        if (this.popup) return;
+
         this.popup = document.getElementById('alert-popup');
         this.messageEl = document.querySelector('.alert-message');
         this.acceptBtn = document.getElementById('alert-accept-btn');
         this.cancelBtn = document.getElementById('alert-cancel-btn');
-        this.resolvePromise = null;
-        this.init();
-    }
 
-    init() {
         if (!this.popup || !this.messageEl || !this.acceptBtn) {
-            console.error('AlertPopup: Required elements not found');
+            console.error("AlertPopup: required elements missing");
             return;
         }
 
-        this.acceptBtn.addEventListener('click', () => {
+        this.acceptBtn.addEventListener("click", () => {
             this.hide();
             if (this.resolvePromise) {
                 this.resolvePromise(true);
@@ -23,7 +30,7 @@ class AlertPopup {
         });
 
         if (this.cancelBtn) {
-            this.cancelBtn.addEventListener('click', () => {
+            this.cancelBtn.addEventListener("click", () => {
                 this.hide();
                 if (this.resolvePromise) {
                     this.resolvePromise(false);
@@ -31,14 +38,11 @@ class AlertPopup {
                 }
             });
         }
-
-        this.popup.addEventListener('click', (e) => {
-            if (e.target === this.popup) {
-            }
-        });
     }
 
-    show(message, showCancel = false, acceptText = 'OK', cancelText = 'Cancel', isHTML = false, extraClass = '') {
+    show(message, showCancel = false, acceptText = "OK", cancelText = "Cancel", isHTML = false, extraClass = "") {
+        this.init(); // <-- AHORA SE INICIALIZA AQUÍ, CON DOM DISPONIBLE
+
         if (!this.popup || !this.messageEl) {
             return Promise.resolve();
         }
@@ -49,24 +53,16 @@ class AlertPopup {
             this.messageEl.textContent = message;
         }
 
-        if (this.acceptBtn) {
-            this.acceptBtn.textContent = acceptText;
-        }
+        this.acceptBtn.textContent = acceptText;
 
         if (this.cancelBtn) {
             this.cancelBtn.textContent = cancelText;
-            if (showCancel) {
-                this.cancelBtn.classList.remove('hidden');
-            } else {
-                this.cancelBtn.classList.add('hidden');
-            }
+            this.cancelBtn.classList.toggle("hidden", !showCancel);
         }
 
-        if (extraClass) {
-            this.popup.classList.add(extraClass);
-        }
+        if (extraClass) this.popup.classList.add(extraClass);
 
-        this.popup.classList.remove('hidden');
+        this.popup.classList.remove("hidden");
 
         return new Promise((resolve) => {
             this.resolvePromise = resolve;
@@ -75,8 +71,8 @@ class AlertPopup {
 
     hide() {
         if (this.popup) {
-            this.popup.classList.add('hidden');
-            this.popup.classList.remove('winner-alert');
+            this.popup.classList.add("hidden");
+            this.popup.classList.remove("winner-alert");
         }
     }
 
@@ -90,4 +86,3 @@ class AlertPopup {
 }
 
 export const alertPopup = new AlertPopup();
-
