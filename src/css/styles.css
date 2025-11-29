@@ -272,6 +272,7 @@ body {
     width: 85%;
     margin-bottom: 20px;
     word-wrap: break-word;
+    text-shadow: -1px -1px 0 #522c10, 1px -1px 0 #522c10, 1px 1px 0 #522c10, -1px 1px 0 #522c10;
 }
 
 .alert-buttons {
@@ -384,6 +385,7 @@ button:hover,
     color: #ffe6b3;
     letter-spacing: 1px;
     font-family: 'BoldPixels', sans-serif;
+    text-shadow: -1px -1px 0 #522c10, 1px -1px 0 #522c10, 1px 1px 0 #522c10, -1px 1px 0 #522c10;
 }
 
 #player-selection-screen .board-body {
@@ -468,6 +470,7 @@ button:hover,
     font-size: 36px;
     font-family: 'BoldPixels', sans-serif;
     color: #f2e6d0;
+    text-shadow: -1px -1px 0 #522c10, 1px -1px 0 #522c10, 1px 1px 0 #522c10, -1px 1px 0 #522c10;
 }
 
 #player-selection-screen .viking-item img {
@@ -627,7 +630,6 @@ button:hover,
 .rune-item.dimmed {
     opacity: 0.3;
 }
-
 
 .chosen-viking-name {
     position: absolute;
