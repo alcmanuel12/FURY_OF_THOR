@@ -1,5 +1,6 @@
-import { state } from '../state.js';
-import { runes, brokenRunes } from '../runes.js';
+import { state } from '../core/state.js';
+import { runes, brokenRunes } from '../core/runes.js';
+import { persistence } from '../core/persistence.js';
 
 export function renderRunesCircle() {
     const runesCircleContainer = document.getElementById('runesCircleContainer');
@@ -7,6 +8,7 @@ export function renderRunesCircle() {
 
     runesCircleContainer.innerHTML = '';
     state.clearRuneElements();
+    state.clearVikingToRune();
 
     const vikings = state.getVikings();
     const total = vikings.length;
@@ -31,6 +33,7 @@ export function renderRunesCircle() {
     const runeOffset = runeSize / 2;
 
     const runeElements = [];
+    const vikingToRune = {};
 
     vikings.forEach((name, index) => {
         const angle = (index * (2 * Math.PI)) / total - Math.PI / 2;
@@ -38,6 +41,8 @@ export function renderRunesCircle() {
         const y = centerY + Math.sin(angle) * radius;
 
         const rune = runes[index % runes.length];
+        vikingToRune[name] = rune;
+
         const runeDiv = document.createElement('div');
         runeDiv.classList.add('rune-item');
         runeDiv.style.backgroundImage = `url(${rune.url})`;
@@ -53,10 +58,12 @@ export function renderRunesCircle() {
     });
 
     state.setRuneElements(runeElements);
+    state.setVikingToRune(vikingToRune);
 
     runesCircleContainer.classList.remove('visible');
     setTimeout(() => {
         runesCircleContainer.classList.add('visible');
+        persistence.save();
     }, 100);
 }
 
@@ -100,13 +107,17 @@ export function selectRandomViking() {
 
 export function breakChosenRune() {
     const chosen = document.querySelector('.rune-item.chosen');
-    if (!chosen) return;
+    if (!chosen) return null;
     const runeId = parseInt(chosen.dataset.runeId, 10);
-    if (isNaN(runeId)) return;
+    if (isNaN(runeId)) return null;
     const broken = brokenRunes.find(r => r.id === runeId);
-    if (!broken) return;
+    if (!broken) return null;
     chosen.style.backgroundImage = `url(${broken.url})`;
     chosen.classList.add('broken');
+    
+    persistence.save();
+
+    return chosen.dataset.vikingName;
 }
 
 export function resetChosenRune() {
@@ -123,3 +134,4 @@ export function resetChosenRune() {
         chosenNameEl.classList.remove('visible');
     }
 }
+

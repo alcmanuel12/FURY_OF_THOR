@@ -1,8 +1,12 @@
-import { state } from '../state.js';
-import { runes } from '../runes.js';
-import { soundManager } from '../soundManager.js';
-import { renderVikingsList } from '../ui/vikingsList.js';
-import { renderRunesCircle } from '../ui/runesCircle.js';
+import { state } from '../../core/state.js';
+import { runes } from '../../core/runes.js';
+import { soundManager } from '../../core/sound-manager.js';
+import { renderVikingsList } from '../vikings-list.js';
+import { renderRunesCircle } from '../runes-circle.js';
+import { alertPopup } from '../alert-popup.js';
+import { resetGameState } from './ingame-screen.js';
+import { resetChosenRune } from '../runes-circle.js';
+import { persistence } from '../../core/persistence.js';
 
 export function initPlayerSelectionScreen() {
     const input = document.getElementById('vikingName');
@@ -50,7 +54,12 @@ export function initPlayerSelectionScreen() {
         if (name === '') return;
 
         if (state.getVikings().length >= runes.length) {
-            alert("No more players allowed!");
+            alertPopup.alert("No more players allowed!");
+            return;
+        }
+
+        if (!nameRegex.test(name)) {
+            alertPopup.alert('Invalid name. Only letters and spaces allowed. Maximum 15 characters.');
             return;
         }
 
@@ -83,26 +92,31 @@ export function initPlayerSelectionScreen() {
         renderVikingsList();
     }
 
-    function handleBackClick(homeScreen, playerSelectionScreen) {
-        const confirmar = window.confirm('¿Seguro que quieres volver?\nPerderás a todos tus vikingos.');
+    async function handleBackClick(homeScreen, playerSelectionScreen) {
+        const confirmar = await alertPopup.confirm('Are you sure you want to go back?\nYou will lose all your vikings.');
 
         if (confirmar) {
             state.clearVikings();
             state.resetAvailableRunes();
             renderVikingsList();
+            resetGameState();
+            resetChosenRune();
 
             if (homeScreen && playerSelectionScreen) {
                 playerSelectionScreen.style.display = 'none';
                 homeScreen.style.display = 'flex';
                 soundManager.play('forest');
+                persistence.clear();
+                persistence.save();
             }
         }
     }
 
     function handleGameStart(playerSelectionScreen, ingameScreen, ingameBackgroundVideo, ingameBackgroundVideoMobile) {
         if (!playerSelectionScreen || !ingameScreen) return;
-        if (state.getVikings().length === 0) {
-            alert('You must add at least one viking before continuing.');
+
+        if (state.getVikings().length <= 1) {
+            alertPopup.alert('You must add at least two vikings before continuing.');
             return;
         }
 
@@ -117,5 +131,8 @@ export function initPlayerSelectionScreen() {
         if (videoToPlay) videoToPlay.play().catch(() => { });
 
         renderRunesCircle();
+        resetGameState();
+        persistence.save();
     }
 }
+
